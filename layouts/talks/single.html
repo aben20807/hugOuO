@@ -1,0 +1,29 @@
+{{ define "title" }}{{ cond (eq .Site.Params.titlecase true) (.Title | title | markdownify) (.Title | markdownify) }} &bullet; {{ .Params.event }}{{ end }}
+{{ define "main" }}
+<article class="center bg-white br-3 pv1 ph4 nested-copy-line-height lh-copy f4 nested-links mw-100 measure-wide">
+		{{ .Content }}
+		{{ with .Params.slides }}
+		<p><a class="mb3 pv2 ph3 ba bw1 black br-pill dib" href="{{ . | absURL }}">Slides</a>
+		{{ end }}
+		{{ with .Params.video }}
+		<a class="mb3 pv2 ph3 ba bw1 black br-pill dib" href="{{ . }}">Video</a>
+		{{ end }}
+		{{ with .Params.site }}
+		<a class="mb3 pv2 ph3 ba bw1 black br-pill dib" href="{{ . }}">Website</a>
+		{{ end }}
+		{{ with .Params.location }}
+		<a class="mb3 pv2 ph3 ba bw1 black br-pill dib" href="https://www.google.com/maps/place/{{ . }}">Venue</a>
+		{{ end }}
+</article>
+{{ end }}
+
+{{ define "social" }}
+		<meta name="og:title" content="{{ cond (eq .Site.Params.titlecase true) (.Title | title | markdownify) (.Title | markdownify) }}" />
+		<meta name="og:type" content="article" />
+		<meta name="og:image" content="{{ default (default "img/default-header-img.jpg" .Params.image) .Params.thumbnail | absURL }}" />
+		<meta name="og:description" content="{{ .Description | markdownify }}" />
+		<meta name="og:url" content="{{ .Permalink }}" />
+		<meta name="og:site_name" content="{{ cond (eq .Site.Params.titlecase true) (.Title | title | markdownify) (.Title | markdownify) }}" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@{{ .Site.Params.twitter }}" />
+{{ end }}

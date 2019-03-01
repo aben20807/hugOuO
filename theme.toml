@@ -5,7 +5,7 @@ name = "HugOuO"
 license = "MIT"
 licenselink = "https://github.com/aben20807/hugOuO/blob/master/LICENSE"
 description = "Being made up of story by xaprb and AllinOne by Orianna."
-homepage = ""
+homepage = "https://github.com/aben20807/hugOuO"
 tags = ["Blog", "Presentation", "Slide", "Newsletter"]
 features = ["blog", "slides", "LaTeX", "search", "newsletter", "math", "music", "toc", "google CSE", "headline hash", "smooth scroll"]
 min_version = "0.47"
@@ -15,7 +15,14 @@ name = "Huang Po-Hsuan (aben20807)"
 homepage = "https://github.com/aben20807"
 
 # If porting an existing theme
-[original]
+[original1]
 name = "story"
+author = "Baron Schwartz"
 homepage = "https://www.xaprb.com/"
-repo = "https://story.xaprb.com/"
+repo = "https://github.com/xaprb/story"
+
+[original2]
+name = "AllinOne"
+author = "ZHENG Zi'ou"
+homepage = "https://github.com/orianna-zzo/AllinOne"
+repo = "https://github.com/orianna-zzo/AllinOne"
