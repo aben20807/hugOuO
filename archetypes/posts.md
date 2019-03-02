@@ -1,9 +1,10 @@
 +++
-title = '{{ replace ( slicestr .TranslationBaseName 9 ) "-" " " | title }}'
+title = "{{ replace ( slicestr .TranslationBaseName 9 ) "-" " " | title }}"
 date = "{{ .Date }}"
 url = "/{{ .Dir }}{{ .Name }}"
 description = ""
 image = ""
+<!-- https://drive.google.com/uc?export=view&id= -->
 credit = ""
 thumbnail = ""
 comments = true
