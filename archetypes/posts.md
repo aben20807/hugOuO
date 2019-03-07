@@ -4,7 +4,6 @@ date = "{{ .Date }}"
 url = "/{{ .Dir }}{{ .Name }}"
 description = ""
 image = ""
-<!-- https://drive.google.com/uc?export=view&id= -->
 credit = ""
 thumbnail = ""
 comments = true
@@ -13,5 +12,6 @@ tags = ["Untaged"]
 toc = false
 draft = true
 +++
+<!-- https://drive.google.com/uc?export=view&id= -->
 
 <!--more-->
