@@ -7,6 +7,18 @@ body, p {
 code {
     font-family: 'Roboto Mono', 'Fira Mono', 'Consolas', 'monaco', 'monospace';
 }
+h1 > code,
+h2 > code,
+h3 > code,
+h4 > code,
+h5 > code,
+h6 > code {
+    font-size: 90%;
+    background: #f5f5f5;
+    margin: 0;
+    border-radius: 5px;
+    padding: 0.15em 0.25em;
+}
 pre {
     font-size: .9rem !important;
     max-width: 100%;
