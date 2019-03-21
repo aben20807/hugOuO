@@ -1,11 +1,22 @@
-h1 {
-    font-family: 'Lora', 'Noto Sans', 'Quattrocento Sans', -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
-}
+h1 { font-size: 1.70em; }
+h2 { font-size: 1.50em; }
+h3 { font-size: 1.30em; }
+h4 { font-size: 1.20em; }
+h5 { font-size: 1.15em; }
+h6 { font-size: 1.11em; }
 body, p {
     font-family: 'Noto Sans', 'Quattrocento Sans', -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
 }
 code {
     font-family: 'Roboto Mono', 'Fira Mono', 'Consolas', 'monaco', 'monospace';
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Lora', 'Noto Sans', 'Quattrocento Sans', -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
 }
 h1 > code,
 h2 > code,
