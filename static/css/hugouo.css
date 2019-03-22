@@ -75,8 +75,11 @@ img {
     line-height: 0.1rem;
 }
 
-.post-meta a, .post-item a  {
+a {
     text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
 }
 
 .toc-nav li, .toc-nav ul {
