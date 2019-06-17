@@ -4,7 +4,6 @@
 <div class="row bg-white">
   <div class="column col-1">
     <article class="center bg-white br-3 pv1 ph4 lh-copy f5 nested-links mw7">
-      {{- partial "custom-content.html" .Content -}}
       <!-- Tags -->
       <div class="row">
         <div class="col-md-8">
@@ -16,6 +15,7 @@
         </div>
       </div>
       <!-- /.Tags -->
+      {{- partial "custom-content.html" .Content -}}
       <!-- Disqus -->
       {{- if .Params.comments -}}
         {{- template "_internal/disqus.html" . -}}
