@@ -26,5 +26,23 @@
 ` }}
 {{ $tmp := $tmp | replaceRE $gphoto $newgphoto | safeHTML }}
 
+{{/* normal image */}}
+{{ $nphoto := `(<img src="([^\"]+)".+alt="([^\"]+)" />)` }}
+{{ $newnphoto := `
+  <figure class="gphoto-media">
+    <img src="${2}" class='center img-zoomable' alt="${3}" data-action="zoom" title="zoom!"></img>
+    <figcaption>
+      <center class="caption-text">
+        <p style="margin: 0;">${3}</p>
+        <!-- hide the link -->
+        <font class="douyin hover-show">
+          <a href="${2}" target="_blank" style="opacity: 1.0; text-decoration: none;" >OuO</a>
+        </font>
+      </center>
+    </figcaption>
+  </figure>
+` }}
+{{ $tmp := $tmp | replaceRE $nphoto $newnphoto | safeHTML }}
+
 {{/* put costom content */}}
 {{- $tmp -}}
