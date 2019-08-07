@@ -32,6 +32,16 @@
 		{{ end }}
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<!-- image zoom -->
+		<script src="https://unpkg.com/zooming/build/zooming.min.js"></script>
+		<script>
+				// Listen to images after DOM content is fully loaded
+				document.addEventListener('DOMContentLoaded', function () {
+						new Zooming({ bgColor: 'rgb(0, 0, 0)', bgOpacity: '0.8', customSize: '200%'
+						}).listen('.img-zoomable')
+				})
+		</script>
+
 		<script type="text/javascript" src="{{ "js/hugouo.js" | absURL }}"></script>
 		{{ if or (in .Site.Params.classes "feature-highlight") (in .Params.classes "feature-highlight") -}}
 			{{- if not (or (in .Site.Params.classes "feature-nohighlight") (in .Params.classes "feature-nohighlight") ) -}}
