@@ -41,6 +41,11 @@
 						}).listen('.img-zoomable')
 				})
 		</script>
+		<!-- Lazy load the content, not to show the lazy content when js is not allowed -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.1/lazysizes.min.js"></script>
+		<noscript>
+				<style type="text/css"> .lazyload { display:none; } </style>
+		</noscript>
 
 		<script type="text/javascript" src="{{ "js/hugouo.js" | absURL }}"></script>
 		{{ if or (in .Site.Params.classes "feature-highlight") (in .Params.classes "feature-highlight") -}}
