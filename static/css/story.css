@@ -57,7 +57,7 @@ article img {
 hr {
   height: 0px;
   border-style: none none solid none;
-  border-bottom-color: #dfe2e5;
+  border-bottom: 2px solid #dfe2e5;
 }
 table caption {
   text-align: left;
