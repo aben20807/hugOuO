@@ -165,6 +165,17 @@ main {
     opacity: 1.0;
 }
 
+@media (hover: none) {
+    h1 .hover-show,
+    h2 .hover-show,
+    h3 .hover-show,
+    h4 .hover-show,
+    h5 .hover-show,
+    h6 .hover-show {
+        opacity: 1.0;
+    }
+}
+
 .gphoto-media {
     margin-bottom: 2rem;
 }
