@@ -6,6 +6,7 @@ h5 { font-size: 1.15em; }
 h6 { font-size: 1.11em; }
 body, p {
     font-family: 'Noto Sans', 'Quattrocento Sans', -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
+    word-break: break-word;
 }
 code {
     font-family: 'Roboto Mono', 'Fira Mono', 'Consolas', 'monaco', 'monospace';
@@ -17,6 +18,7 @@ h4,
 h5,
 h6 {
     font-family: 'Lora', 'Noto Sans', 'Quattrocento Sans', -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
+    word-break: break-word;
 }
 h1 > code,
 h2 > code,
