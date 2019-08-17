@@ -94,8 +94,11 @@ p {
     line-height: 1.953em;
     margin: 0 0 1.3em;
 }
+p + ul {
+    margin-top: -1.2em;
+}
 ul {
-    margin: 0 0 0em;
+    margin: 0 0 1.3em;
 }
 ul, li {
     font-size: .95rem !important;
