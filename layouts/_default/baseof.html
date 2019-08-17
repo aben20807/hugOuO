@@ -81,7 +81,7 @@
 		-->
 		{{- $hdr := cond (or (in .Site.Params.classes "feature-nohdr") (in .Params.classes "feature-nohdr")) false true -}}
 		<header class="cover bg-top" {{ if $hdr }}style="background-image: url('{{ absURL (default "img/default-header-img.jpg" .Params.image) }}'); background-position: center;"{{ end }}>
-			<div class="{{ cond $hdr "bg-black-30 bb bt" "" }}">
+			<div class="{{ cond $hdr "bg-black-60 bb bt" "" }}">
 
 				<nav class="hide-print sans-serif {{ cond $hdr "" "bg-black" }} border-box pa3 ph5-l">
 					<a href="{{ .Site.BaseURL }}" title="Home">
