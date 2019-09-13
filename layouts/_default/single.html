@@ -17,6 +17,7 @@
       <!-- /.Tags -->
       {{- partial "custom-content.html" .Content -}}
       <!-- Footer -->
+      Last modified: {{ .Page.Lastmod.Format "Jan 2, 2006" }}
       <div class="row">
         {{ partial "footer.html" . }}
       </div>
