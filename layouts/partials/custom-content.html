@@ -16,14 +16,16 @@
 */}}
 {{ $gphoto := `(<img src="(https://drive.google.com/open.+id=([^\"]+))".+alt="google-([^\"]+)" />)` }}
 {{ $newgphoto := `
-  <figure class="gphoto-media">
-    <noscript>
-      <img src="https://drive.google.com/uc?export=view&id=${3}" class='center img-zoomable' alt="${4}" data-action="zoom" title="zoom!"></img>
-    </noscript>
-    <img data-src="https://drive.google.com/uc?export=view&id=${3}" class='center img-zoomable lazyload' alt="${4}" data-action="zoom" title="zoom!"></img>
+  <figure class="gphoto-media center">
+    <div class="img-container center">
+      <noscript>
+        <img src="https://drive.google.com/uc?export=view&id=${3}" class='center img-zoomable' alt="${4}" data-action="zoom" title=""></img>
+      </noscript>
+      <img data-src="https://drive.google.com/uc?export=view&id=${3}" class='center img-zoomable lazyload' alt="${4}" data-action="zoom" title=""></img>
+    </div>
     <figcaption>
       <center class="caption-text">
-        <p style="margin: 0;">${4}</p>
+        <p style="margin: .7rem 0 0;">${4}</p>
         <!-- hide the link -->
         <font class="douyin hover-show">
           <a href="${2}" target="_blank" style="opacity: 1.0; text-decoration: none;" >OuO</a>
@@ -37,14 +39,16 @@
 {{/* normal image */}}
 {{ $nphoto := `(<img src="([^\"]+)".+alt="([^\"]+)" />)` }}
 {{ $newnphoto := `
-  <figure class="gphoto-media">
-    <noscript>
-      <img src="${2}" class='center img-zoomable' alt="${3}" data-action="zoom" title="zoom!"></img>
-    </noscript>
-    <img data-src="${2}" class='center img-zoomable lazyload' alt="${3}" data-action="zoom" title="zoom!"></img>
+  <figure class="gphoto-media center">
+    <div class="img-container center">
+      <noscript>
+        <img src="${2}" class='center img-zoomable' alt="${3}" data-action="zoom" title=""></img>
+      </noscript>
+      <img data-src="${2}" class='center img-zoomable lazyload' alt="${3}" data-action="zoom" title=""></img>
+    </div>
     <figcaption>
       <center class="caption-text">
-        <p style="margin: 0;">${3}</p>
+        <p style="margin: .7rem 0 0;">${3}</p>
         <!-- hide the link -->
         <font class="douyin hover-show">
           <a href="${2}" target="_blank" style="opacity: 1.0; text-decoration: none;" >OuO</a>
