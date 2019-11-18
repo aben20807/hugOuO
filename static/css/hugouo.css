@@ -88,6 +88,9 @@ pre {
     max-width: 100%;
     height: auto;
 }
+.mrow {
+    padding-right: 12px !important;
+}
 #hdr {
     text-shadow: black 0.1em 0.1em 0.2em
 }
