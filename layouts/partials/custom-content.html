@@ -19,7 +19,7 @@
 {{ $gphoto := `(<img src="(https://drive.google.com/open.+id=([^\"]+))".+alt="google-([^\"]+)" />)` }}
 {{ $newgphoto := `
   <figure class="gphoto-media center">
-    <div class="img-container center">
+    <div class="img-container center" style="width:73%;">
       <noscript>
         <img src="https://drive.google.com/uc?export=view&id=${3}" class='center img-zoomable' alt="${4}" data-action="zoom" title=""></img>
       </noscript>
@@ -42,7 +42,7 @@
 {{ $nphoto := `(<img src="([^\"]+)".+alt="([^\"]+)" />)` }}
 {{ $newnphoto := `
   <figure class="gphoto-media center">
-    <div class="img-container center">
+    <div class="img-container center" style="width:73%;">
       <noscript>
         <img src="${2}" class='center img-zoomable' alt="${3}" data-action="zoom" title=""></img>
       </noscript>
