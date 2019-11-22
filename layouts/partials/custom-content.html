@@ -5,7 +5,7 @@
 {{ $tmp := $tmp | replaceRE "(<(h[4-6]) id=\"([^\"]+)\"(.+))(</h[4-6]+>)" `<${2} id="${3}" class="article-heading"${4}<a class="headline-hash smoothScroll hover-show" style="font-size: 0.75em; color: black; padding-left: 0.25em" href="#${3}"><span class="iconify" data-icon="octicon-link" data-inline="false"></span></a> ${5}` | safeHTML }}
 
 {{/* links */}}
-{{ $links := `(<a href="[^\"]+")>` }}
+{{ $links := `(<a href="https:[^\"]+")>` }}
 {{ $newlinks := `${1} target="_blank">` }}
 {{ $tmp := $tmp | replaceRE $links $newlinks | safeHTML }}
 
@@ -60,6 +60,19 @@
   </figure>
 ` }}
 {{ $tmp := $tmp | replaceRE $nphoto $newnphoto | safeHTML }}
+
+{{/* footnote to smooth link */}}
+{{ $footnote_links := `<a (href="#fn:ouo:[^\"]+")>` }}
+{{ $footnote_newlinks := `<a class='smoothScroll' ${1}>` }}
+{{ $tmp := $tmp | replaceRE $footnote_links $footnote_newlinks | safeHTML }}
+{{ $footnote_links := `<a class="footnote-return" (href="#fnref:ouo:[^\"]+")>` }}
+{{ $footnote_newlinks := `<a class='smoothScroll footnote-return' ${1}>` }}
+{{ $tmp := $tmp | replaceRE $footnote_links $footnote_newlinks | safeHTML }}
+
+{{/* footnote of image caption */}}
+{{ $x := `(<figure(.|\n)*p(.|\n)*>(.|\n)*)(</p>(.|\n)*</figure>)[\s\n]*(<sup class="footnote-ref" id="fnref:ouo:.*</sup>)` }}
+{{ $y := `${1}${7}${5}` }}
+{{ $tmp := $tmp | replaceRE $x $y | safeHTML }}
 
 {{/* put costom content */}}
 {{- $tmp -}}
