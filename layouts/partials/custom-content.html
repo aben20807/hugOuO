@@ -62,8 +62,8 @@
 {{ $tmp := $tmp | replaceRE $nphoto $newnphoto | safeHTML }}
 
 {{/* footnote to smooth link */}}
-{{ $footnote_links := `<a (href="#fn:[^\"]+")>` }}
-{{ $footnote_newlinks := `<a class="smoothScroll" ${1}>` }}
+{{ $footnote_links := `<a (href="#fn:[^\"]+" class="footnote-ref)(" role="doc-noteref")>` }}
+{{ $footnote_newlinks := `<a ${1} smoothScroll${2}>` }}
 {{ $tmp := $tmp | replaceRE $footnote_links $footnote_newlinks | safeHTML }}
 {{ $footnote_links := `<a class="footnote-return" (href="#fnref:[^\"]+")>` }}
 {{ $footnote_newlinks := `<a class="smoothScroll footnote-return" ${1}>` }}
