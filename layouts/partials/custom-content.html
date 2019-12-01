@@ -16,7 +16,7 @@
   ${3}: id
   ${4}: title
 */}}
-{{ $gphoto := `(<img src="(https://drive.google.com/open.+id=([^\"]+))".+alt="google-([^\"]+)" />)` }}
+{{ $gphoto := `(<img src="(https://drive.google.com/open.+id=([^\"]+))".*alt="google-([^\"]+)"\s*?>)` }}
 {{ $newgphoto := `
   <figure class="gphoto-media center">
     <div class="img-container center" style="width:73%;">
@@ -39,7 +39,7 @@
 {{ $tmp := $tmp | replaceRE $gphoto $newgphoto | safeHTML }}
 
 {{/* normal image */}}
-{{ $nphoto := `(<img src="([^\"]+)".+alt="([^\"]+)" />)` }}
+{{ $nphoto := `(<img src="([^\"]+)".*alt="([^\"]+)"\s*/?>)` }}
 {{ $newnphoto := `
   <figure class="gphoto-media center">
     <div class="img-container center" style="width:73%;">
