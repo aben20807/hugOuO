@@ -21,6 +21,7 @@
       <li class="nav-item pb-3 text-center">
         <span class="font-weight-bold mb-2">- CATALOG - </span>
       </li>
+      <div id="toc-scroll" class="noselect">
       {{- range $headers -}}
         {{- $header := . -}}
         {{- range first 1 (findRE $re $header 1) -}}
@@ -42,9 +43,10 @@
           {{- end -}}
         {{- end -}}
       {{- end -}}
-      <ul class='toc'>
-        {{ partial "gotop.html" . }}
-      </ul>
+    </div>
+    <ul class='toc'>
+      {{ partial "gotop.html" . }}
+    </ul>
     </div>
   {{- end -}}
 {{- end -}}
