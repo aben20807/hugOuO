@@ -28,7 +28,7 @@
   <script type="text/javascript" src="{{ "js/less.min.js" | absURL }}"></script>
   {{ else }}
   <link rel="stylesheet" href="{{ "css/story.css" | absURL }}" />
-  <link rel="stylesheet" href="{{ "css/descartes.css" | absURL }}" />
+  <!-- <link rel="stylesheet" href="{{ "css/descartes.css" | absURL }}" /> -->
   <link rel="stylesheet" href="{{ "css/hugouo.css" | absURL }}" />
   <link rel="stylesheet" href="{{ "css/allinone.css" | absURL }}" />
   {{ end }}
@@ -77,27 +77,27 @@
   </noscript>
 
   <script type="text/javascript" src="{{ "js/hugouo.js" | absURL }}"></script>
-  {{ if or (in .Site.Params.classes "feature-highlight") (in .Params.classes "feature-highlight") -}}
-  {{- if not (or (in .Site.Params.classes "feature-nohighlight") (in .Params.classes "feature-nohighlight") ) -}}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  {{- end -}}
-  {{- end -}}
-  {{ if or (in .Site.Params.classes "feature-math") (in .Params.classes "feature-math") -}}
-  {{- if not (or (in .Site.Params.classes "feature-nomath") (in .Params.classes "feature-nomath") ) -}}
+  <!-- {{ if or (in .Site.Params.classes "feature-highlight") (in .Params.classes "feature-highlight") -}}
+  {{- if not (or (in .Site.Params.classes "feature-nohighlight") (in .Params.classes "feature-nohighlight") ) -}} -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script> -->
+  <!-- {{- end -}}
+  {{- end -}} -->
+  <!-- {{ if or (in .Site.Params.classes "feature-math") (in .Params.classes "feature-math") -}}
+  {{- if not (or (in .Site.Params.classes "feature-nomath") (in .Params.classes "feature-nomath") ) -}} -->
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.css" integrity="sha384-TEMocfGvRuD1rIAacqrknm5BQZ7W7uWitoih+jMNFXQIbNl16bO8OZmylH/Vi/Ei" crossorigin="anonymous"> -->
   <!-- <script src="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.js" integrity="sha384-jmxIlussZWB7qCuB+PgKG1uLjjxbVVIayPJwi6cG6Zb4YKq0JIw+OMnkkEC7kYCq" crossorigin="anonymous"></script> -->
   <!-- <script src="{{ "js/auto-render.min.js" | absURL }}"></script> for KaTeX -->
-  {{- end -}}
-  {{- end -}}
-  {{ if or (in .Site.Params.classes "feature-music") (in .Params.classes "feature-music") -}}
+  <!-- {{- end -}}
+  {{- end -}} -->
+  <!-- {{ if or (in .Site.Params.classes "feature-music") (in .Params.classes "feature-music") -}}
   {{- if not (or (in .Site.Params.classes "feature-nomusic") (in .Params.classes "feature-nomusic") ) -}}
   <script src="{{ "js/abcjs_basic_5.6.3-min.js" | absURL }}"></script>
   {{- end -}}
-  {{- end -}}
+  {{- end -}} -->
   {{ with .Site.Params.head }}{{ range . }}
   {{ . | safeHTML }}{{ end }}{{ end }}
   <script src="{{ "js/story.js" | absURL }}"></script>
-
+  {{ template "_internal/google_analytics_async.html" . }}
 </head>
 
 <body
@@ -206,7 +206,6 @@
     })
   </script>
   {{ end }}
-  {{ template "_internal/google_analytics_async.html" . }}
   {{ with .Site.Params.foot }}{{ range . }}
   {{ . | safeHTML }}{{ end }}{{ end }}
 </body>
