@@ -16,6 +16,7 @@
 		{{ end }}
 
 		{{ block "layout" . }}
+		<script src="https://cdn.jsdelivr.net/npm/fetch-inject@2.0.4/dist/fetch-inject.umd.min.js" integrity="sha256-paKBtnIrL5ClLfBOtgxh1UqYCjL9790IRvDOnBh2LyI=" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="{{ "css/tachyons.min.css" | absURL }}" />
 		{{- if .Site.Params.less -}}
 		<link rel="stylesheet/less" type="text/css" href="{{ "css/story.less" | absURL }}" />
@@ -172,6 +173,13 @@
 				&copy; {{ now.Format "2006" }} {{ with .Site.Params.author }}{{ . }}{{ end }}
 			</p>
 		</footer>
+		<script>
+			fetchInject([
+				"https://cdn.jsdelivr.net/npm/baffle@0.3.6/dist/baffle.min.js"
+			]).then(() => {
+				baffle(document.querySelector('h1')).start().reveal(2000);
+			})
+		</script>
 		{{ end }}
 	{{ template "_internal/google_analytics_async.html" . }}
 	{{ with .Site.Params.foot }}{{ range . }}
