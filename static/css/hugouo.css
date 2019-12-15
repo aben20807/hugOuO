@@ -4,6 +4,13 @@
   --deep-orange: #ff6456;
   --light-orange: #ffb980;
 }
+@font-face {
+  font-family: 'Pacifico';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Pacifico Regular'), local('Pacifico-Regular'), url(https://fonts.gstatic.com/s/pacifico/v12/FwZY7-Qmy14u9lezJ-6H6MmBp0u-.woff2) format('woff2');
+  font-display: swap;
+}
 body {
   /* ref: https://stackoverflow.com/a/44000322/6734174 */
   width: 100vw;
@@ -80,7 +87,7 @@ body,
 p,
 ul,
 li {
-  font-family: "Noto Sans", "Quattrocento Sans", -apple-system,
+  font-family: "Noto Sans TC", "Quattrocento Sans", -apple-system,
     BlinkMacSystemFont, "avenir next", avenir, "helvetica neue", helvetica,
     ubuntu, roboto, noto, "segoe ui", arial, sans-serif;
   word-break: break-word;
@@ -94,7 +101,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Lora", "Noto Sans", "Quattrocento Sans", -apple-system,
+  font-family: "Lora", "Noto Sans TC", "Quattrocento Sans", -apple-system,
     BlinkMacSystemFont, "avenir next", avenir, "helvetica neue", helvetica,
     ubuntu, roboto, noto, "segoe ui", arial, sans-serif;
   word-break: break-word;
@@ -282,7 +289,7 @@ main {
 }
 blockquote > p {
   margin: 0.9em 0 0.3em;
-  font-family: "Lora", "Noto Sans", "Quattrocento Sans";
+  font-family: "Lora", "Noto Sans TC", "Quattrocento Sans";
   font-size: 18px !important;
 }
 

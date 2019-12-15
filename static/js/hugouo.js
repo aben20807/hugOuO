@@ -68,8 +68,8 @@ $.getScript(url, function () {
     event.preventDefault();
     //calculate destination place
     var dest = 0;
-    console.log(jq(decodeURI(this.hash)));
-    console.log($(jq(decodeURI(this.hash))));
+    // console.log(jq(decodeURI(this.hash)));
+    // console.log($(jq(decodeURI(this.hash))));
     target = $(jq(decodeURI(this.hash)));
     if (target.offset().top > $(document).height() - $(window).height()) {
       dest = $(document).height() - $(window).height();
