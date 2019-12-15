@@ -34,12 +34,20 @@ jQuery(document).ready(function ($) {
     setTimeout(original, 1000);
   });
 
+  $.fn.overflown = function () {
+    // detect element overflow ref: https://stackoverflow.com/questions/9333379/check-if-an-elements-content-is-overflowing#comment27010845_9541579
+    var e = this[0]; 
+    return e.scrollHeight > e.clientHeight || e.scrollWidth > e.clientWidth; 
+  }
+
   // prevent scroll main window ref: https://stackoverflow.com/a/24742225/6734174
   // show only hover ref: https://stackoverflow.com/a/12555394/6734174
   var b = $("body");
   $("#toc-scroll")
     .mouseenter(function (event) {
-      b.css("overflow", "hidden");
+      if ($(this).overflown()) {
+        b.css("overflow", "hidden");
+      }
       $(this).removeClass("hide-scrollbar");
     })
     .mouseleave(function (event) {
