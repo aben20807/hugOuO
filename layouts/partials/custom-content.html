@@ -5,7 +5,10 @@
 {{ $tmp := $tmp | replaceRE "(<(h[4-6]) id=\"([^\"]+)\"(.+))(</h[4-6]+>)" `<${2} id="${3}" class="article-heading"${4}<a class="headline-hash smoothScroll hover-show" style="font-size: 0.75em; color: black; padding-left: 0.25em" href="#${3}"><span class="iconify" data-icon="octicon-link" data-inline="false"></span></a> ${5}` | safeHTML }}
 
 {{/* links */}}
-{{ $links := `(<a href="https:[^\"]+")>` }}
+{{ $selflinks := `(<a\s*href="https?:\/\/aben20807\.github\.io\/[^\"]+"\s*)>` }}
+{{ $newselflinks := `${1} class="self-link">` }}
+{{ $tmp := $tmp | replaceRE $selflinks $newselflinks | safeHTML }}
+{{ $links := `(<a\s*href="https:[^\"]+")\s*>` }}
 {{ $newlinks := `${1} target="_blank">` }}
 {{ $tmp := $tmp | replaceRE $links $newlinks | safeHTML }}
 
