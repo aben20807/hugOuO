@@ -7,11 +7,11 @@
       <!-- Tags -->
       <div class="row">
         <div class="col-md-8">
-        {{ if .Params.tags }}
+          {{ if .Params.tags }}
           <div class="mb-5">
             {{ partial "tags.html" . }}
           </div>
-        {{ end }}
+          {{ end }}
         </div>
       </div>
       <!-- /.Tags -->
@@ -24,7 +24,7 @@
       <!-- /.Footer -->
       <!-- Disqus -->
       {{- if .Params.comments -}}
-        {{- template "_internal/disqus.html" . -}}
+      {{- template "_internal/disqus.html" . -}}
       {{- end -}}
       <!-- /.Disqus -->
     </article>
@@ -38,12 +38,14 @@
 {{ end }}
 
 {{ define "social" }}
-		<meta name="og:title" content="{{ cond (eq .Site.Params.titlecase true) (.Title | title | markdownify) (.Title | markdownify) }}" />
-		<meta name="og:type" content="article" />
-		<meta name="og:image" content="{{ default "img/default-header-img.jpg" .Params.image | absURL }}" />
-		<meta name="og:description" content="{{ .Description | markdownify }}" />
-		<meta name="og:url" content="{{ .Permalink }}" />
-		<meta name="og:site_name" content="{{ cond (eq .Site.Params.titlecase true) (.Title | title | markdownify) (.Title | markdownify) }}" />
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:site" content="@{{ .Site.Params.twitter }}" />
+<meta name="og:title"
+  content="{{ cond (eq .Site.Params.titlecase true) (.Title | title | markdownify) (.Title | markdownify) }}" />
+<meta name="og:type" content="article" />
+<meta name="og:image" content="{{ default "img/default-header-img.jpg" .Params.image | absURL }}" />
+<meta name="og:description" content="{{ .Description | markdownify }}" />
+<meta name="og:url" content="{{ .Permalink }}" />
+<meta name="og:site_name"
+  content="{{ cond (eq .Site.Params.titlecase true) (.Title | title | markdownify) (.Title | markdownify) }}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@{{ .Site.Params.twitter }}" />
 {{ end }}

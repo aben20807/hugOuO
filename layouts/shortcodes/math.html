@@ -4,5 +4,5 @@
     {{- $inner := replace $inner "<p>" "<p>\\[" -}}
     {{- $inner := replace $inner "</p>" "\\]<p>" -}}
     {{ trim $inner "\n" }}
-\]</div>
+    \]</div>
 {{- else -}}<span class="math">\( {{ trim .Inner "\n" }} \)</span>{{- end -}}

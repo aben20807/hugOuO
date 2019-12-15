@@ -6,9 +6,9 @@
   {{- $thisYear := $p.Date.Format "2006" }}
   {{- $lastPage := $i | add -1 | index .Site.RegularPages }}
   {{- if or (eq $i 0) ( ne ($lastPage.Date.Format "2006") $thisYear ) }}
-    <h3 class="archive-year">{{ $thisYear }}</h3>
+  <h3 class="archive-year">{{ $thisYear }}</h3>
   {{- end }}
-  
+
   <div>
     {{ $p.Date.Format "01-02" }}
     <a href="{{ $p.Permalink }}" class="no-underline dim link">

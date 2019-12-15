@@ -26,30 +26,30 @@
           </div> -->
 
         {{ if .Content }}
-          <div class="post-content markdown">
-            {{ .Content }}
-          </div>
+        <div class="post-content markdown">
+          {{ .Content }}
+        </div>
         {{ end }}
       </ul>
       <ul>
         {{ if eq .Site.Params.bloggroupby "month" }}
-            {{ $.Scratch.Set "datespec" "2006.1" }}
+        {{ $.Scratch.Set "datespec" "2006.1" }}
         {{ else if eq .Site.Params.bloggroupby "year" }}
-            {{ $.Scratch.Set "datespec" "2006" }}
+        {{ $.Scratch.Set "datespec" "2006" }}
         {{ end }}
         {{ if not ($.Scratch.Get "datespec") }}
-            {{ range .Data.Pages.ByDate.Reverse }}
-            {{ partial "li.html" . }}
-            {{ end }}
+        {{ range .Data.Pages.ByDate.Reverse }}
+        {{ partial "li.html" . }}
+        {{ end }}
         {{ else }}
-            {{ range .Data.Pages.ByDate.GroupByDate ($.Scratch.Get "datespec") "desc" }}
-                <li class="post-item no-bullet">
-                    <span class="date">{{ .Key }}</span>
-                </li>
-                {{ range .Pages.ByDate.Reverse }}
-                    {{ partial "li.html" . }}
-                {{ end }}
-            {{ end }}
+        {{ range .Data.Pages.ByDate.GroupByDate ($.Scratch.Get "datespec") "desc" }}
+        <li class="post-item no-bullet">
+          <span class="date">{{ .Key }}</span>
+        </li>
+        {{ range .Pages.ByDate.Reverse }}
+        {{ partial "li.html" . }}
+        {{ end }}
+        {{ end }}
         {{ end }}
       </ul>
     </div>
