@@ -423,7 +423,7 @@ a.footnote-backref:after {
 }
 
 ::-webkit-scrollbar:horizontal {
-  height: 5px;
+  height: 0px;
 }
 ::-webkit-scrollbar-track {
   -webkit-border-radius: 10px;
