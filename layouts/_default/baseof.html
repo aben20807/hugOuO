@@ -92,16 +92,16 @@
         </a>
         <div class="fr h2 pv2 tr">
           {{- range .Site.Menus.main }}
-          <a class="link f5 ml2 dim near-white" href="{{ .URL }}">{{ .Name }}</a>
+          <a class="link f5 ml2 dim near-white no-underline-on-hover" href="{{ .URL }}">{{ .Name }}</a>
           {{- end }}
           {{- range .Site.Menus.social }}
-          <a class="link f5 ml2 dim near-white" href="{{ .URL }}" target="_blank" rel="noreferrer noopener"><i class="{{ .Title }}"></i></a>
+          <a class="link f5 ml2 dim near-white no-underline-on-hover" href="{{ .URL }}" target="_blank" rel="noreferrer noopener"><i class="{{ .Title }}"></i></a>
           {{- end }}
-          <a class="link f5 ml2 dim near-white fas fa-rss-square" href="{{ "index.xml" | absURL }}"
+          <a class="link f5 ml2 dim near-white fas fa-rss-square no-underline-on-hover" href="{{ "index.xml" | absURL }}"
             title="RSS Feed"></a>
-          <a class="link f5 ml2 dim near-white fas fa-envelope" href="{{ "subscription/" | absURL }}"
+          <a class="link f5 ml2 dim near-white fas fa-envelope no-underline-on-hover" href="{{ "subscription/" | absURL }}"
             role="subscription" title="Subscription"></a>
-          <a class="link f5 ml2 dim near-white fas fa-search" href="{{ "search/" | absURL }}" role="search"
+          <a class="link f5 ml2 dim near-white fas fa-search no-underline-on-hover" href="{{ "search/" | absURL }}" role="search"
             title="Search"></a>
         </div>
       </nav>
@@ -162,7 +162,7 @@
     role="contentinfo">
     <p class="w-50 fr tr" style="font-size:0.875rem !important;">
       Made with Hugo and
-      <a class="no-underline" href='https://github.com/aben20807/hugOuO' target="_blank" rel="noreferrer noopener">hugOuO</a>
+      <a class="no-underline no-underline-on-hover" href='https://github.com/aben20807/hugOuO' target="_blank" rel="noreferrer noopener">hugOuO</a>
     </p>
     <p class="w-50 near-white" style="font-size:0.875rem !important;">
       &copy; 2019-{{ now.Format "2006" }} {{ with .Site.Params.author }}{{ . }}{{ end }}

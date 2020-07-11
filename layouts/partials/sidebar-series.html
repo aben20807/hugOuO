@@ -42,7 +42,7 @@
     {{ else }}
     <!-- Others -->
     {{ range first 5 (where .ByCount "Name" "in" $terms) }}
-    <li class="py-1"><a href="{{ "series/" | absLangURL }}{{ .Name | urlize }}"><span>{{ .Name | title }}
+    <li class="py-1"><a href="{{ "series/" | absLangURL }}{{ .Name | urlize }}" class="no-underline no-underline-on-hover"><span>{{ .Name | title }}
           ({{ .Count }})</span></a></li>
     {{ end }}
     {{ end }}

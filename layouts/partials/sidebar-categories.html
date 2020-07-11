@@ -26,7 +26,7 @@
     <li class="middot"></li>
     {{ end }}
     <li class="py-1">
-      <a href="{{ "categories/" | absLangURL }}{{ $element.Name | urlize }}">
+      <a href="{{ "categories/" | absLangURL }}{{ $element.Name | urlize }}" class="no-underline no-underline-on-hover">
         <span>{{ $element.Name | title }} ({{ .Count }})</span>
       </a>
     </li>
@@ -38,7 +38,7 @@
     <li class="middot"></li>
     {{ end }}
     <li class="py-1">
-      <a href="{{ "categories/" | absLangURL }}{{ $element.Name | urlize }}">
+      <a href="{{ "categories/" | absLangURL }}{{ $element.Name | urlize }}" class="no-underline no-underline-on-hover">
         <span>{{ $element.Name | title }} ({{ .Count }})</span>
       </a>
     </li>

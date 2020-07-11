@@ -66,10 +66,10 @@
 
 {{/* footnote to smooth link */}}
 {{ $footnote_links := `<a (href="#fn:[^\"]+" class="footnote-ref)(" role="doc-noteref")>` }}
-{{ $footnote_newlinks := `<a ${1} smoothScroll${2}>` }}
+{{ $footnote_newlinks := `<a ${1} smoothScroll no-underline-on-hover${2}>` }}
 {{ $tmp := $tmp | replaceRE $footnote_links $footnote_newlinks | safeHTML }}
 {{ $footnote_links := `<a (href="#fnref:[^\"]+") class="footnote-backref" role="doc-backlink">(.*)</a>` }}
-{{ $footnote_newlinks := `<sup><a ${1} class="smoothScroll footnote-backref" role="doc-backlink">${2}</a></sup>` }}
+{{ $footnote_newlinks := `<sup><a ${1} class="smoothScroll footnote-backref no-underline-on-hover" role="doc-backlink">${2}</a></sup>` }}
 {{ $tmp := $tmp | replaceRE $footnote_links $footnote_newlinks | safeHTML }}
 
 {{/* footnote of image caption */}}
