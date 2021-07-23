@@ -129,6 +129,7 @@ h6:hover .hover-show {
   opacity: 1;
 }
 pre {
+  border-style: hidden;
   font-size: 16px !important;
   max-width: 100%;
   height: auto;
