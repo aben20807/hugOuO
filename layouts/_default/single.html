@@ -2,7 +2,7 @@
 
 {{ define "main" }}
 <div class="row bg-white">
-  <div class="column col-1">
+  <div class="column col-1 printable">
     <article class="center bg-white br-3 pv1 ph4 lh-copy f5 nested-links" style="max-width:720px">
       <!-- Tags -->
       <div class="row">
@@ -30,7 +30,7 @@
     </article>
   </div>
   {{- if .Params.toc -}}
-  <div id="toc" class="column col-2">
+  <div id="toc" class="column col-2 hide-print">
     {{- partial "toc.html" . -}}
   </div>
   {{- end -}}

@@ -1,0 +1,27 @@
+{{ $theme := index .Params 0 }}
+{{ if eq $theme "info" }}
+  <div class="info-msg">
+    <i class="fa fa-info-circle"></i>
+    {{ .Inner | markdownify }}
+  </div>
+{{ else if eq $theme "success" }}
+  <div class="success-msg">
+    <i class="fa fa-check"></i>
+    {{ .Inner | markdownify }}
+  </div>
+{{ else if eq $theme "warning" }}
+  <div class="warning-msg">
+    <i class="fa fa-exclamation-triangle"></i>
+    {{ .Inner | markdownify }}
+  </div>
+{{ else if eq $theme "danger" }}
+  <div class="alert error-msg">
+    <i class="fa fa-times-circle"></i>
+    {{ .Inner | markdownify }}
+  </div>
+{{ else }}
+  <div class="info-msg">
+    <i class="fa fa-info-circle"></i>
+    {{ .Inner | markdownify }}
+  </div>
+{{ end }}
