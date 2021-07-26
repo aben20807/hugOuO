@@ -86,7 +86,9 @@ h6.article-heading:before {
 body,
 p,
 ul,
-li {
+li,
+summary,
+details {
   font-family: "Noto Sans TC", "Quattrocento Sans", -apple-system,
     BlinkMacSystemFont, "avenir next", avenir, "helvetica neue", helvetica,
     ubuntu, roboto, noto, "segoe ui", arial, sans-serif;
@@ -269,10 +271,12 @@ main {
   min-height: 80vh;
 }
 
+summary,
 .goto {
   cursor: pointer;
 }
 
+summary:hover,
 .goto:hover {
   color: #428bca;
 }
