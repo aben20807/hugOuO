@@ -1,4 +1,14 @@
-<!-- likecoin button -->
-<script type="text/javascript">
-  document.write("<iframe scrolling='no' frameborder='0' class='center' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='' src='https://button.like.co/in/embed/aben20807/button?referrer=" + encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");
-</script>
+<dl style="font-size: 80%;">
+  <dt>Author</dt>
+  <dd>{{ .Params.author | default .Site.Params.author }}</dd>
+  <dt>Last modified</dt>
+  <dd>{{ .Page.Lastmod.Format "Jan 2, 2006" }}</dd>
+  <dt>License</dt>
+  <dd><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noreferrer noopener">CC BY-NC 4.0</a></dd>
+</dl>
+<div>
+  <!-- likecoin button -->
+  <script type="text/javascript">
+    document.write("<iframe scrolling='no' frameborder='0' class='center' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='' src='https://button.like.co/in/embed/aben20807/button?referrer=" + encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");
+  </script>
+</div>
