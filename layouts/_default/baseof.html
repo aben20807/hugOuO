@@ -153,6 +153,7 @@
   {{ end }}
   <!-- button for switching between dark and light mode -->
   {{ partial "dark-switch.html" . }}
+  
   <main role="main">
     {{ block "main" . }}
     {{ end }}
@@ -162,6 +163,8 @@
   <!-- {{ end }} -->
   {{ block "pagination" . }}{{ end }}
   {{ block "footer" . }}
+  <!-- gotop_btn -->
+  <div id='gotop_btn' class="post-meta"><center><i class="fas fa-chevron-up"></i></center></div>
   <footer class="hide-print sans-serif f6 fw1 bg-black near-white bottom-0 w-100 pa3 db overflow-auto"
     role="contentinfo">
     <p class="w-50 fr tr nested-links" style="font-size:0.875rem !important;">

@@ -615,3 +615,18 @@ body.dark-mode blockquote::before {
   color: var(--light-orange);
 }
 /* dark mode end */
+
+#gotop_btn {
+  display: none;
+  right: 1%;
+  bottom: 5%;
+  float: right;
+  width: 44px;
+  position: sticky!important;
+  font-size: 80%;
+  background: #444444;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  z-index: 1;
+}
