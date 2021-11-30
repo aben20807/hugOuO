@@ -84,7 +84,7 @@
   <header class="cover bg-top"
     {{ if $hdr }}style="background-image: url('{{ absURL (default "img/default-header-img.jpg" .Params.image) }}'); background-position: center;"
     {{ end }}>
-    <div class="{{ cond $hdr "bg-black-60 bb bt" "" }}">
+    <div class="{{ cond $hdr "bg-black-60 " "" }}">
 
       <nav class="hide-print sans-serif {{ cond $hdr "" "bg-black" }} border-box pa3 ph5-l">
         <a href="{{ .Site.BaseURL }}" title="Home">
@@ -151,6 +151,8 @@
     </div>
   </header>
   {{ end }}
+  <!-- button for switching between dark and light mode -->
+  {{ partial "dark-switch.html" . }}
   <main role="main">
     {{ block "main" . }}
     {{ end }}
@@ -162,7 +164,7 @@
   {{ block "footer" . }}
   <footer class="hide-print sans-serif f6 fw1 bg-black near-white bottom-0 w-100 pa3 db overflow-auto"
     role="contentinfo">
-    <p class="w-50 fr tr" style="font-size:0.875rem !important;">
+    <p class="w-50 fr tr nested-links" style="font-size:0.875rem !important;">
       Made with Hugo and
       <a class="no-underline no-underline-on-hover" href='https://github.com/aben20807/hugOuO' target="_blank" rel="noreferrer noopener">hugOuO</a>
     </p>
