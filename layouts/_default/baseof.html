@@ -90,7 +90,7 @@
         <a href="{{ .Site.BaseURL }}" title="Home">
           <img src="{{ "img/logo.jpg" | absURL }}" class="w2 h2 br-100" alt="{{ .Site.Title }}" />
         </a>
-        <div class="fr h2 pv2 tr">
+        <div class="fr h2 pv2 tr" id="menu-bar">
           {{- range .Site.Menus.main }}
           <a class="link f5 ml2 dim near-white no-underline-on-hover" href="{{ .URL }}">{{ .Name }}</a>
           {{- end }}
