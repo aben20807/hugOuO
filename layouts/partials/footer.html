@@ -16,12 +16,12 @@
 
 <!-- https://brianli.com/adding-next-previous-post-links-in-hugo/ -->
 <div class="row" style="font-size: 90%; display: flex; justify-content: space-around;">
-  <div class="next-post">
+  <div class="next-post nested-links">
     {{ if .NextPage }}
     <a title={{ .NextPage.Title }} class="link-reverse" href="{{ .NextPage.Permalink }}?ref=footer"><i class="fas fa-arrow-circle-left"></i> {{ .NextPage.Title | truncate 20 "..." }}</a>
     {{ end }}
   </div>
-  <div class="previous-post">
+  <div class="previous-post nested-links">
     {{ if .PrevPage }}
     <a title={{ .PrevPage.Title }} class="link-reverse" href="{{ .PrevPage.Permalink }}?ref=footer">{{ .PrevPage.Title | truncate 20 "..."}} <i class="fas fa-arrow-circle-right"></i></a>
     {{ end }}
