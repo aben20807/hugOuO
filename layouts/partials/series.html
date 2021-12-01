@@ -1,0 +1,9 @@
+<div class="li-x div-x post-meta">
+  <li class="pr-0"><a href="{{ "series/" | absLangURL }}"><i class="fas fa-bookmark pr-1"></i></a></li>
+  <div>
+    {{ range .Params.series }}
+    <li><a href="{{ "series/" | absLangURL }}{{ . | urlize }}" role="button" class="no-underline no-underline-on-hover">{{ . }} </a></li>
+    <!-- <button type="button" class="btn btn-outline-default btn-rounded waves-effect">Button</button> -->
+    {{ end }}
+  </div>
+</div>

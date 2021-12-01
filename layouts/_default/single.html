@@ -5,6 +5,7 @@
 <div class="row bg-white">
   <div class="column col-1 printable">
     <article class="center bg-white br-3 pv1 ph4 lh-copy f5 nested-links" style="max-width:720px">
+      <div class="pb4-ns">
       <!-- Tags -->
       <div class="row">
         <div class="col-md-8">
@@ -15,7 +16,19 @@
           {{ end }}
         </div>
       </div>
-      <!-- /.Tags -->
+      <!-- /.Series -->
+      <!-- Tags -->
+      <div class="row ">
+        <div class="col-md-8">
+          {{ if .Params.series }}
+          <div class="mb-5">
+            {{ partial "series.html" . }}
+          </div>
+          {{ end }}
+        </div>
+      </div>
+      <!-- /.Series -->
+      </div>
       {{- partial "custom-content.html" .Content -}}
       <!-- Footer -->
       <div class="column footer center">
