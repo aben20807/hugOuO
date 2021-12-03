@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
     <link>{{ .Permalink }}</link>
@@ -19,6 +19,11 @@
       <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
       {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
       <guid>{{ .Permalink }}</guid>
+      {{ if and (isset .Params "author") (not (eq .Params.author "")) }}
+        <dc:creator>{{ .Params.author }}</dc:creator>
+      {{ else }}
+        <dc:creator>{{ $.Site.Author.name }}</dc:creator>
+      {{ end }}
       {{ $gphoto := `(<img src="(https://drive.google.com/open.+id=([^\"]+))".+alt="google-([^\"]+)" />)` }}
       {{ $newgphoto := `
       <figure class="gphoto-media">
@@ -30,7 +35,12 @@
         </figcaption>
       </figure>
       ` }}
-      <description>{{ .Content | replaceRE $gphoto $newgphoto | html }}</description>
+      {{ if and (isset .Params "image") (not (eq .Params.image "")) }}
+        <media:content url="{{ .Params.image | absURL }}" medium="image" class="article-banner"/>
+      {{ else }}
+        <media:content url="https://aben20807.github.io/img/default-header-img.jpg" medium="image" class="article-banner"/>
+      {{ end }}
+      <description>{{ .Summary | replaceRE $gphoto $newgphoto | html }}</description>
     </item>
     {{ end }}
   </channel>
