@@ -36,10 +36,10 @@
       <description>{{ .Summary | replaceRE $gphoto $newgphoto | replaceRE $brs $nobr | htmlUnescape | plainify | chomp }}</description>
       {{ if and (isset .Params "image") (not (eq .Params.image "")) }}
         <media:content url="{{ .Params.image | absURL }}" medium="image" />
-        <content>{{chomp "<![CDATA[<img src="}}"{{ .Params.image | absURL | htmlUnescape }}"{{chomp " />]]>"}}</content>
+        <content>{{chomp "<img src="}}"{{ .Params.image | absURL | htmlUnescape }}"{{chomp " />"}}</content>
       {{ else }}
         <media:content url="https://aben20807.github.io/img/default-header-img.jpg" medium="image" />
-        <content>{{chomp "<![CDATA[<img src="}}"https://aben20807.github.io/img/default-header-img.jpg"{{chomp " />]]>"}}</content>
+        <content>{{chomp "<img src="}}"https://aben20807.github.io/img/default-header-img.jpg"{{chomp " />"}}</content>
       {{ end }}    
     </item>
     {{ end }}
