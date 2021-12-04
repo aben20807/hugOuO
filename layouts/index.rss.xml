@@ -33,12 +33,14 @@
       <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
       {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
       <guid>{{ .Permalink }}</guid>
+      <description>{{ .Summary | replaceRE $gphoto $newgphoto | replaceRE $brs $nobr | htmlUnescape | plainify | chomp }}</description>
       {{ if and (isset .Params "image") (not (eq .Params.image "")) }}
         <media:content url="{{ .Params.image | absURL }}" medium="image" />
+        <content>{{chomp "<![CDATA[<img src="}}"{{ .Params.image | absURL | htmlUnescape }}"{{chomp " />]]>"}}</content>
       {{ else }}
         <media:content url="https://aben20807.github.io/img/default-header-img.jpg" medium="image" />
-      {{ end }}
-      <description>{{ .Summary | replaceRE $gphoto $newgphoto | replaceRE $brs $nobr | htmlUnescape | html }}</description>
+        <content>{{chomp "<![CDATA[<img src="}}"https://aben20807.github.io/img/default-header-img.jpg"{{chomp " />]]>"}}</content>
+      {{ end }}    
     </item>
     {{ end }}
   </channel>
