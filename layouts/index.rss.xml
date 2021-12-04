@@ -30,23 +30,23 @@
     {{ end }}
     {{ range .Site.RegularPages }}
     <item>
-      <title>&lt;![CDATA[ {{ .Title }} ]]&gt;</title>
+      <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
       <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
       {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
       <guid>{{ .Permalink }}</guid>
-      <description>&lt;![CDATA[<p> {{ .Summary | replaceRE $gphoto $newgphoto | replaceRE $brs $nobr | htmlUnescape | plainify | chomp }}</p> ]]&gt;</description>
+      <description>{{ "<![CDATA[" | safeHTML }}<p> {{ .Summary | replaceRE $gphoto $newgphoto | replaceRE $brs $nobr | htmlUnescape | plainify | chomp }}</p> {{ "]]>" | safeHTML }}</description>
       {{ if and (isset .Params "image") (not (eq .Params.image "")) }}
-        <content:encoded>&lt;![CDATA[
-          <p>{{chomp "<img src="}}"{{ .Params.image | absURL | htmlUnescape }}"{{chomp " />"}}</p>
+        <content:encoded>{{ "<![CDATA[" | safeHTML }}
+          <p>{{chomp "<img src="}}"{{ .Params.image | absURL }}"{{chomp " />"}}</p>
           <p><a href="{{ .Permalink }}">Read the full article</a></p>
-        ]]&gt;</content:encoded>
+        {{ "]]>" | safeHTML }}</content:encoded>
       {{ else }}
-        <content:encoded>&lt;![CDATA[
+        <content:encoded>{{ "<![CDATA[" | safeHTML }}
           <p>{{chomp "<img src="}}"https://aben20807.github.io/img/default-header-img.jpg"{{chomp " />"}}</p>
           <p><a href="{{ .Permalink }}">Read the full article</a></p>
-        ]]&gt;</content:encoded>
-      {{ end }}    
+        {{ "]]>" | safeHTML }}</content:encoded>
+      {{ end }}
     </item>
     {{ end }}
   </channel>
