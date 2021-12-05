@@ -88,7 +88,8 @@ p,
 ul,
 li,
 summary,
-details {
+details,
+.link-reverse {
   font-family: "Noto Sans TC", "Quattrocento Sans", -apple-system,
     BlinkMacSystemFont, "avenir next", avenir, "helvetica neue", helvetica,
     ubuntu, roboto, noto, "segoe ui", arial, sans-serif;
