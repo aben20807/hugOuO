@@ -39,7 +39,7 @@
       <guid>{{ .Permalink }}</guid>
       <description>
         {{ "<![CDATA[" | safeHTML }}
-          {{ .Summary | replaceRE $gphoto $newgphoto | replaceRE $brs $nobr }}
+          {{ .Summary | replaceRE $gphoto $newgphoto | replaceRE $brs $nobr | safeHTML }}
           {{ if and (isset .Params "image") (not (eq .Params.image "")) }}
             <p><img src="{{ .Params.image | absURL }}" /></p>
           {{ else }}
