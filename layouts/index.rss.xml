@@ -13,7 +13,14 @@
 </figure>
 ` }}
 {{ $brs := `<br>` }}
-{{ $nobr := ` ` }}
+{{ $clean := `` }}
+{{ $codes := `(?ms:<div class="highlight">\s*<pre.*?<\/code>\s*<\/pre>\s*<\/div>)` }}
+{{ $tablecodes := `(?ms:<div class="highlight">\s*<div.*<table.*?<\/table>\s*<\/div>\s*<\/div>)` }}
+{{ $nocode := `<p>[see code by visiting website]</p>` }}
+{{ $yts := `(?ms:<div class="mb4".*?<iframe.*<\/iframe>\s*</div>)` }}
+{{ $iframes := `(?ms:<iframe.*<\/iframe>)` }}
+{{ $footnotes := `(?ms:(<a href="#fnref.*?</a>)|(<sup id="fnref.*</sup>))` }}
+
 {{/* regexp end */}}
 
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -39,13 +46,14 @@
       <guid>{{ .Permalink }}</guid>
       <description>
         {{ "<![CDATA[" | safeHTML }}
-          {{ .Summary | replaceRE $gphoto $newgphoto | replaceRE $brs $nobr | safeHTML }}
+          {{ .Summary | replaceRE $gphoto $newgphoto | replaceRE $brs $clean | safeHTML }}
           {{ if and (isset .Params "image") (not (eq .Params.image "")) }}
             <p><img src="{{ .Params.image | absURL }}" /></p>
           {{ else }}
             <p><img src="{{ .Site.BaseURL }}/img/default-header-img.jpg" /></p>
           {{ end }}
-          <p><a href="{{ .Permalink }}">Read the full article</a></p>
+          <p><a href="{{ .Permalink }}">Visit website to read the full article</a></p>
+          {{ .Content | replaceRE $gphoto $newgphoto | replaceRE $brs $clean | replaceRE $codes $nocode | replaceRE $tablecodes $nocode | replaceRE $yts $clean | replaceRE $iframes $clean | replaceRE $footnotes $clean | safeHTML }}
         {{ "]]>" | safeHTML }}
       </description>
     </item>
