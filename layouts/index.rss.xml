@@ -12,14 +12,15 @@
   </figcaption>
 </figure>
 ` }}
-{{ $brs := `<br>` }}
-{{ $clean := `` }}
-{{ $codes := `(?ms:<div class="highlight">\s*<pre.*?<\/code>\s*<\/pre>\s*<\/div>)` }}
-{{ $tablecodes := `(?ms:<div class="highlight">\s*<div.*<table.*?<\/table>\s*<\/div>\s*<\/div>)` }}
+{{ $brs := `(?ms:<br>)|(?ms:<br\s*?\/\s*?>)|(?ms:\n+)` }}
+{{ $clean := ` ` }}
+{{ $codes := `(?ms:<div class="highlight">\s*?<pre.*?<\/code>\s*?<\/pre>\s*?<\/div>)` }}
+{{ $tablecodes := `(?ms:<div class="highlight">\s*?<div.*?<table.*?<\/table>\s*?<\/div>\s*?<\/div>)` }}
 {{ $nocode := `<p>[see code by visiting website]</p>` }}
-{{ $yts := `(?ms:<div class="mb4".*?<iframe.*<\/iframe>\s*</div>)` }}
-{{ $iframes := `(?ms:<iframe.*<\/iframe>)` }}
-{{ $footnotes := `(?ms:(<a href="#fnref.*?</a>)|(<sup id="fnref.*</sup>))` }}
+{{ $yts := `(?ms:<div class="mb4".*?<iframe.*?<\/iframe>\s*?<\/div>)` }}
+{{ $iframes := `(?ms:<iframe.*?<\/iframe>)` }}
+{{ $footnotes := `(?ms:(<a href="#fnref.*?<\/a>)|(<sup id="fnref.*?<\/sup>))` }}
+{{ $comments := `(?ms:<!--.*?-->)` }}
 
 {{/* regexp end */}}
 
@@ -46,14 +47,14 @@
       <guid>{{ .Permalink }}</guid>
       <description>
         {{ "<![CDATA[" | safeHTML }}
-          {{ .Summary | replaceRE $gphoto $newgphoto | replaceRE $brs $clean | safeHTML }}
+          {{ .Summary | replaceRE $gphoto $newgphoto | replaceRE $comments $clean | replaceRE $brs $clean | safeHTML }}
           {{ if and (isset .Params "image") (not (eq .Params.image "")) }}
-            <p><img src="{{ .Params.image | absURL }}" /></p>
+            <p><a href="{{ .Permalink | absURL }}"><img src="{{ .Params.image | absURL }}" /></a></p>
           {{ else }}
-            <p><img src="{{ .Site.BaseURL }}/img/default-header-img.jpg" /></p>
+            <p><a href="{{ .Permalink | absURL }}"><img src="{{ .Site.BaseURL }}/img/default-header-img.jpg" /></a></p>
           {{ end }}
-          <p><a href="{{ .Permalink }}">Visit website to read the full article</a></p>
-          {{ .Content | replaceRE $gphoto $newgphoto | replaceRE $brs $clean | replaceRE $codes $nocode | replaceRE $tablecodes $nocode | replaceRE $yts $clean | replaceRE $iframes $clean | replaceRE $footnotes $clean | safeHTML }}
+          <p><a href="{{ .Permalink | absURL }}">Visit website to read the full article</a></p>
+          {{ .Content | replaceRE $gphoto $newgphoto | replaceRE $codes $nocode | replaceRE $tablecodes $nocode | replaceRE $yts $clean | replaceRE $iframes $clean | replaceRE $footnotes $clean | replaceRE $comments $clean | replaceRE $brs $clean | safeHTML }}
         {{ "]]>" | safeHTML }}
       </description>
     </item>
