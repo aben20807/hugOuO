@@ -71,6 +71,9 @@
 {{ $footnote_links := `<a (href="#fnref:[^\"]+") class="footnote-backref" role="doc-backlink">(.*)</a>` }}
 {{ $footnote_newlinks := `<sup><a ${1} class="smoothScroll footnote-backref no-underline-on-hover" role="doc-backlink">${2}</a></sup>` }}
 {{ $tmp := $tmp | replaceRE $footnote_links $footnote_newlinks | safeHTML }}
+{{ $footnote_sup := `<sup (id="fnref:[^\"]+")>` }}
+{{ $footnote_newsup := `<sup ${1} class="footnote-ref-wrapper">` }}
+{{ $tmp := $tmp | replaceRE $footnote_sup $footnote_newsup | safeHTML }}
 
 {{/* footnote of image caption */}}
 {{ $x := `[\s\n]*(<figure class="gphoto-media center">[\s\n]*<div class="img-container center" style="width:73%;">[\s\n]*<noscript>[\s\n]*<img src=".*" class="center img-zoomable" alt=".*" data-action="zoom" title=".*">[\s\n]*</noscript>[\s\n]*<img data-src=".*" class="center img-zoomable lazyload" alt=".*" data-action="zoom" title="">[\s\n]*</div>[\s\n]*<figcaption>[\s\n]*<center class="caption-text">[\s\n]*<p style="margin: .7rem 0 0;">.*)(</p>[\s\n]*<!-- hide the link -->[\s\n]*<font class="douyin hover-show">[\s\n]*<a href=".*" target="_blank" rel="noreferrer noopener" style="opacity: 1\.0; text-decoration: none;"\s*>OuO</a>[\s\n]*</font>[\s\n]*</center>[\s\n]*</figcaption>[\s\n]*</figure>)[\s\n]*(<sup id="fnref:.*"><a href="#fn:.*" class=".*" role="doc-noteref">.*</a></sup>)(.*)` }}
