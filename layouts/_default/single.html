@@ -31,15 +31,17 @@
       </div>
       {{- partial "custom-content.html" .Content -}}
       <!-- Footer -->
-      <div class="column footer center">
-        {{ partial "footer.html" . }}
-      </div>
-      <!-- /.Footer -->
-      <!-- Disqus -->
-      {{- if .Params.comments -}}
-      {{- template "_internal/disqus.html" . -}}
-      {{- end -}}
-      <!-- /.Disqus -->
+      <div class="footer">
+        <div class="column center tc">
+          {{ partial "footer.html" . }}
+        </div>
+        <!-- Disqus -->
+        {{- if .Params.comments -}}
+        {{- template "_internal/disqus.html" . -}}
+        {{- end -}}
+        <!-- /.Disqus -->
+    </div>
+    <!-- /.Footer -->
     </article>
   </div>
   {{- if .Params.toc -}}

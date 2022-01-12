@@ -512,7 +512,6 @@ body::-webkit-scrollbar:horizontal { /* only hide the outter scrollbar */
 .footer {
   border-top: 1px solid #dfe2e5;
   border-bottom: 1px solid #dfe2e5;
-  text-align:center;
 }
 
 dl {
@@ -679,3 +678,42 @@ body.dark-mode .fn-content {
 /**
  * footnote tooltip popup bubble end
  */
+
+@media print {
+  .sidebar,
+  .menu,
+  .footer,
+  #disqus_thread,
+  #gotop_btn *,
+  #toc {
+    display: none;
+  }
+  #hdr * {
+    font-family:"georgia", "times", "serif";
+    font-size: 14pt !important;
+    text-shadow: none;
+  }
+  .post-meta * {
+    font-size: 3pt !important;
+  }
+  article * {
+    font-family: "Noto Sans TC", "georgia", "times", "serif";
+    font-size: 12pt !important;
+  }
+  pre *, code {
+    font-family: "Roboto Mono", "Consolas", "monaco", "monospace";
+    font-size: 5pt !important;
+    white-space: pre-wrap;
+  }
+  pre, :not(pre) > code {
+    border: 1px solid #dfe2e5;
+  }
+  h1.article-heading:before,
+  h2.article-heading:before,
+  h3.article-heading:before,
+  h4.article-heading:before,
+  h5.article-heading:before,
+  h6.article-heading:before {
+    color: #000000 !important;
+  }
+}
