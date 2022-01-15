@@ -21,4 +21,4 @@ MIT
 + Hugo theme [orianna-zzo/AllinOne](https://themes.gohugo.io/allinone/) [[github]](https://github.com/orianna-zzo/AllinOne)
 + Website [DIYgod](https://diygod.me/)
 + Post [SWITCHING OFF THE LIGHTS PART TWO - ADDING DARK MODE TO HUGO](https://yonkov.github.io/post/add-dark-mode-toggle-to-hugo/): dark mode
-+ Hugo theme [xianmin/hugo-theme-jane](https://www.xianmin.org/hugo-theme-jane/post/doc-footnote-preview/) [[github]](https://github.com/xianmin/hugo-theme-jane): footnote tooltip popup bubble end
++ Hugo theme [xianmin/hugo-theme-jane](https://www.xianmin.org/hugo-theme-jane/post/doc-footnote-preview/) [[github]](https://github.com/xianmin/hugo-theme-jane): footnote tooltip popup bubble
