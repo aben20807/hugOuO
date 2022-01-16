@@ -1,22 +1,31 @@
 {{/* regexp begin */}}
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 
-{{ $gphoto := `(<img src="(https://drive.google.com/open.+id=([^\"]+))".+alt="google-([^\"]+)" />)` }}
+{{/* google drive image */}}
+{{ $gphoto := `(<img src="(https:\/\/drive\.google\.com\/open.+id=([^\"]+))".*alt="google-([^\"]+)"\s*(\/)?>)` }}
 {{ $newgphoto := `
 <figure class="gphoto-media">
-  <a href="${2}" target="_blank" rel="noreferrer noopener">
-    <img src="https://drive.google.com/uc?export=view&id=${3}" alt="${4}" title="Open in the new tab"></img>
-  </a>
+  <img class="gphoto-media" src="https://drive.google.com/uc?export=view&id=${3}" alt="${4}" style="max-width: 100%;"/>
   <figcaption>
     <center class="caption-text">${4}</center>
   </figcaption>
 </figure>
 ` }}
+{{/* normal image */}}
+{{ $nphoto := `(<img src="([^\"]+)".*alt="([^\"]+)"\s*(\/)?>)` }}
+{{ $newnphoto := `
+  <figure class="gphoto-media">
+    <img src="${2}" alt="${3}" style="max-width: 100%;"/>
+    <figcaption>
+      <center class="caption-text">${3}</center>
+    </figcaption>
+  </figure>
+` }}
 {{ $brs := `(?ms:<br>)|(?ms:<br\s*?\/\s*?>)|(?ms:\n+)` }}
 {{ $clean := ` ` }}
-{{ $codes := `(?ms:<div class="highlight">\s*?<pre.*?<\/code>\s*?<\/pre>\s*?<\/div>)` }}
+{{ $codes := `(?ms:(<div class="highlight">\s*?<pre.*?<\/code>\s*?<\/pre>\s*?<\/div>)|(<pre>\s*?<code>.*<\/code>\s*?<\/pre>))` }}
 {{ $tablecodes := `(?ms:<div class="highlight">\s*?<div.*?<table.*?<\/table>\s*?<\/div>\s*?<\/div>)` }}
-{{ $nocode := `<p>[see code by visiting website]</p>` }}
+{{ $nocode := `<div style="border: 1px solid #888888;">${1}</div>` }}
 {{ $yts := `(?ms:<div class="mb4".*?<iframe.*?<\/iframe>\s*?<\/div>)` }}
 {{ $iframes := `(?ms:<iframe.*?<\/iframe>)` }}
 {{ $footnotes := `(?ms:(<a href="#fnref.*?<\/a>)|(<sup id="fnref.*?<\/sup>))` }}
@@ -47,14 +56,14 @@
       <guid>{{ .Permalink }}</guid>
       <description>
         {{ "<![CDATA[" | safeHTML }}
-          {{ .Summary | replaceRE $gphoto $newgphoto | replaceRE $comments $clean | replaceRE $brs $clean | safeHTML }}
+          {{ .Summary | replaceRE $gphoto $newgphoto | replaceRE $nphoto $newnphoto | replaceRE $comments $clean | replaceRE $brs $clean | safeHTML }}
           {{ if and (isset .Params "image") (not (eq .Params.image "")) }}
-            <p><a href="{{ .Permalink | absURL }}"><img src="{{ .Params.image | absURL }}" /></a></p>
+            <p><a href="{{ .Permalink | absURL }}"><img src="{{ .Params.image | absURL }}" style="max-width: 100%;"/></a></p>
           {{ else }}
-            <p><a href="{{ .Permalink | absURL }}"><img src="{{ .Site.BaseURL }}/img/default-header-img.jpg" /></a></p>
+            <p><a href="{{ .Permalink | absURL }}"><img src="{{ .Site.BaseURL }}/img/default-header-img.jpg" style="max-width: 100%;"/></a></p>
           {{ end }}
           <p><a href="{{ .Permalink | absURL }}">Visit website to read the full article</a></p>
-          {{ .Content | replaceRE $gphoto $newgphoto | replaceRE $codes $nocode | replaceRE $tablecodes $nocode | replaceRE $yts $clean | replaceRE $iframes $clean | replaceRE $footnotes $clean | replaceRE $comments $clean | replaceRE $brs $clean | safeHTML }}
+          {{ .Content | replaceRE $gphoto $newgphoto | replaceRE $nphoto $newnphoto | replaceRE $codes $nocode | replaceRE $tablecodes $nocode | replaceRE $yts $clean | replaceRE $iframes $clean | replaceRE $footnotes $clean | replaceRE $comments $clean | replaceRE $brs $clean | safeHTML }}
         {{ "]]>" | safeHTML }}
       </description>
     </item>
