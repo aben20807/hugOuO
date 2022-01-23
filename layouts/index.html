@@ -12,7 +12,7 @@
       {{ partial "sidebar-series.html" . }}
     </div>
 
-    <div class="col-md-9 pa0 w-100 w-70-ns center">
+    <div class="col-md-9 pa0 w-100 w-60-ns center">
       <section class="w-100 mw8">
         {{ $pages := where .Paginator.Pages ".Params.skip" "ne" "true" }}
         {{ range where (where $pages ".Date.Unix" "<" now.Unix) "Section" "ne" "slides" }}
