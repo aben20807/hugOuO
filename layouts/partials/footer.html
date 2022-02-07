@@ -15,16 +15,33 @@
 </div>
 
 <!-- https://brianli.com/adding-next-previous-post-links-in-hugo/ -->
-<div class="col" style="font-size: 70%;">
-  <div class="previous-post nested-links" style="float: left; width: 100%;">
+<div class="col tl" style="font-size: 70%;">
+  <div class="nested-links mb2 fl w-100">
     {{ if .PrevPage }}
-    <a title={{ .PrevPage.Title }} class="link-reverse" style="float: left;" href="{{ .PrevPage.Permalink }}?ref=footer">P<i class="fas fa-arrow-circle-left"></i> {{ .PrevPage.Title | truncate 50 "..."}} </a>
+    <a title={{ .PrevPage.Title }} class="link-reverse fl w-100 truncate" href="{{ .PrevPage.Permalink }}">
+      [Prev] [{{ .PrevPage.Title }}]
+      {{ .PrevPage.Summary | plainify | htmlUnescape }}
+    </a>
     {{ end }}
   </div>
-  <div class="next-post nested-links" style="float: right; width: 100%;">
+  <div class="nested-links mb2 fl w-100">
     {{ if .NextPage }}
-    <a title={{ .NextPage.Title }} class="link-reverse" style="float: right;" href="{{ .NextPage.Permalink }}?ref=footer">{{ .NextPage.Title | truncate 50 "..." }} <i class="fas fa-arrow-circle-right"></i>N</a>
+    <a title={{ .NextPage.Title }} class="link-reverse fl w-100 truncate" href="{{ .NextPage.Permalink }}">
+      [Next] [{{ .NextPage.Title }}]
+      {{ .NextPage.Summary | plainify | htmlUnescape }}
+    </a>
     {{ end }}
+  </div>
+  <div class="mb2">
+  {{ $related := .Site.RegularPages.RelatedIndices . "date" "tags" | first 3 }}
+  {{ range $related }}
+    <div class="nested-links fl w-100">
+      <a title={{ .Title }} class="link-reverse fl w-100 truncate" href="{{ .Permalink }}">
+        [Related] [{{ .Title }}]
+        {{ .Summary | plainify | htmlUnescape }}
+      </a>
+    </div>
+  {{ end }}
   </div>
 </div>
 
