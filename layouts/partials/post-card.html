@@ -2,24 +2,12 @@
 
   <a href="{{ .Permalink }}">
     <div class="post-header text-center">
-      <div class="px-4 post-heading">{{ .Title }}</div>
-      <ul class="post-meta li-x mt-1">
-        {{ if and .Site.Params.dateformfull .Site.Params.dateform }}
-        <li>{{ .Date.Format .Site.Params.dateform }}</li>
-        {{ else }}
-        <li>{{ .Date.Format "Jan 2, 2006" }}</li>
-        {{ end }}
-
-        {{ if not .Site.Params.noshowreadtime }}
-        <li class="middot"></li>
-        <li>{{ i18n "readingTime" .ReadingTime }}</li>
-        {{ end }}
-      </ul>
+      <h4 class="">{{ .Title }} ({{ .Date.Format "Jan 2, 2006" }})</h4>
     </div>
-    {{ with .Params.img }}
+    {{ with .Params.image }}
 
-    <div class="view">
-      <img src="{{ . | absURL }}" />
+    <div class="view h-10">
+      <img class="view lazyload h-10" src="{{ . | absURL }}" />
     </div>
     {{ end }}
 
@@ -36,21 +24,23 @@
     <div>
       {{ if .Params.categories }}
       {{ range .Params.categories }}
-      <li><a href="{{ "categories/" | absLangURL }}{{ . | urlize }}"><i class="fas fa-folder-open pr-1"
-            aria-hidden="true"></i> {{ . }} </a></li>
-      {{ end }}
-      {{ end }}
-      {{ if .Params.series }}
-      {{ range .Params.series }}
-      <li><a href="{{ "series/" | absLangURL }}{{ . | urlize }}"><i class="fas fa-bookmark pr-1"
-            aria-hidden="true"></i>{{ . }}</a></li>
+      <li>in <a href="{{ "categories" | absURL }}/{{ . | urlize }}" class="no-underline no-underline-on-hover">{{ . }} </a></li>
       {{ end }}
       {{ end }}
     </div>
-
+    <div>
+      {{ if .Params.series }}
+      {{ range .Params.series }}
+      <li>at <a href="{{ "series" | absURL }}/{{ . | urlize }}" class="no-underline no-underline-on-hover">{{ . }} </a></li>
+      {{ end }}
+      {{ end }}
+    </div>
     <div>
       {{ if .Params.tags }}
-      {{ partial "tags.html" . }}
+      <li>with</li>
+      {{ range .Params.tags }}
+      <li><a href="{{ "tags/" | absLangURL }}{{ . | urlize }}" class="no-underline no-underline-on-hover">{{ . }} </a></li>
+      {{ end }}
       {{ end }}
     </div>
   </div>

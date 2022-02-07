@@ -585,7 +585,7 @@ body.dark-mode a:hover i.fa-chevron-circle-right,
 body.dark-mode a:hover i.fa-arrow-circle-left,
 body.dark-mode a:hover i.fa-arrow-circle-right {
   color: var(--light-orange);
-  transition: color 0.15s ease-in;
+  transition: color 0.15s ease-in !important;
 }
 body.dark-mode h1.article-heading:before,
 body.dark-mode h2.article-heading:before,

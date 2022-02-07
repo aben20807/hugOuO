@@ -15,15 +15,28 @@
 </div>
 
 <!-- https://brianli.com/adding-next-previous-post-links-in-hugo/ -->
-<div class="row" style="font-size: 90%; display: flex; justify-content: space-around;">
-  <div class="next-post nested-links">
-    {{ if .NextPage }}
-    <a title={{ .NextPage.Title }} class="link-reverse" href="{{ .NextPage.Permalink }}?ref=footer"><i class="fas fa-arrow-circle-left"></i> {{ .NextPage.Title | truncate 20 "..." }}</a>
+<div class="col" style="font-size: 70%;">
+  <div class="previous-post nested-links" style="float: left; width: 100%;">
+    {{ if .PrevPage }}
+    <a title={{ .PrevPage.Title }} class="link-reverse" style="float: left;" href="{{ .PrevPage.Permalink }}?ref=footer">P<i class="fas fa-arrow-circle-left"></i> {{ .PrevPage.Title | truncate 50 "..."}} </a>
     {{ end }}
   </div>
-  <div class="previous-post nested-links">
-    {{ if .PrevPage }}
-    <a title={{ .PrevPage.Title }} class="link-reverse" href="{{ .PrevPage.Permalink }}?ref=footer">{{ .PrevPage.Title | truncate 20 "..."}} <i class="fas fa-arrow-circle-right"></i></a>
+  <div class="next-post nested-links" style="float: right; width: 100%;">
+    {{ if .NextPage }}
+    <a title={{ .NextPage.Title }} class="link-reverse" style="float: right;" href="{{ .NextPage.Permalink }}?ref=footer">{{ .NextPage.Title | truncate 50 "..." }} <i class="fas fa-arrow-circle-right"></i>N</a>
     {{ end }}
   </div>
 </div>
+
+<!-- <section class="section" style="font-size: 40% !important;">
+  <div class="columns is-centered">
+    <div class="columns max-300px">
+        {{ $related := .Site.RegularPages.RelatedIndices . "date" "tags" | first 3 }}
+        {{ range $related }}
+        <div class="column is-one-third">
+            {{ partial "post-card.html" . }}
+        </div>
+        {{ end }}
+    </div>
+  </div>
+</section> -->
