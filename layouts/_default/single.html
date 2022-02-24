@@ -59,8 +59,8 @@
 <meta name="og:image" content="{{ default "img/default-header-img.jpg" .Params.image | absURL }}" />
 <meta name="og:description" content="{{ .Description | markdownify }}" />
 <meta name="og:url" content="{{ .Permalink }}" />
-<meta name="og:site_name"
-  content="{{ cond (eq .Site.Params.titlecase true) (.Title | title | markdownify) (.Title | markdownify) }}" />
+<meta name="og:site_name" content="{{ cond (eq .Site.Params.titlecase true) (.Site.Title | title | markdownify) (.Site.Title | markdownify) }}" />
+<meta name="keywords" content="{{ with .Params.tags }}{{ delimit . ", "}}{{ end }}" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@{{ .Site.Params.twitter }}" />
 {{ end }}
