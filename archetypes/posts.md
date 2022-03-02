@@ -7,11 +7,11 @@ image = ""
 credit = ""
 thumbnail = ""
 comments = true
+toc = true
+draft = false
 categories = ["Uncategorized"]
 tags = ["Untaged"]
 series = []
-toc = false
-draft = true
 +++
 
 
