@@ -138,9 +138,6 @@ pre {
   max-width: 100%;
   height: auto;
 }
-.mrow {
-  padding-right: 1px !important;
-}
 #hdr {
   text-shadow: black 0.1em 0.1em 0.2em;
 }
@@ -569,6 +566,9 @@ body.dark-mode span.MathJax * {
 body.dark-mode pre,
 body.dark-mode code {
   background: rgb(39,40,33);
+}
+body.dark-mode > div.CtxtMenu_MenuFrame > div.CtxtMenu_Info.CtxtMenu_MousePost > div > pre {
+  background: rgb(246,248,250);
 }
 body.dark-mode .post-item .meta,
 body.dark-mode .toc-link,

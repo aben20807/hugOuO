@@ -191,20 +191,35 @@
   </script>
 
   <!-- MathJax -->
-  <script async type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  <script async type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-      inlineMath: [['$','$']],
+  <script>
+  MathJax = {
+    startup: {
+      requireMap: {
+        AMSmath: 'ams',
+        AMSsymbols: 'ams',
+        AMScd: 'amscd',
+        HTML: 'html',
+        noErrors: 'noerrors',
+        noUndefined: 'noundefined'
+      },
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       displayMath: [['$$','$$']],
-      processEscapes: true,
-      processEnvironments: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-      TeX: { equationNumbers: { autoNumber: "AMS" },
-          extensions: ["AMSmath.js", "AMSsymbols.js"] }
-      }
-    });
+      tags: 'ams',
+    },
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    svg: {
+      fontCache: 'global',
+      scale: 1.0
+    },
+    chtml: {
+        scale: 1.0
+    }
+  };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
   </script>
 
   <!-- image zoom -->
