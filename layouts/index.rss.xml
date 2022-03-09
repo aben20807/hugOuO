@@ -21,7 +21,6 @@
     </figcaption>
   </figure>
 ` }}
-{{ $brs := `(?ms:<br>)|(?ms:<br\s*?\/\s*?>)|(?ms:\n+)` }}
 {{ $clean := ` ` }}
 {{ $codes := `(?ms:(<div class="highlight">\s*?<pre.*?<\/code>\s*?<\/pre>\s*?<\/div>)|(<pre>\s*?<code>.*<\/code>\s*?<\/pre>))` }}
 {{ $tablecodes := `(?ms:<div class="highlight">\s*?<div.*?<table.*?<\/table>\s*?<\/div>\s*?<\/div>)` }}
@@ -56,14 +55,14 @@
       <guid>{{ .Permalink }}</guid>
       <description>
         {{ "<![CDATA[" | safeHTML }}
-          {{ .Summary | replaceRE $gphoto $newgphoto | replaceRE $nphoto $newnphoto | replaceRE $comments $clean | replaceRE $brs $clean | safeHTML }}
+          {{ .Summary | replaceRE $gphoto $newgphoto | replaceRE $nphoto $newnphoto | replaceRE $comments $clean | replaceRE "\n" "<br/>" | safeHTML }}
           {{ if and (isset .Params "image") (not (eq .Params.image "")) }}
             <p><a href="{{ .Permalink | absURL }}"><img src="{{ .Params.image | absURL }}" style="max-width: 100%;"/></a></p>
           {{ else }}
             <p><a href="{{ .Permalink | absURL }}"><img src="{{ .Site.BaseURL }}/img/default-header-img.jpg" style="max-width: 100%;"/></a></p>
           {{ end }}
           <p><a href="{{ .Permalink | absURL }}">Visit website to read the full article</a></p>
-          {{ .Content | replaceRE $gphoto $newgphoto | replaceRE $nphoto $newnphoto | replaceRE $codes $nocode | replaceRE $tablecodes $nocode | replaceRE $yts $clean | replaceRE $iframes $clean | replaceRE $footnotes $clean | replaceRE $comments $clean | replaceRE $brs $clean | safeHTML }}
+          {{ .Content | replaceRE $gphoto $newgphoto | replaceRE $nphoto $newnphoto | replaceRE $codes $nocode | replaceRE $tablecodes $nocode | replaceRE $yts $clean | replaceRE $iframes $clean | replaceRE $footnotes $clean | replaceRE $comments $clean | replaceRE "\n" "<br/>" | safeHTML }}
         {{ "]]>" | safeHTML }}
       </description>
     </item>
