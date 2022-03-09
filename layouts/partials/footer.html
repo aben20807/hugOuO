@@ -1,12 +1,22 @@
+<div id="license-block" onclick="copyToClip()" style="cursor: pointer !important;" title="Copy the license block">
 <dl style="font-size: 80%;">
-  <dt>Author</dt>
-  <dd>{{ .Params.author | default .Site.Params.author }}</dd>
-  <dt>Last modified</dt>
-  <dd>{{ .Page.Lastmod.Format "Jan 2, 2006" }}</dd>
-  <dt>License</dt>
-  <dd><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noreferrer noopener">CC BY-NC
-      4.0</a></dd>
-</dl>
+<dt>Author:</dt> <dd>{{ .Params.author | default .Site.Params.author }}</dd>
+<dt>Last modified:</dt> <dd>{{ .Page.Lastmod.Format "Jan 2, 2006" }}</dd>
+<dt>License:</dt> <dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer noopener">CC BY 4.0</a></dd>
+</dl></div>
+<script>
+  function copyToClip() {
+    var copyText = document.getElementById("license-block");
+    var textArea = document.createElement("textarea");
+    textArea.value = copyText.textContent.replace(/^\n\n/g, '') + "Link: {{ .Permalink }}";
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("Copy");
+    textArea.remove();
+    copyText.title = "Copied";
+    setTimeout(function() { copyText.title = "Copy the license block"; }, 2000);
+  }
+</script>
 <div>
   <!-- likecoin button -->
   <script type="text/javascript">
