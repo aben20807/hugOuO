@@ -691,6 +691,7 @@ body.dark-mode .fn-content {
   margin: 0;
   z-index: 8;
   text-align: left;
+  width: max-content;
   max-width: 20rem;
 }
 /**
