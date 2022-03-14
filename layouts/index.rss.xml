@@ -24,7 +24,7 @@
 {{ $clean := ` ` }}
 {{ $codes := `(?ms:(<div class="highlight">\s*?<pre.*?<\/code>\s*?<\/pre>\s*?<\/div>)|(<pre>\s*?<code>.*<\/code>\s*?<\/pre>))` }}
 {{ $tablecodes := `(?ms:<div class="highlight">\s*?<div.*?<table.*?<\/table>\s*?<\/div>\s*?<\/div>)` }}
-{{ $nocode := `<div style="border: 1px solid #888888;">${1}</div>` }}
+{{ $blockcode := `<div style="border: 1px solid #888888;">${1}</div>` }}
 {{ $yts := `(?ms:<div class="mb4".*?<iframe.*?<\/iframe>\s*?<\/div>)` }}
 {{ $iframes := `(?ms:<iframe.*?<\/iframe>)` }}
 {{ $footnotes := `(?ms:(<a href="#fnref.*?<\/a>)|(<sup id="fnref.*?<\/sup>))` }}
@@ -62,7 +62,23 @@
             <p><a href="{{ .Permalink | absURL }}"><img src="{{ .Site.BaseURL }}/img/default-header-img.jpg" style="max-width: 100%;"/></a></p>
           {{ end }}
           <p><a href="{{ .Permalink | absURL }}">Visit website to read the full article</a></p>
-          {{ .Content | replaceRE $gphoto $newgphoto | replaceRE $nphoto $newnphoto | replaceRE $codes $nocode | replaceRE $tablecodes $nocode | replaceRE $yts $clean | replaceRE $iframes $clean | replaceRE $footnotes $clean | replaceRE $comments $clean | replaceRE "\n" "<br/>" | safeHTML }}
+          {{ $tmpContent := .Content }}
+          {{ $tmpContent := $tmpContent | replaceRE $comments $clean }}
+          {{ $tmpContent := $tmpContent | replaceRE $gphoto $newgphoto }}
+          {{ $tmpContent := $tmpContent | replaceRE $nphoto $newnphoto }}
+          {{ $tmpContent := $tmpContent | replaceRE $codes $blockcode }}
+          {{ $tmpContent := $tmpContent | replaceRE $tablecodes $blockcode }}
+          {{ $tmpContent := $tmpContent | replaceRE $yts $clean }}
+          {{ $tmpContent := $tmpContent | replaceRE $iframes $clean }}
+          {{ $tmpContent := $tmpContent | replaceRE $footnotes $clean }}
+          {{ $tmpContent := $tmpContent | replaceRE "\n" "<br/>" }}
+          {{ $tmpContent := $tmpContent | replaceRE "(<br/>)?(</?p>)(<br/>)?" "${2}" }}
+          {{ $tmpContent := $tmpContent | replaceRE "</li><br/>" "</li>" }}
+          {{ $tmpContent := $tmpContent | replaceRE "</h1><br/>" "</h1>" }}
+          {{ $tmpContent := $tmpContent | replaceRE "(</?figcaption>)<br/>" "${1}" }}
+          {{ $tmpContent := $tmpContent | replaceRE "</center><br/>" "</center>" }}
+          {{ $tmpContent := $tmpContent | replaceRE "(</?[ou]l>)<br/>" "${1}" }}
+          {{ $tmpContent | safeHTML }}
         {{ "]]>" | safeHTML }}
       </description>
     </item>
