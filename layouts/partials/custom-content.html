@@ -78,7 +78,12 @@
 {{/* footnote of image caption */}}
 {{ $x := `[\s\n]*(<figure class="gphoto-media center">[\s\n]*<div class="img-container center" style="width:73%;">[\s\n]*<noscript>[\s\n]*<img src=".*" class="center img-zoomable" alt=".*" data-action="zoom" title=".*">[\s\n]*</noscript>[\s\n]*<img data-src=".*" class="center img-zoomable lazyload" alt=".*" data-action="zoom" title="">[\s\n]*</div>[\s\n]*<figcaption>[\s\n]*<center class="caption-text">[\s\n]*<p style="margin: .7rem 0 0;">.*)(</p>[\s\n]*<!-- hide the link -->[\s\n]*<font class="douyin hover-show">[\s\n]*<a href=".*" target="_blank" rel="noreferrer noopener" style="opacity: 1\.0; text-decoration: none;"\s*>OuO</a>[\s\n]*</font>[\s\n]*</center>[\s\n]*</figcaption>[\s\n]*</figure>)[\s\n]*(<sup id="fnref:.*"><a href="#fn:.*" class=".*" role="doc-noteref">.*</a></sup>)(.*)` }}
 {{ $y := `${1}${3}${2}${4}` }}
-{{ $tmp := $tmp | replaceRE $x $y | safeHTML }}
+{{ $tmp := $tmp | replaceRE $x $y }}
+
+{{/* relref to smooth link */}}
+{{ $relref_links := `<a (href="#[^\"]+")>` }}
+{{ $relref_newlinks := `<a ${1} class="smoothScroll no-underline-on-hover">` }}
+{{ $tmp := $tmp | replaceRE $relref_links $relref_newlinks  }}
 
 {{/* put costom content */}}
-{{- $tmp -}}
+{{- $tmp | safeHTML -}}
