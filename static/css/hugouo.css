@@ -327,10 +327,10 @@ blockquote {
 blockquote::before {
   content: "\201C";
   color: #2060a8;
-  font-size: 77px;
+  font-size: 350%;
   position: absolute;
-  left: 15px;
-  top: 0px;
+  left: -1rem;
+  top: 0;
 }
 
 .gphoto-media {
