@@ -69,6 +69,8 @@
   {{ . | safeHTML }}{{ end }}{{ end }}
   {{ if not (in (.Site.BaseURL | string) "localhost") }}
     {{ template "_internal/google_analytics.html" . }}
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{.Site.Params.Adsense.client}}"
+     crossorigin="anonymous"></script>
   {{ end }}
 </head>
 
