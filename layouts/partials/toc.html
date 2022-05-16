@@ -9,11 +9,11 @@
 
 {{ if .Params.toc }}
 <!-- ignore empty links with + -->
-{{- $regex := printf "<h[%d-%d].*?>(.|\n])+?</h[%d-%d]>" $minLevel $maxLevel $minLevel $maxLevel -}}
+{{- $regex := printf "(?ms:<h[%d-%d].*?>(.|\n])+?</h[%d-%d]>)" $minLevel $maxLevel $minLevel $maxLevel -}}
 {{- $headers := findRE $regex .Content -}}
 <!-- at least one header to link to -->
 {{ if ge (len $headers) 1 }}
-{{- $h1_n := len (findRE "<h1.*?>(.|\n])+?</h1>" .Content) -}}
+{{- $h1_n := len (findRE "(?ms:<h1.*?>(.|\n])+?</h1>)" .Content) -}}
 {{- $re := (cond (eq $h1_n 0) "<h[2-4]" "<h[1-4]") -}}
 {{- $renum := (cond (eq $h1_n 0) "[2-4]" "[1-4]") -}}
 
@@ -30,7 +30,7 @@
     {{- range seq $next_heading -}}
     <ul class="toc">
       {{- end -}}
-      {{- $anchorId :=  (replaceRE ".* id=\"(.*?)\".*" "$1" $header ) -}}
+      {{- $anchorId :=  (replaceRE "(?ms:.* id=\"(.*?)\".*)" "$1" $header ) -}}
       <li class="toc-item">
         <a class="toc-link smoothScroll" href="#{{ $anchorId }}">
           {{ $header | plainify | htmlUnescape }}

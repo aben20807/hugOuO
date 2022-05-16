@@ -1,13 +1,7 @@
-{{/* headline hash */}}
-<script src="https://code.iconify.design/1/1.0.0-rc6/iconify.min.js"></script>
-{{ $tmp := . | replaceRE "(<(h[1-3]) id=\"([^\"]+)\"(.+))(</h[1-3]+>)" `<${2} id="${3}" class="article-heading"${4}<a class="headline-hash smoothScroll hover-show scrollspy" style="font-size: 0.75em; color: black; padding-left: 0.25em" href="#${3}"><span class="iconify" data-icon="octicon-link" data-inline="false"></span></a> ${5}` | safeHTML }}
-{{/* Only h1 ~ h3 need to add the scrollspy class */}}
-{{ $tmp := $tmp | replaceRE "(<(h[4-6]) id=\"([^\"]+)\"(.+))(</h[4-6]+>)" `<${2} id="${3}" class="article-heading"${4}<a class="headline-hash smoothScroll hover-show" style="font-size: 0.75em; color: black; padding-left: 0.25em" href="#${3}"><span class="iconify" data-icon="octicon-link" data-inline="false"></span></a> ${5}` | safeHTML }}
-
 {{/* links */}}
 {{ $selflinks := `(<a\s*href="https?:\/\/aben20807\.github\.io\/[^\"]+"\s*)>` }}
 {{ $newselflinks := `${1} class="self-link">` }}
-{{ $tmp := $tmp | replaceRE $selflinks $newselflinks | safeHTML }}
+{{ $tmp := . | replaceRE $selflinks $newselflinks | safeHTML }}
 {{ $links := `(<a\s*href="https:[^\"]+")\s*>` }}
 {{ $newlinks := `${1} target="_blank" rel="noreferrer noopener">` }}
 {{ $tmp := $tmp | replaceRE $links $newlinks | safeHTML }}
