@@ -1,16 +1,7 @@
-{{/* links */}}
-{{ $selflinks := `(<a\s*href="https?:\/\/aben20807\.github\.io\/[^\"]+"\s*)>` }}
-{{ $newselflinks := `${1} class="self-link">` }}
-{{ $tmp := . | replaceRE $selflinks $newselflinks | safeHTML }}
-{{ $links := `(<a\s*href="https:[^\"]+")\s*>` }}
-{{ $newlinks := `${1} target="_blank" rel="noreferrer noopener">` }}
-{{ $tmp := $tmp | replaceRE $links $newlinks | safeHTML }}
-
-
 {{/* footnote to smooth link */}}
 {{ $footnote_links := `<a (href="#fn:[^\"]+" class="footnote-ref)(" role="doc-noteref")>` }}
 {{ $footnote_newlinks := `<a ${1} smoothScroll no-underline-on-hover${2}>` }}
-{{ $tmp := $tmp | replaceRE $footnote_links $footnote_newlinks | safeHTML }}
+{{ $tmp := . | replaceRE $footnote_links $footnote_newlinks | safeHTML }}
 {{ $footnote_links := `<a (href="#fnref:[^\"]+") class="footnote-backref" role="doc-backlink">(.*)</a>` }}
 {{ $footnote_newlinks := `<sup><a ${1} class="smoothScroll footnote-backref no-underline-on-hover" role="doc-backlink">${2}</a></sup>` }}
 {{ $tmp := $tmp | replaceRE $footnote_links $footnote_newlinks | safeHTML }}
