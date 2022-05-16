@@ -1,0 +1,31 @@
+{{/* https://gohugo.io/templates/render-hooks/ */}}
+{{/* Ref: https://sebastiandedeyne.com/captioned-images-with-markdown-render-hooks-in-hugo/ */}}
+
+{{ $gdrive_photo := `https://drive.google.com/open.+id=([^\"]+)` }} {{/*"*/}}
+{{ $new_gdrive_photo := `https://drive.google.com/uc?export=view&id=${1}`}}
+{{ $gdrive_text := `google-(.*)` }}
+{{ $new_gdrive_text := `${1}` }}
+
+
+<figure class="gphoto-media center">
+    <div class="img-container center" style="width:73%;">
+        <noscript>
+            <img src="{{ .Destination | replaceRE $gdrive_photo $new_gdrive_photo | safeURL }}" class="center img-zoomable" alt="{{ .Text }}" data-action="zoom"
+                title="">
+        </noscript>
+        <img data-src="{{ .Destination | replaceRE $gdrive_photo $new_gdrive_photo | safeURL }}" class="center img-zoomable lazyload" alt="{{ .Text }}"
+            data-action="zoom" title="">
+    </div>
+    <figcaption>
+        <center class="caption-text">
+            {{ if .Text }}
+            <p style="margin: .7rem 0 0;">{{ .Text | replaceRE $gdrive_text $new_gdrive_text | safeHTML }}</p>
+            <!-- hide the link -->
+            <font class="douyin hover-show">
+                <a href="{{ .Destination | safeURL }}" target="_blank" rel="noreferrer noopener"
+                    style="opacity: 1.0; text-decoration: none;">OuO</a>
+            </font>
+            {{ end }}
+        </center>
+    </figcaption>
+</figure>
