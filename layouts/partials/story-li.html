@@ -22,7 +22,7 @@
           </a>
         </div>
         {{ end }}
-        <div class="w-100 w6-ns pl3-ns pr6-ns">
+        <div class="w-100 w6-ns pl3-ns" style="padding-right: 10%;">
           <h1 class="f3 fw1 mt0 lh-title"><a href="{{ .Permalink }}" class="color-inherit dim link no-underline-on-hover">
               {{- if eq .Section "talks" }}{{ .Params.event }}: {{ end -}}
               {{- cond (eq .Site.Params.titlecase true) (.Title | title | markdownify) (.Title | markdownify) -}}
@@ -30,15 +30,15 @@
           <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
             {{ if eq .Section "slides" }}
             {{ .Description | markdownify }}
-            <p class="pa0 sans-serif f7"><a class="ba br3 pa2 link no-underline-on-hover" href="{{ .Permalink }}">View Slideshow <i
+            <p class="pa0 sans-serif f7" style="white-space: nowrap;"><a class="ba br3 pa2 link no-underline-on-hover" href="{{ .Permalink }}">View Slideshow <i
                   class="fas fa-chevron-circle-right"></i></a></p>
             {{ else if eq .Section "talks" }}
             {{ .Summary }}
-            <p class="pa0 sans-serif f7"><a class="ba br3 pa2 link no-underline-on-hover" href="{{ .Permalink }}">Talk Details <i
+            <p class="pa0 sans-serif f7" style="white-space: nowrap;"><a class="ba br3 pa2 link no-underline-on-hover" href="{{ .Permalink }}">Talk Details <i
                   class="fas fa-chevron-circle-right"></i></a></p>
             {{ else }}
             {{ .Summary }}
-            <p class="pa0 sans-serif f7"><a class="ba br3 pa2 link no-underline-on-hover" href="{{ .Permalink }}">Continue Reading <i
+            <p class="pa0 sans-serif f7" style="white-space: nowrap;"><a class="ba br3 pa2 link no-underline-on-hover" href="{{ .Permalink }}">Continue Reading <i
                   class="fas fa-chevron-circle-right"></i></a></p>
             {{ end }}
           </div>
