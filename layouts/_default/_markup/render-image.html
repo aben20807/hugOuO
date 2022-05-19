@@ -20,12 +20,12 @@
         <center class="caption-text">
             {{ if .Text }}
             <p style="margin: .7rem 0 0;">{{ .Text | replaceRE $gdrive_text $new_gdrive_text | safeHTML }}</p>
+            {{ end }}
             <!-- hide the link -->
             <font class="douyin hover-show">
                 <a href="{{ .Destination | safeURL }}" target="_blank" rel="noreferrer noopener"
                     style="opacity: 1.0; text-decoration: none;">OuO</a>
             </font>
-            {{ end }}
         </center>
     </figcaption>
 </figure>
