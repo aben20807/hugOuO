@@ -1,6 +1,7 @@
 +++
 title = "{{ replace ( slicestr .TranslationBaseName 9 ) "-" " " | title }}"
 date = "{{ .Date }}"
+publishDate = "{{ now.Format "2006-01-02" }}"
 url = "/{{ .Dir }}{{ .Name }}"
 description = ""
 image = ""
@@ -16,4 +17,3 @@ series = []
 
 
 <!--more-->
-<!-- https://drive.google.com/uc?export=view&id= -->
