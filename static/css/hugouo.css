@@ -139,6 +139,9 @@ pre {
   max-width: 100%;
   height: auto;
 }
+table pre {
+  padding: 0em !important;
+}
 #hdr {
   text-shadow: black 0.1em 0.1em 0.2em;
 }
