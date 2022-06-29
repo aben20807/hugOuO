@@ -159,9 +159,9 @@ $(function(){
 document.addEventListener('DOMContentLoaded', function() {
   let highlight = document.querySelectorAll('div.highlight');
   Array.prototype.forEach.call(highlight, function(block) {
-    var code = block.querySelectorAll('pre code[data-lang]');
-    var language = code[0].getAttribute('data-lang');
-    block.insertAdjacentHTML("beforebegin",`<label class="code-label">${language}</label>`)
+    let code = block.querySelectorAll('pre code[data-lang]');
+    let language = code[0].getAttribute('data-lang');
+    block.insertAdjacentHTML("beforebegin",`<label class="code-label">${language}</label>`);
   });
 })
 

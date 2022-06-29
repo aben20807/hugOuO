@@ -150,6 +150,8 @@ label.code-label {
   border-radius: 7px 7px 0 0;
   display: table-cell;
   vertical-align: bottom;
+  text-align: center;
+  min-width: 1rem;
 }
 div.highlight > pre {
   margin-top: 0 !important;
@@ -169,10 +171,14 @@ details {
   margin-left: 5px;
 }
 p,
-summary {
+summary,
+table {
   font-size: 19px !important;
   line-height: 1.653em;
   margin: 0 0 1.3em;
+}
+div.highlight {
+  margin: 0 0 1.3em !important;
 }
 p + ul {
   margin-top: -1.2em;
