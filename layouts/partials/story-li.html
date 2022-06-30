@@ -13,8 +13,8 @@
       <div class="flex flex-column flex-row-ns">
         {{ if $hdr }}
         <div
-          class="mb0 mb0-ns w-100 h4 h4-m w4-m h5-ns br3 cover {{ if lt .PublishDate.Unix now.Unix }}hide-child{{ end }}"
-          style="background-image: url('{{ absURL (default "img/default-header-img.tn-500x500.jpg" (default .Params.image .Params.thumbnail)) | replaceRE $bigw $smallw }}'); background-position: center;">
+          class="mb0 mb0-ns w-100 br3 cover {{ if lt .PublishDate.Unix now.Unix }}hide-child{{ end }}"
+          style="background-image: url('{{ absURL (default "img/default-header-img.tn-500x500.jpg" (default .Params.image .Params.thumbnail)) | replaceRE $bigw $smallw }}'); background-position: center; aspect-ratio: 4/3;">
           <a href="{{ .Permalink }}"
             class="sans-serif db child w-100 h-100 f7 lh-copy white no-underline br3 ph3 pt4 pt5-l ttu tc bg-black-60">
             <i class="mt3 mt5-l child far {{ cond (gt .PublishDate.Unix now.Unix) "fa-hourglass" "fa-calendar-alt" }}"></i>
