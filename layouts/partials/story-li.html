@@ -13,7 +13,7 @@
       <div class="flex flex-column flex-row-ns">
         {{ if $hdr }}
         <div
-          class="mb0 mb0-ns w-100 h5 h4-m w4-m h5-ns w-70-ns br3 cover {{ if lt .PublishDate.Unix now.Unix }}hide-child{{ end }}"
+          class="mb0 mb0-ns w-100 h4 h4-m w4-m h5-ns br3 cover {{ if lt .PublishDate.Unix now.Unix }}hide-child{{ end }}"
           style="background-image: url('{{ absURL (default "img/default-header-img.tn-500x500.jpg" (default .Params.image .Params.thumbnail)) | replaceRE $bigw $smallw }}'); background-position: center;">
           <a href="{{ .Permalink }}"
             class="sans-serif db child w-100 h-100 f7 lh-copy white no-underline br3 ph3 pt4 pt5-l ttu tc bg-black-60">
@@ -22,7 +22,7 @@
           </a>
         </div>
         {{ end }}
-        <div class="w-100 w6-ns pl3-ns" style="padding-right: 10%;">
+        <div class="w-100 w6-ns pl3-ns">
           <h1 class="f3 fw1 mt0 lh-title"><a href="{{ .Permalink }}" class="color-inherit dim link no-underline-on-hover">
               {{- if eq .Section "talks" }}{{ .Params.event }}: {{ end -}}
               {{- cond (eq .Site.Params.titlecase true) (.Title | title | markdownify) (.Title | markdownify) -}}
