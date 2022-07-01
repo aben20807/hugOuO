@@ -21,6 +21,11 @@
   <li class="nav-item pb-3 text-center">
     <span class="font-weight-bold mb-2">- CATALOG - </span>
   </li>
+  {{ $var := .Scratch }}
+  {{- $toc1_cnt := 0 -}}
+  {{- $toc2_cnt := 0 -}}
+  {{- $toc3_cnt := 0 -}}
+  {{- $toc4_cnt := 0 -}}
   <div id="toc-scroll" class="noselect hide-scrollbar">
     {{- range $headers -}}
     {{- $header := . -}}
@@ -32,7 +37,23 @@
       {{- end -}}
       {{- $anchorId :=  (replaceRE "(?ms:.* id=\"(.*?)\".*)" "$1" $header ) -}}
       <li class="toc-item">
-        <a class="toc-link smoothScroll" href="#{{ $anchorId }}">
+        <a class="toc-link smoothScroll toc-level-{{.}}" href="#{{ $anchorId }}">
+        {{- if eq (int .) 1 -}}
+          {{- $var.Add "toc1_cnt" 1 -}}
+          {{- $var.Get "toc1_cnt" -}}.
+          {{- $var.Set "toc2_cnt" 0 -}}
+        {{ else if eq (int .) 2 }}
+          {{- $var.Add "toc2_cnt" 1 -}}
+          {{- $var.Get "toc1_cnt" -}}.{{- $var.Get "toc2_cnt" -}}.
+          {{- $var.Set "toc3_cnt" 0 -}}
+        {{ else if eq (int .) 3 }}
+          {{- $var.Add "toc3_cnt" 1 -}}
+          {{- $var.Get "toc1_cnt" -}}.{{- $var.Get "toc2_cnt" -}}.{{- $var.Get "toc3_cnt" -}}.
+          {{- $var.Set "toc4_cnt" 0 -}}
+        {{ else if eq (int .) 4 }}
+          {{- $var.Add "toc4_cnt" 1 -}}
+          {{- $var.Get "toc1_cnt" -}}.{{- $var.Get "toc2_cnt" -}}.{{- $var.Get "toc3_cnt" -}}.{{- $var.Get "toc4_cnt" -}}.
+        {{ end }}
           {{ $header | plainify | htmlUnescape }}
         </a>
       </li>
