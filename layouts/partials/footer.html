@@ -1,18 +1,24 @@
 <div id="license-block">
 <dl style="font-size: 80%;">
-<dt>Author:</dt> <dd>{{ .Params.author | default .Site.Params.author }}</dd>
-<dt>Last modified:</dt> <dd>{{ .Page.Lastmod.Format "Jan 2, 2006" }}</dd>
-<dt>License:</dt> <dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer noopener">CC BY 4.0</a></dd>
-<dt>Link:</dt> <dd><span style="margin-right: 0.5rem;">{{ .Permalink }}</span><span class="tags-sm">
-    <a onclick="copyToClip()" role="button" class="no-underline no-underline-on-hover" title="Copy the license block" style="cursor: pointer !important; white-space: nowrap;">Copy license</a>
-  </span></dd>
+<dt class="license">Author:</dt> <dd class="license">{{ .Params.author | default .Site.Params.author }}</dd>
+<dt class="license">Last modified:</dt> <dd class="license">{{ .Page.Lastmod.Format "Jan 2, 2006" }}</dd>
+<dt class="license">License:</dt> <dd class="license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer noopener">CC BY 4.0</a></dd>
+<dt class="license">Link:</dt> <dd class="license"><span style="margin-right: 0.5rem;">{{ .Permalink }}</span><span class="tags-sm"><a onclick="copyToClip()" role="button" class="no-underline no-underline-on-hover" title="Copy the license block" style="cursor: pointer !important; white-space: nowrap;">Copy license</a></span></dd>
 </dl>
 </div>
 <script>
   function copyToClip() {
-    var copyText = document.getElementById("license-block");
-    var textArea = document.createElement("textarea");
-    textArea.value = copyText.textContent.replace(/^\n\n/g, '').replace(/Copy license/g, '');
+    let copyText = document.getElementById("license-block");
+    let dt = document.querySelectorAll('dt.license')
+    let dd = document.querySelectorAll('dd.license')
+
+    let textArea = document.createElement("textarea");
+    for (let i = 0; i < dt.length; i++) {
+      console.log(dt[i].textContent);
+      console.log(dd[i].textContent);
+      textArea.value += dt[i].textContent + " " + dd[i].textContent + "; ";
+    }
+    textArea.value = textArea.value.replace(/Copy license/g, '')
     document.body.appendChild(textArea);
     textArea.select();
     document.execCommand("Copy");
