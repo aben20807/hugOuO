@@ -9,7 +9,7 @@ HugOuO is a [Hugo](https://gohugo.io/) theme that looks like the theme named [St
 
 # DEMO
 
-My website: [https://aben20807.github.io/](https://aben20807.github.io/)
+My website: [https://aben20807.github.io/posts/features/](https://aben20807.github.io/posts/features/)
 
 # License
 
