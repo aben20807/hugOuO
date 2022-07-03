@@ -37,7 +37,7 @@
       {{- end -}}
       {{- $anchorId :=  (replaceRE "(?ms:.* id=\"(.*?)\".*)" "$1" $header ) -}}
       <li class="toc-item">
-        <a class="toc-link smoothScroll toc-level-{{.}}" href="#{{ $anchorId }}">
+        <a class="toc-link smoothScroll" href="#{{ $anchorId }}">
         {{- if eq (int .) 1 -}}
           {{- $var.Add "toc1_cnt" 1 -}}
           {{- $var.Get "toc1_cnt" -}}.
