@@ -13,7 +13,7 @@
       <div class="flex flex-column flex-row-ns">
         {{ if $hdr }}
         <div
-          class="mb0 mb0-ns w-80 br3 cover {{ if lt .PublishDate.Unix now.Unix }}hide-child{{ end }}"
+          class="mb0 mb0-ns w-100 w-80-ns br3 cover {{ if lt .PublishDate.Unix now.Unix }}hide-child{{ end }}"
           style="background-image: url('{{ absURL (default "img/default-header-img.tn-500x500.jpg" (default .Params.image .Params.thumbnail)) | replaceRE $bigw $smallw }}'); background-position: center; aspect-ratio: 4/3;">
           <a href="{{ .Permalink }}"
             class="sans-serif db child w-100 h-100 f3 lh-copy white no-underline br3 ph3 ttu tc bg-black-60" style="padding-top: 35%;">
