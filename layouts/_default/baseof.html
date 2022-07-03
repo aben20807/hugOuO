@@ -156,6 +156,12 @@
           </span>
           {{ end }}
         </h2>
+        {{ $readTime := mul (div .WordCount 220.0) 60 }}
+        {{ if .IsPage }}
+        <h6 class="{{ cond $hdr "near-white" "" }} fw1 f6 f5-l measure-wide-l center lh-copy">
+          <span title="Word count: {{ .WordCount }} words"><i class="fas fa-book"></i> {{ .WordCount }} words</span>  <span title="Reading time: {{ math.Ceil (div $readTime 60) }} minutes"><i class="fas fa-eye"></i> {{ math.Ceil (div $readTime 60) }} minutes</span>
+        </h6>
+        {{ end }}
       </div>
 
       <!-- if there's a "credits" parameter in front matter there'll be a camera icon here -->
