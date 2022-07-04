@@ -8,10 +8,10 @@
     <div class="img-container center" style="width:73%;">
         <noscript>
             <img src="{{ .Destination | replaceRE $gdrive_photo $new_gdrive_photo | safeURL }}" class="center img-zoomable" alt='{{ .Text }}' data-action="zoom"
-                title="">
+                title="{{ .Text | plainify | htmlUnescape }}">
         </noscript>
         <img data-src="{{ .Destination | replaceRE $gdrive_photo $new_gdrive_photo | safeURL }}" class="center img-zoomable lazyload" alt='{{ .Text }}'
-            data-action="zoom" title="">
+            data-action="zoom" title="{{ .Text | plainify | htmlUnescape }}">
     </div>
     <figcaption>
         <center class="caption-text">
