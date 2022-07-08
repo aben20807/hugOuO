@@ -1,22 +1,29 @@
 {{ $theme := index .Params 0 }}
+<div class="alert-block">
 {{ if eq $theme "info" }}
-  <div class="info-msg">
-    {{ .Inner | markdownify }}
+  <div class="info-title"><i class="fa fa-info-circle"></i></div>
+  <div class="info-msg db">
+    <p>{{ .Inner | markdownify }}</p>
   </div>
 {{ else if eq $theme "success" }}
+  <div class="success-title"><i class="fa fa-check"></i></div>
   <div class="success-msg">
     {{ .Inner | markdownify }}
   </div>
 {{ else if eq $theme "warning" }}
+  <div class="warning-title"><i class="fa fa-exclamation-triangle"></i></div>
   <div class="warning-msg">
     {{ .Inner | markdownify }}
   </div>
 {{ else if eq $theme "danger" }}
-  <div class="alert error-msg">
+  <div class="danger-title"><i class="fa fa-times-circle"></i></div>
+  <div class="alert danger-msg">
     {{ .Inner | markdownify }}
   </div>
 {{ else }}
+  <div class="info-title"><i class="fa fa-info-circle"></i></div>
   <div class="info-msg">
     {{ .Inner | markdownify }}
   </div>
 {{ end }}
+</div>

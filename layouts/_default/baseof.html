@@ -159,7 +159,7 @@
         {{ $readTime := mul (div .WordCount 220.0) 60 }}
         {{ if .IsPage }}
         <h6 class="{{ cond $hdr "near-white" "" }} fw1 f6 f5-l measure-wide-l center lh-copy">
-          <span title="Word count: {{ .WordCount }} words"><i class="fas fa-book"></i> {{ .WordCount }} words</span>  <span title="Reading time: {{ math.Ceil (div $readTime 60) }} minutes"><i class="fas fa-eye"></i> {{ math.Ceil (div $readTime 60) }} minutes</span>
+          <span title="Word count: {{ .WordCount }} words"><i class="far fa-file-alt"></i></i> {{ .WordCount }} words</span>  <span title="Reading time: {{ math.Ceil (div $readTime 60) }} minutes"><i class="far fa-clock"></i> {{ math.Ceil (div $readTime 60) }} minutes</span>
         </h6>
         {{ end }}
       </div>
