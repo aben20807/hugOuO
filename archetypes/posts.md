@@ -1,7 +1,7 @@
 +++
 title = "{{ replace ( slicestr .TranslationBaseName 9 ) "-" " " | title }}"
 date = "{{ .Date }}"
-publishDate = "{{ now.Format "2006-01-02" }}"
+publishDate = "{{ .Date }}"
 url = "/{{ .Dir }}{{ .Name }}"
 description = ""
 image = ""
