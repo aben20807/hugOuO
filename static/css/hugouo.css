@@ -210,6 +210,9 @@ img {
   flex: 80%;
   max-width: 100%;
 }
+.img-container {
+  width: 88%;
+}
 @media screen and (max-width: 600px) {
   .col-2 {
     display: none;

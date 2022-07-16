@@ -16,7 +16,7 @@
 {{- end -}} 
 <div class="row gallery">
 {{- range $col := (seq 0 (sub $rowSize 1)) -}}
-    <div class="col gallery" style="width: {{(mul (div 1.0 $rowSize) 100.0)}}%;">
+    <div class="col gallery" style="width: {{- (mul (div 1.0 $rowSize) 100.0) -}}%;">
         {{- range $img := (slice ($imagesCol.Get (string $col))) -}}
         <div style="width: 100%;">{{- $img | markdownify -}}</div>
         {{- end -}}
