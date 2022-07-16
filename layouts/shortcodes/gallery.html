@@ -1,0 +1,25 @@
+{{ $rowSize := index .Params 0 | default 2 }}
+{{- $inner := split .Inner "\n" -}}
+{{- $images := slice -}}
+{{- range $index, $element := $inner -}}
+{{- with $element -}}
+{{- $images = $images | append $element -}}
+{{- end -}}
+{{- end -}}
+{{ $imagesCol := newScratch }}
+{{- range $i, $element := $images -}}
+    {{- range $j := (seq 0 (sub $rowSize 1)) -}}
+        {{- if (eq (mod $i $rowSize) $j) -}}
+            {{- $imagesCol.Add (string $j) $element -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}} 
+<div class="row gallery">
+{{- range $col := (seq 0 (sub $rowSize 1)) -}}
+    <div class="col gallery" style="width: {{(mul (div 1.0 $rowSize) 100.0)}}%;">
+        {{- range $img := (slice ($imagesCol.Get (string $col))) -}}
+        <div style="width: 100%;">{{- $img | markdownify -}}</div>
+        {{- end -}}
+    </div>
+{{- end -}}
+</div>

@@ -7,7 +7,7 @@
 {{- $eleintitle := `(?m:href)` -}}
 {{- $text := .Text | plainify | htmlUnescape | replaceRE $gdrive_text $new_gdrive_text -}}
 <figure class="gphoto-media center">
-    <div class="img-container center" style="width:73%;">
+    <div class="img-container center" style="width:88%;">
         <noscript>
             <img src="{{ .Destination | replaceRE $gdrive_photo $new_gdrive_photo | safeURL }}" class="center img-zoomable" alt='{{ $text }}' data-action="zoom"
                 title='{{ $text }}'>
