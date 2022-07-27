@@ -16,9 +16,9 @@
             data-action="zoom" title='{{ $text }}'>
     </div>
     <figcaption>
-        <center class="caption-text">
+        <center class="caption-text" style="margin: 0 .3rem 0;">
             {{ if .Text }}
-            <p style="margin: .7rem 0 0;">{{ .Text | replaceRE $gdrive_text $new_gdrive_text | safeHTML }}</p>
+            <p style="margin: .5rem 0 0;">{{ .Text | replaceRE $gdrive_text $new_gdrive_text | safeHTML }}</p>
             {{ end }}
             <!-- hide the link -->
             <font class="douyin hover-show">
