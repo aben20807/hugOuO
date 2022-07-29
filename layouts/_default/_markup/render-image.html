@@ -5,6 +5,8 @@
 {{- $gdrive_text := `google-(.*)` -}}
 {{- $new_gdrive_text := `${1}` -}}
 {{- $eleintitle := `(?m:href)` -}}
+{{- $custom_width := (.Title | replaceRE `.*=(\d*)x.*` `${1}`) -}}
+{{- $href := .Destination -}}
 {{- $text := .Text | plainify | htmlUnescape | replaceRE $gdrive_text $new_gdrive_text -}}
 <figure class="gphoto-media center">
     <div class="img-container center">
@@ -13,7 +15,7 @@
                 title='{{ $text }}'>
         </noscript>
         <img data-src="{{ .Destination | replaceRE $gdrive_photo $new_gdrive_photo | safeURL }}" class="center img-zoomable lazyload" alt='{{ $text }}'
-            data-action="zoom" title='{{ $text }}'>
+            width="{{ $custom_width }}" data-action="zoom" title='{{ $text }}'>
     </div>
     <figcaption>
         <center class="caption-text" style="margin: 0 .3rem 0;">
