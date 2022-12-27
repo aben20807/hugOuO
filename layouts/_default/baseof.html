@@ -100,27 +100,27 @@
           {{- range .Site.Menus.main }}
             {{ if .HasChildren }}
             <div class="subnav">
-              <span class="link f5 ml2 dim h-100 near-white no-underline-on-hover">{{ .Name }} <i class="fa fa-caret-down"></i></span>
+              <span class="link f4 ml2 dim h-100 near-white no-underline-on-hover">{{ .Name }} <i class="fa fa-caret-down"></i></span>
               <div class="subnav-content">
                   {{ range .Children }}
-                  <a class="link f5 ml2 w-100 dim near-white no-underline-on-hover" href="{{ .URL }}">{{ .Name }}</a>
+                  <a class="link f4 ml2 w-100 dim near-white no-underline-on-hover" href="{{ .URL }}">{{ .Name }}</a>
                   {{ end }}
               </div>
             </div>  
             {{ else }}
-              <a class="link f5 ml2 dim near-white no-underline-on-hover" href="{{ .URL }}">{{ .Name }}</a>
+              <a class="link f4 ml2 dim near-white no-underline-on-hover" href="{{ .URL }}">{{ .Name }}</a>
             {{ end }}
           {{- end }}
           {{- range .Site.Menus.social }}
-          <a class="link f5 ml2 dim near-white no-underline-on-hover" href="{{ .URL }}" target="_blank" rel="noreferrer noopener"><i class="{{ .Title }}"></i></a>
+          <a class="link f4 ml2 dim near-white no-underline-on-hover" href="{{ .URL }}" target="_blank" rel="noreferrer noopener"><i class="{{ .Title }}"></i></a>
           {{- end }}
-          <a class="link f5 ml2 dim near-white fas fa-rss-square no-underline-on-hover" href="{{ "index.xml" | absURL }}"
+          <a class="link f4 ml2 dim near-white fas fa-rss-square no-underline-on-hover" href="{{ "index.xml" | absURL }}"
             title="RSS Feed"></a>
-          <a class="link f5 ml2 dim near-white fas fa-envelope no-underline-on-hover" href="{{ "subscription/" | absURL }}"
+          <a class="link f4 ml2 dim near-white fas fa-envelope no-underline-on-hover" href="{{ "subscription/" | absURL }}"
             role="subscription" title="Subscription"></a>
-          <a class="link f5 ml2 dim near-white fas fa-coffee no-underline-on-hover" href="https://www.buymeacoffee.com/aben20807" target="_blank"
+          <a class="link f4 ml2 dim near-white fas fa-coffee no-underline-on-hover" href="https://www.buymeacoffee.com/aben20807" target="_blank"
             title="Buy me a coffee"></a>
-          <a class="link f5 ml2 dim near-white fas fa-search no-underline-on-hover" href="{{ "search/" | absURL }}" role="search"
+          <a class="link f4 ml2 dim near-white fas fa-search no-underline-on-hover" href="{{ "search/" | absURL }}" role="search"
             title="Search"></a>
           <!-- button for switching between dark and light mode -->
           {{ partial "dark-switch.html" . }}
