@@ -11,10 +11,10 @@
 <figure class="gphoto-media center">
     <div class="img-container center">
         <noscript>
-            <img src="{{ .Destination | replaceRE $gdrive_photo $new_gdrive_photo | safeURL }}" class="center img-zoomable" alt='{{ $text }}' data-action="zoom"
+            <img src="{{ .Destination | replaceRE $gdrive_photo $new_gdrive_photo | safeURL }}" oncontextmenu="return false;" class="center img-zoomable" alt='{{ $text }}' data-action="zoom"
                 title='{{ $text }}'>
         </noscript>
-        <img data-src="{{ .Destination | replaceRE $gdrive_photo $new_gdrive_photo | safeURL }}" class="center img-zoomable lazyload" alt='{{ $text }}'
+        <img data-src="{{ .Destination | replaceRE $gdrive_photo $new_gdrive_photo | safeURL }}" oncontextmenu="return false;" class="center img-zoomable lazyload" alt='{{ $text }}'
             width="{{ $custom_width }}" data-action="zoom" title='{{ $text }}'>
     </div>
     <figcaption>

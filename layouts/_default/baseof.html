@@ -118,8 +118,9 @@
             title="RSS Feed"></a>
           <a class="link f4 ml2 dim near-white fas fa-envelope no-underline-on-hover" href="{{ "subscription/" | absURL }}"
             role="subscription" title="Subscription"></a>
-          <a class="link f4 ml2 dim near-white fas fa-coffee no-underline-on-hover" href="https://www.buymeacoffee.com/aben20807" target="_blank"
-            title="Buy me a coffee"></a>
+          {{ with .Site.Params.buymeacoffee }}
+          <a class="link f4 ml2 dim near-white fas fa-coffee no-underline-on-hover" href={{ . }} target="_blank" title="Buy me a coffee"></a>
+          {{ end }}
           <a class="link f4 ml2 dim near-white fas fa-search no-underline-on-hover" href="{{ "search/" | absURL }}" role="search"
             title="Search"></a>
           <!-- button for switching between dark and light mode -->
@@ -198,7 +199,7 @@
       <a class="no-underline no-underline-on-hover" href='https://github.com/aben20807/hugOuO' target="_blank" rel="noreferrer noopener">hugOuO</a>
     </p>
     <p class="w-50 near-white" style="font-size:0.875rem !important;">
-      &copy; 2019-{{ now.Format "2006" }} {{ with .Site.Params.author }}{{ . }}{{ end }}
+      &copy; {{ with .Site.Params.startTime }} {{ if gt now (time .) }} {{ time.Format "2006" . }}-{{ now.Format "2006" }} {{ else }} {{ time.Format "2006" . }} {{ end }} {{end}} {{ with .Site.Params.author }}{{ . }}{{ end }}
     </p>
   </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
