@@ -1,5 +1,5 @@
 {{ range where .Site.RegularPages ".Params.tags" "ne" nil }}
-{{ $.Scratch.Add "tags"  (apply .Params.tags "lower" ".") }}
+{{ $.Scratch.Add "tags" (apply .Params.tags "lower" ".") }}
 {{ end }}
 
 {{ $terms := uniq ($.Scratch.Get "tags") }}
@@ -9,7 +9,7 @@
 {{ with .Site.Taxonomies.tags }}
 <div class="post-meta">
   <div class="mb-2">
-    <a href="{{ "tags/" | absLangURL }}">
+    <a href="{{ " tags/" | absLangURL }}">
       <span class="font-weight-bold text-uppercase post-meta">
         <i class="fas fa-tags pr-1" aria-hidden="true"></i>
         標籤
@@ -19,11 +19,12 @@
 
   <div class="li-x post-meta tags-md" style="margin-left: -8px;">
 
-
-    {{ range first 40 (where .ByCount "Name" "in" $terms)  }}
-    <li><a href="{{ "tags/" | absLangURL }}{{ .Name | urlize }}" class="no-underline no-underline-on-hover" role="button"><span>{{ .Name }}
+    {{ range first 40 (where .ByCount "Name" "in" $terms) }}
+    {{ if gt .Count 2 }}
+    <li><a href="{{ " tags/" | absLangURL }}{{ .Name | urlize }}" class="no-underline no-underline-on-hover"
+        role="button"><span>{{ .Name }}
           ({{ .Count }})</span></a></li>
-
+    {{ end }}
     {{ end }}
   </div>
 </div>

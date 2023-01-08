@@ -208,7 +208,7 @@ summary,
 table,
 ul,
 li {
-  font-size: 1.1rem !important;
+  font-size: 1.0rem !important;
   line-height: 1.653em;
 }
 img {
@@ -242,7 +242,7 @@ img {
   line-height: 0.1rem;
 }
 .side-bar * {
-  font-size: 1rem !important;
+  font-size: 97%;
 }
 .col-2 {
   float: left;
@@ -275,7 +275,7 @@ a:hover,
 
 .toc-nav .toc-item,
 .toc-nav .toc-link {
-  font-size: 1rem;
+  font-size: 95%;
   font-weight: 400;
   line-height: 1.35em;
   padding: 0 5px;
