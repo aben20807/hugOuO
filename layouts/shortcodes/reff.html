@@ -5,4 +5,4 @@
 {{- $page = .Site.GetPage $filepath -}}
 {{ end }}
 {{- $headingAnchor := (replace (index (findRE  `#(.*?)$` $path) 0) "/" "") -}} 
-<a href="{{ relref . $path }}">{{ with $page }}{{ .Title }}{{ $headingAnchor }}{{ end }}</a>
+<a href="{{ relref . $path }}" target="_blank" rel="noreferrer noopener">{{ with $page }}{{ .Title }}{{ $headingAnchor }}{{ end }}</a>
