@@ -4,7 +4,6 @@
 {{- $filepath := printf "%s%s" ($path | replaceRE `#.*?$` `` | replaceRE `/*$` ``) ".md" -}}
 {{- $page = .Site.GetPage $filepath -}}
 {{- end -}}
-{{- $headingAnchor := (replace (index (findRE  `#(.*?)$` $path) 0) "/" "") -}}
-<a href="{{ relref . $path }}" 
-    {{- if (not (hasPrefix $path "#")) -}}target="_blank" rel="noreferrer noopener"{{- end -}}
->{{ with $page }}{{ .Title }}{{ $headingAnchor }}{{ end }}</a>
+{{- $headingAnchor := (replace (index (findRE `#(.*?)$` $path) 0) "/" "") -}}
+<a href="{{ relref . $path }}" {{- if (not (hasPrefix $path "#" )) -}}target="_blank" rel="noreferrer noopener" {{- end
+    -}}>{{ with $page }}{{ .Title }}{{ $headingAnchor }}{{ end }}</a>
