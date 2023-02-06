@@ -118,7 +118,7 @@
           <a class="link f5 ml2 dim near-white fas fa-rss-square no-underline-on-hover" href="{{ "index.xml" | absURL }}"
             title="RSS Feed"></a>
           <a class="link f5 ml2 dim near-white fas fa-envelope no-underline-on-hover" href="{{ "subscription/" | absURL }}"
-            role="subscription" title="Subscription"></a>
+            role="button" title="Subscription"></a>
           {{ with .Site.Params.buymeacoffee }}
           <a class="link f5 ml2 dim near-white fas fa-coffee no-underline-on-hover" href={{ . }} target="_blank" title="Buy me a coffee"></a>
           {{ end }}
@@ -203,7 +203,7 @@
       &copy; {{ with .Site.Params.startTime }} {{ if gt now (time .) }} {{ time.Format "2006" . }}-{{ now.Format "2006" }} {{ else }} {{ time.Format "2006" . }} {{ end }} {{end}} {{ with .Site.Params.author }}{{ . }}{{ end }}
     </p>
   </footer>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script type="text/javascript" src="{{ "js/hugouo.js" | absURL }}?{{ now.Unix }}" async></script>
   <script type="text/javascript" src="{{ "js/x-notify.min.js" | absURL }}" async></script>
   <script src="{{ "js/story.js" | absURL }}" async></script>
