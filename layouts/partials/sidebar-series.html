@@ -17,7 +17,8 @@
     </a>
   </div>
 
-  <div class="post-meta">
+  <div class="li-x post-meta">
+    <ul>
     {{ range $index, $element := first 10 (where .ByCount "Name" "in" $terms) }}
     <li class="py-1">
       <a href="{{ "series/" | absLangURL }}{{ .Name | urlize }}" class="no-underline no-underline-on-hover">
@@ -25,6 +26,7 @@
       </a>
     </li>
     {{ end }}
+    </ul>
   </div>
 
 </div>

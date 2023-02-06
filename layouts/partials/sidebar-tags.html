@@ -18,7 +18,7 @@
   </div>
 
   <div class="li-x post-meta tags-md" style="margin-left: -8px;">
-
+    <ul>
     {{ range first 40 (where .ByCount "Name" "in" $terms) }}
     {{ if gt .Count 2 }}
     <li><a href="{{ "tags/" | absLangURL }}{{ .Name | urlize }}" class="no-underline no-underline-on-hover"
@@ -26,6 +26,7 @@
           ({{ .Count }})</span></a></li>
     {{ end }}
     {{ end }}
+    </ul>
   </div>
 </div>
 
