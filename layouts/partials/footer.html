@@ -26,6 +26,15 @@
     textArea.select();
     document.execCommand("Copy");
     textArea.remove();
+
+    // https://github.com/Xtrendence/X-Notify (modified)
+    const Notify = new XNotify("BottomLeft");
+    Notify.info({
+      borderRadius: "2px",
+      title: "copied!",
+      duration: 3000,
+      background: "#646464"
+    });
   }
 </script>
 <div>
