@@ -35,9 +35,8 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" 
     integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" async>
   <link
-    href="https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i|Lora:400|Noto+Sans+TC:400,400i|Milonga:400|Roboto+Mono:500&amp;subset=latin-ext"
+    href="https://fonts.googleapis.com/css?family=Lora:400|Noto+Sans+TC:400,400i|Milonga:400&amp;subset=latin-ext"
     rel="stylesheet" async>
-  <link href="https://fonts.cdnfonts.com/css/cascadia-code" rel="stylesheet" async>
   {{ end }}
   <!-- Load heading iconify -->
   <script src="https://code.iconify.design/1/1.0.0-rc6/iconify.min.js"></script>
@@ -205,7 +204,7 @@
   </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script type="text/javascript" src="{{ "js/hugouo.js" | absURL }}?{{ now.Unix }}" async></script>
-  <script type="text/javascript" src="{{ "js/x-notify.min.js" | absURL }}" async></script>
+  <script type="text/javascript" src="{{ "js/X-Notify/x-notify.min.js" | absURL }}" async></script>
   <script src="{{ "js/story.js" | absURL }}" async></script>
   <!-- Title shuffle -->
   <script>
@@ -251,7 +250,8 @@
   </script>
 
   <!-- image zoom -->
-  <script src="https://unpkg.com/zooming/build/zooming.min.js"></script>
+  {{/*  <script src="https://unpkg.com/zooming/build/zooming.min.js"></script>  */}}
+  <script type="text/javascript" src="{{ "js/zooming.min.js" | absURL }}"></script>
   <script>
     // Listen to images after DOM content is fully loaded
     document.addEventListener('DOMContentLoaded', function () {
