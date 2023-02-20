@@ -260,11 +260,11 @@
         // disable overflow-x scroll when click the image to prevent image cutted
         // https://github.com/kingdido999/zooming/issues/22#issuecomment-336357141
         onBeforeOpen: () => {
-          let ov = document.querySelector('#ov');
-          ov.classList.remove('overflow-x-scroll')
+          let ovs = document.querySelectorAll(".ov-for-img");
+          ovs.forEach(ov => ov.classList.remove('overflow-x-scroll'));
         }, onClose: () => {
-          let ov = document.querySelector('#ov');
-          ov.classList.add('overflow-x-scroll')
+          let ovs = document.querySelectorAll(".ov-for-img");
+          ovs.forEach(ov => ov.classList.add('overflow-x-scroll'));
         },
       }).listen('.img-zoomable')
     })
