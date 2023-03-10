@@ -104,7 +104,7 @@
               <span class="link f5 ml2 dim h-100 near-white no-underline-on-hover">{{ .Name }} <i class="fa fa-caret-down"></i></span>
               <div class="subnav-content">
                   {{ range .Children }}
-                  <a class="link f5 ml2 dim ml2 w-100 dim near-white no-underline-on-hover" href="{{ .URL }}">{{ .Name }}</a>
+                  <a class="link f5 ml2 dim ml2 w-100 dim near-white no-underline-on-hover" href="{{ .URL }}" {{ if strings.HasPrefix .URL "http" }} target="_blank" rel="noreferrer noopener"{{ end }}>{{ .Name }}</a>
                   {{ end }}
               </div>
             </div>  
