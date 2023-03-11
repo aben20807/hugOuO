@@ -16,7 +16,7 @@
           class="mb0 mb0-ns w-100 w-80-ns br3 cover {{ if lt .PublishDate.Unix now.Unix }}hide-child{{ end }}"
           style="background-image: url('{{ absURL (default "img/default-header-img.tn-500x500.jpg" (default .Params.image .Params.thumbnail)) | replaceRE $bigw $smallw }}'); background-position: center; aspect-ratio: 4/3;">
           <a href="{{ .Permalink }}"
-            class="serif db child w-100 h-100 lh-copy white no-underline br3 ph3 ttu tc bg-black-60" style="padding-top: 35%; font-size: 1.7vw;">
+            class="serif db child w-100 h-100 lh-copy white no-underline br3 ph3 ttu tc bg-black-60" style="padding-top: 35%; font-size: 150%;">
             <i class="child far {{ cond (gt .PublishDate.Unix now.Unix) "fa-hourglass" "fa-calendar-alt" }}"></i>
             {{ .PublishDate.Format "Jan 2, 2006" }}
           </a>
