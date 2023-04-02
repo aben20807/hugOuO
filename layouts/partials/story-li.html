@@ -4,7 +4,7 @@
 {{ $smallw := `${1}&w=600${2}` }}
 {{/* google phote */}}
 {{ $bigw := `^(https:\/\/lh3\.googleusercontent\.com\/.*?)=w\d*-(.*?)$` }}
-{{ $smallw := `${1}=w600-${2}` }}
+{{ $smallw := `${1}=w600` }}
 {{/* regexp end */}}
 {{- $hdr := cond (or (in .Site.Params.classes "feature-nohdr") (in .Params.classes "feature-nohdr")) false true -}}
 <div class="relative w-100">
