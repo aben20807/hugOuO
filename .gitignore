@@ -1,4 +1,5 @@
 *.swp
+*.Identifier
 tmp/
 public/
 resources/
