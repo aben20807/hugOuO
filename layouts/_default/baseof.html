@@ -256,16 +256,19 @@
   <script>
     // Listen to images after DOM content is fully loaded
     document.addEventListener('DOMContentLoaded', function () {
+      let ov_body = document.querySelector("body");
+      let ovs = document.querySelectorAll(".ov-for-img");
       new Zooming({
         bgColor: 'rgb(0, 0, 0)', bgOpacity: '0.8', customSize: '200%', enableGrab: false,
         // disable overflow-x scroll when click the image to prevent image cutted
+        // recover the setting (hidden or scroll) after closing the zoom mode
         // https://github.com/kingdido999/zooming/issues/22#issuecomment-336357141
         onBeforeOpen: () => {
-          let ovs = document.querySelectorAll(".ov-for-img");
           ovs.forEach(ov => ov.classList.remove('overflow-x-scroll'));
+          ov_body.style.overflowX = "visible";
         }, onClose: () => {
-          let ovs = document.querySelectorAll(".ov-for-img");
           ovs.forEach(ov => ov.classList.add('overflow-x-scroll'));
+          ov_body.style.overflowX = "hidden";
         },
       }).listen('.img-zoomable')
     })
