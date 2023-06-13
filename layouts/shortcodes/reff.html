@@ -1,9 +1,21 @@
+{{/* usage:
+    {{< reff "#表格" >}}
+    {{< reff "/about" >}}
+    {{< reff "20220620-4-bit-qft-iqft" >}}
+    {{< reff "20220620-4-bit-qft-iqft/" >}}
+    {{< reff "20220620-4-bit-qft-iqft/#version-1" >}}
+    {{< reff "20220620-4-bit-qft-iqft/#version-1" "Named heading" >}}
+*/}}
 {{- $path := .Get 0 -}}
+{{- $headingName := .Get 1 -}}
 {{- $page := .Page -}}
 {{- if (not (hasPrefix $path "#")) -}}
 {{- $filepath := printf "%s%s" ($path | replaceRE `#.*?$` `` | replaceRE `/*$` ``) ".md" -}}
 {{- $page = .Site.GetPage $filepath -}}
 {{- end -}}
 {{- $headingAnchor := (replace (index (findRE `#(.*?)$` $path) 0) "/" "") -}}
+{{- if $headingName -}}
+{{- $headingAnchor = printf "#%s" $headingName -}}
+{{- end -}}
 <a href="{{ relref . $path }}" {{- if (not (hasPrefix $path "#" )) -}}target="_blank" rel="noreferrer noopener" {{- end
-    -}}>{{ with $page }}{{ .Title }}{{ $headingAnchor }}{{ end }}</a>
+    -}}>{{ with $page }}{{ .Title }}{{ end }}{{ $headingAnchor }}</a>
