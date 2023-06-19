@@ -17,5 +17,7 @@
 {{- if $headingName -}}
 {{- $headingAnchor = printf "#%s" $headingName -}}
 {{- end -}}
-<a href="{{ relref . $path }}" {{- if (not (hasPrefix $path "#" )) -}}target="_blank" rel="noreferrer noopener" {{- end
+{{- $isRemote := strings.HasPrefix $path "http" -}}
+{{ $isRemote }}
+<a href="{{ relref . $path }}" {{- if (not (hasPrefix $path "#" )) -}}{{- if $isRemote -}} target="_blank" rel="noreferrer noopener"{{- end -}} {{- end
     -}}>{{ with $page }}{{ .Title }}{{ end }}{{ $headingAnchor }}</a>
