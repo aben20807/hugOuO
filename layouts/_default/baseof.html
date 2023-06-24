@@ -49,6 +49,13 @@
       }
     </style>
   </noscript>
+  <!-- Quicklink -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
+  <script>
+  window.addEventListener('load', () => {
+    quicklink.listen();
+  });
+  </script>
 
   <!-- {{ if or (in .Site.Params.classes "feature-highlight") (in .Params.classes "feature-highlight") -}}
   {{- if not (or (in .Site.Params.classes "feature-nohighlight") (in .Params.classes "feature-nohighlight") ) -}} -->
