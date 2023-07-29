@@ -18,6 +18,10 @@
 {{- $headingAnchor = printf "#%s" $headingName -}}
 {{- end -}}
 {{- $isRemote := strings.HasPrefix $path "http" -}}
-{{ $isRemote }}
+{{- if (not (hasPrefix $path "#")) -}}
 <a href="{{ relref . $path }}" {{- if (not (hasPrefix $path "#" )) -}}{{- if $isRemote -}} target="_blank" rel="noreferrer noopener"{{- end -}} {{- end
     -}}>{{ with $page }}{{ .Title }}{{ end }}{{ $headingAnchor }}</a>
+{{- else -}} {{/* not showing title because in the same page */}}
+<a href="{{ relref . $path }}" {{- if (not (hasPrefix $path "#" )) -}}{{- if $isRemote -}} target="_blank" rel="noreferrer noopener"{{- end -}} {{- end
+    -}}>{{ $headingAnchor }}</a>
+{{- end -}}
