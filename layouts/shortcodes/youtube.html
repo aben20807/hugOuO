@@ -2,7 +2,7 @@
 {{ $yt := `https:\/\/www\.youtube\.com\/watch\?v=([^\?]+)(\?t=(\d+))?` }}
 {{ $newyt := `https://www.youtube.com/embed/${1}?start=${3}` }}
 {{ $addzero := `(.*)?start=$` }}
-{{ $newaddzero := `${1}start=1` }}
+{{ $newaddzero := `${1}start=0` }}
 {{ $url := $url | replaceRE $yt $newyt | safeHTML }}
 {{ $url := $url | replaceRE $addzero $newaddzero | safeHTML }}
 <div class="mb4" style=" position: relative; width: 100%; height: 100%;
