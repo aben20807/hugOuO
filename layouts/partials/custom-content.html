@@ -14,6 +14,20 @@
 {{ $y := `${1}${3}${2}${4}` }}
 {{ $tmp := $tmp | replaceRE $x $y }}
 
+{{/* footnote title */}}
+{{- $footnoteHead := `<div class="footnotes" role="doc-endnotes">[\s\n]*<hr>` -}}
+{{- $insertContent := `<div class="footnotes" role="doc-endnotes"> <h1 id="footnotes" class="article-heading">Footnotes
+    <a class="headline-hash smoothScroll hover-show scrollspy" style="font-size: 0.75em; color: black; padding-left: 0.25em" href="#footnotes">
+        <span class="iconify" data-icon="octicon-link" data-inline="false"></span>
+    </a>
+    <style>
+        #footnotes::before {
+            content: none;
+        }
+    </style>
+</h1>` -}}
+{{ $tmp := $tmp | replaceRE $footnoteHead $insertContent }}
+
 {{/* relref to smooth link */}}
 {{ $relref_links := `<a (href="#[^\"]+")>` }}
 {{ $relref_newlinks := `<a ${1} class="smoothScroll no-underline-on-hover">` }}
