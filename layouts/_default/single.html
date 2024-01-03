@@ -2,14 +2,14 @@
 
 {{ define "main" }}
 
-<div class="row bg-white">
+<div class="row bg-main">
   {{- if .Params.toc -}}
   {{/*  dummy column  */}}
   <div id="toc" class="column col-2 hide-print">
   </div>
   {{- end -}}
   <div class="column col-1 printable">
-    <article class="center bg-white br-3 pv1 ph4 lh-copy f5 nested-links" style="max-width:54rem;">
+    <article class="center bg-main br-3 pv1 ph4 lh-copy f5 nested-links" style="max-width:54rem;">
       <div class="pb4-ns">
       <!-- Tags -->
       <div class="row">

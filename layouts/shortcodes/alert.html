@@ -2,28 +2,28 @@
 {{ $title := index .Params 1 }}
 <div class="alert-block">
 {{ if eq $theme "info" }}
-  <div class="info-title"><i class="fa fa-info-circle pr2"></i>{{- with $title -}}<span>{{.}}</span>{{- end -}}</div>
-  <div class="info-msg db overflow-x-scroll ov-for-img">
+  <div class="alert-title info-title"><i class="fa fa-info-circle pr2"></i>{{- with $title -}}<span>{{.}}</span>{{- end -}}</div>
+  <div class="alert-msg info-msg db overflow-x-scroll ov-for-img">
     <p>{{ .Inner | markdownify }}</p>
   </div>
 {{ else if eq $theme "success" }}
-  <div class="success-title"><i class="fa fa-check pr2"></i>{{- with $title -}}<span>{{.}}</span>{{- end -}}</div>
-  <div class="success-msg db overflow-x-scroll ov-for-img">
+  <div class="alert-title success-title"><i class="fa fa-check pr2"></i>{{- with $title -}}<span>{{.}}</span>{{- end -}}</div>
+  <div class="alert-msg success-msg db overflow-x-scroll ov-for-img">
     {{ .Inner | markdownify }}
   </div>
 {{ else if eq $theme "warning" }}
-  <div class="warning-title"><i class="fa fa-exclamation-triangle pr2"></i>{{- with $title -}}<span>{{.}}</span>{{- end -}}</div>
-  <div class="warning-msg db overflow-x-scroll ov-for-img">
+  <div class="alert-title warning-title"><i class="fa fa-exclamation-triangle pr2"></i>{{- with $title -}}<span>{{.}}</span>{{- end -}}</div>
+  <div class="alert-msg warning-msg db overflow-x-scroll ov-for-img">
     {{ .Inner | markdownify }}
   </div>
 {{ else if eq $theme "danger" }}
-  <div class="danger-title"><i class="fa fa-times-circle pr2"></i>{{- with $title -}}<span>{{.}}</span>{{- end -}}</div>
-  <div class="alert danger-msg db overflow-x-scroll ov-for-img">
+  <div class="alert-title danger-title"><i class="fa fa-times-circle pr2"></i>{{- with $title -}}<span>{{.}}</span>{{- end -}}</div>
+  <div class="alert-msg danger-msg db overflow-x-scroll ov-for-img">
     {{ .Inner | markdownify }}
   </div>
 {{ else }}
-  <div class="info-title"><i class="fa fa-info-circle pr2"></i>{{- with $title -}}<span>{{.}}</span>{{- end -}}</div>
-  <div class="info-msg db overflow-x-scroll ov-for-img">
+  <div class="alert-title info-title"><i class="fa fa-info-circle pr2"></i>{{- with $title -}}<span>{{.}}</span>{{- end -}}</div>
+  <div class="alert-msg info-msg db overflow-x-scroll ov-for-img">
     {{ .Inner | markdownify }}
   </div>
 {{ end }}
