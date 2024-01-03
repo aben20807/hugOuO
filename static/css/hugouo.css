@@ -1,15 +1,16 @@
 :root {
   --deep-blue: #2060a8;
-  --light-blue: #4ca8ff;
-  --deep-orange: #ff8d83;
+  --light-blue: #61AFF0;
+  --deep-orange: #ff7a6e;
   --light-orange: #DEA584;
   --white: #f5f5f5;
-  --dim-white: #ADBAC9;
+  --dim-white: #b8c7d7;
   --dim-black: #2c333a;
+  --gray: #acb8c6;
   --black: ;
 
-  --link-color: #428bca;
-  --active-color: #428bca;
+  --link-color: #61AFF0;
+  --active-color: #61AFF0;
   --text-dark: #333333;
 }
 @font-face{
@@ -70,7 +71,7 @@ h6.article-heading:before {
   font-family: "Alice";
   font-display: swap;
   font-size: 97%;
-  color: #2060a8;
+  color: var(--deep-blue);
   padding-right: 0.45em;
 }
 h1.article-heading:before {
@@ -141,7 +142,7 @@ li > code,
 a > code,
 td > code {
   font-size: 95%;
-  background: #ededed;
+  background: var(--gray);
   margin: 0;
   border-radius: 3px;
   padding: 0.15em 0.25em;
@@ -249,8 +250,9 @@ summary,
 table,
 ul,
 li {
-  font-size: 1.0rem !important;
-  line-height: 1.653em;
+  font-size: 1.02rem !important;
+  line-height: 1.753em;
+  letter-spacing: .03em;
 }
 img {
   max-width: 100%;
@@ -341,15 +343,15 @@ a:hover,
   border-left: 0.035rem solid #38849e;
   -webkit-box-shadow: none;
   box-shadow: none;
-  color: #428bca;
+  color: var(--active-color);
   font-weight: 600;
 }
 
 .toc-nav a.toc-link.active,
 .toc-nav a.toc-link:active {
   background-color: transparent;
-  color: #428bca;
-  border-left: 0.125rem solid #428bca;
+  color: var(--active-color);
+  border-left: 0.125rem solid var(--active-color);
   -webkit-box-shadow: none;
   box-shadow: none;
   font-weight: 700;
@@ -377,7 +379,7 @@ summary,
 
 summary:hover,
 .goto:hover {
-  color: #428bca;
+  color: var(--active-color);
 }
 
 .hover-show {
@@ -685,7 +687,7 @@ body.dark-mode mjx-texatom *{
 }
 body.dark-mode pre,
 body.dark-mode code {
-  background: #777777;
+  background: #555;
 }
 body.dark-mode > div.CtxtMenu_MenuFrame > div.CtxtMenu_Info.CtxtMenu_MousePost > div > pre {
   background: var(--dim-white);
