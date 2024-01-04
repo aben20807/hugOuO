@@ -4,7 +4,7 @@
   --deep-orange: #ff7a6e;
   --light-orange: #DEA584;
   --white: #f5f5f5;
-  --dim-white: #b8c7d7;
+  --dim-white: #c5cfdb;
   --dim-black: #2c333a;
   --light-gray: #d5dde3;
   --deep-gray: #444444;
@@ -14,9 +14,16 @@
   --text-dark: #333333;
 }
 @font-face{
-  font-family:cascadia code;
+  font-family:"Cascadia Code";
   font-style:normal;
-  font-weight:400;
+  font-weight:normal;
+  src: local('Cascadia Code'), url('/assets/fonts/Cascadia.woff'),url(https://fonts.cdnfonts.com/s/29131/Cascadia.woff) format('woff')
+}
+/* no bold for Cascadia Code */
+@font-face{
+  font-family:"Cascadia Code";
+  font-style:normal;
+  font-weight:bold;
   src: local('Cascadia Code'), url('/assets/fonts/Cascadia.woff'),url(https://fonts.cdnfonts.com/s/29131/Cascadia.woff) format('woff')
 }
 @font-face{
@@ -733,6 +740,7 @@ body.dark-mode blockquote > p:first-child:before {
   color: var(--deep-orange);
 }
 body.dark-mode label.code-label {
+  color: var(--text-dark);
   background-color: var(--deep-orange);
 }
 body.dark-mode .toc-nav a.toc-link.active,
