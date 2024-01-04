@@ -563,6 +563,7 @@ body::-webkit-scrollbar:horizontal { /* only hide the outter scrollbar */
 #toc-scroll {
   max-height: 50vh;
   overflow-y: scroll;
+  scrollbar-gutter: stable both-edges;
 }
 .hide-scrollbar::-webkit-scrollbar-thumb {
   background: transparent;
@@ -778,9 +779,9 @@ body.dark-mode li.page-item.active a { /* active current page */
 
 #gotop_btn {
   display: none;
-  right: 1%;
+  left: 95vw;
   bottom: 5%;
-  float: right;
+  float: left;
   width: 40px;
   height: 40px;
   position: sticky!important;
