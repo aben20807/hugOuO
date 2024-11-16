@@ -1,0 +1,54 @@
+{{/* https://github.com/pcooksey/bibtex-js/wiki/Customizable-Template */}}
+<div class="bibtex_template">
+    <div class="if author" style="padding-left: 3em; text-indent:-1.5em; margin-bottom: 0.2em;">
+        <span class="if year">
+            <span class="year"></span>.
+        </span>
+        <span class="author"></span>.
+        "<span class="title"></span>".
+        <span class="if journal">
+            <span class="journal" style="font-style: italic;"></span>.
+        </span>
+        <span class="if booktitle">
+            In: <span class="booktitle" style="font-style: italic;"></span>.
+        </span>
+        <span class="if url">
+            <a class="url" target="_blank" rel="noreferrer noopener">(view online)</a>.
+        </span>
+        <span class="if doi">
+            DOI: <a class="bibtexVar" href="http://doi.org/+DOI+" target="_blank" rel="noreferrer noopener" extra="doi"><span class="doi"></span></a>.
+        </span>
+        <span class="if note">
+            <span class="note" style="font-weight: bold;"></span>.
+        </span>
+    </div>
+</div>
+
+<div class="bibtex_structure">
+    <div class="sections bibtextypekey">
+        <div class="section article">
+            <h2 class="article-heading">Refereed Articles</h2>
+            <div class="sort year" extra="DESC number">
+                <div class="templates"></div>
+            </div>
+        </div>
+        <div class="section book">
+            <h2 class="article-heading">Books</h2>
+            <div class="sort year" extra="DESC number">
+                <div class="templates"></div>
+            </div>
+        </div>
+        <div class="section inproceedings">
+            <h2 class="article-heading">Conference and Workshop Papers</h2>
+            <div class="sort year" extra="DESC number">
+                <div class="templates"></div>
+            </div>
+        </div>
+        <div class="section misc|phdthesis|mastersthesis|bachelorsthesis|techreport">
+            <h2 class="article-heading">Other Publications</h2>
+            <div class="sort year" extra="DESC number">
+                <div class="templates"></div>
+            </div>
+        </div>
+    </div>
+</div>

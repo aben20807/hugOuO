@@ -1,0 +1,3 @@
+{{/* include a html file in a markdown fie  https://roneo.org/en/hugo-include-another-file-with-a-shortcode/  */}}
+{{ $file := .Get 0 }}
+{{ (printf "%s%s" .Page.File.Dir $file) | readFile | safeHTML }}

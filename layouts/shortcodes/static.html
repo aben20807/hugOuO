@@ -1,0 +1,6 @@
+{{/* get the path of a static file  https://discourse.gohugo.io/t/linking-to-static-files-with-hugo/8282/3  */}}
+{{- .Scratch.Set "path" (.Get 0) -}}
+{{- if hasPrefix (.Scratch.Get "path") "/" -}}
+  {{- .Scratch.Set "path" (slicestr (.Scratch.Get "path") 1) -}}
+{{- end -}}
+{{- .Scratch.Get "path" | absLangURL -}}
