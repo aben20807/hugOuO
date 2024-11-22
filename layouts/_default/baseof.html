@@ -138,7 +138,7 @@
 
       <div id="hdr" class="tc-l {{ cond $hdr "pv4-ns pv5-l" "" }} pv2 ph3 ph4-ns">
         <h1 class="{{ cond $hdr "near-white mt1-ns" "" }} f2 fw3 pt5 mb0 mt0 lh-title">
-          {{ cond (eq .Site.Params.titlecase true) (.Title | title | markdownify) (.Title | markdownify) }}</h1>
+          {{ cond (eq .Site.Params.titlecase true) (.Title | title | markdownify) (.Title | markdownify) }}{{- if .Draft }}{{ " (Draft)" }}{{ end -}}</h1>
         <h2 class="{{ cond $hdr "near-white mt3-l mb4-l" "" }} fw1 f6 f3-l measure-wide-l center lh-copy mt2 mb3">
           <!-- You can put a subtitle here in _index.md parameters, or it'll get
 						filled in with date and categories if it's a post -->

@@ -1,21 +1,17 @@
 {{/* https://gohugo.io/templates/render-hooks/ */}}
 {{/* Ref: https://sebastiandedeyne.com/captioned-images-with-markdown-render-hooks-in-hugo/ */}}
-{{- $gdrive_photo := `https://drive.google.com/open.+id=([^\"]+)` }} {{/*"*/ -}}
-{{- $new_gdrive_photo := `https://lh3.googleusercontent.com/d/${1}` -}}
 {{- $gdrive_text := `google-(.*)` -}}
 {{- $new_gdrive_text := `${1}` -}}
-{{- $eleintitle := `(?m:href)` -}}
 {{- $custom_width := (.Title | replaceRE `.*=(\d*)x.*` `${1}`) -}}
-{{- $href := .Destination -}}
 {{- $text := .Text | plainify | htmlUnescape | replaceRE $gdrive_text $new_gdrive_text -}}
 <figure class="gphoto-media center">
     <div class="img-container center">
         <noscript>
-            <img src="{{ .Destination | replaceRE $gdrive_photo $new_gdrive_photo | safeURL }}" oncontextmenu="return false;" class="center img-zoomable" alt='{{ $text }}' data-action="zoom"
+            <img src="{{ .Destination | safeURL }}" oncontextmenu="return false;" class="center img-zoomable" alt='{{ $text }}' data-action="zoom"
                 title='{{ $text }}'>
         </noscript>
-        <img data-src="{{ .Destination | replaceRE $gdrive_photo $new_gdrive_photo | safeURL }}" oncontextmenu="return false;" class="center img-zoomable lazyload" alt='{{ $text }}'
-            width="{{ $custom_width }}" data-action="zoom" title='{{ $text }}'>
+        <img data-src="{{ .Destination | safeURL }}" oncontextmenu="return false;" class="center img-zoomable lazyload" alt='{{ $text }}'
+            {{ with $custom_width }} width="{{ . }}"{{ end }} data-action="zoom" title='{{ $text }}'>
     </div>
     <figcaption>
         <center class="caption-text" style="margin: 0 .3rem 0;">
