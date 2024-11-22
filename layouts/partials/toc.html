@@ -16,16 +16,16 @@
 {{- $h1_n := len (findRE "(?ms:<h1.*?>(.|\n])+?</h1>)" .Content) -}}
 {{- $re := (cond (eq $h1_n 0) "<h[2-4]" "<h[1-4]") -}}
 {{- $renum := (cond (eq $h1_n 0) "[2-4]" "[1-4]") -}}
+{{ $var := .Store }}
+{{- $var.Set "toc1_cnt" 0 -}}
+{{- $var.Set "toc2_cnt" 0 -}}
+{{- $var.Set "toc3_cnt" 0 -}}
+{{- $var.Set "toc4_cnt" 0 -}}
 
 <div class="toc toc-nav toc-pills ml-0 col-3">
   <li class="nav-item pb-3 text-center">
     <span class="font-weight-bold mb-2 serif">- CATALOG - </span>
   </li>
-  {{ $var := .Scratch }}
-  {{- $toc1_cnt := 0 -}}
-  {{- $toc2_cnt := 0 -}}
-  {{- $toc3_cnt := 0 -}}
-  {{- $toc4_cnt := 0 -}}
   <div id="toc-scroll" class="noselect hide-scrollbar">
     {{- range $headers -}}
     {{- $header := . -}}

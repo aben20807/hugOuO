@@ -23,7 +23,7 @@
         </div>
         {{ end }}
         <div class="w-100 w6-ns pl3-ns mr5">
-          <h1 class="f3 mt0 lh-title"><a href="{{ .Permalink }}" class="color-inherit dim link no-underline-on-hover">
+          <h1 class="f4 mt0 lh-title"><a href="{{ .Permalink }}" class="color-inherit dim link no-underline-on-hover">
               {{- if eq .Section "talks" }}{{ .Params.event }}: {{ end -}}
               {{- cond (eq .Site.Params.titlecase true) (.Title | title | markdownify) (.Title | markdownify) -}}{{- if .Draft }}{{ " (Draft)" }}{{ end -}}
             </a></h1>

@@ -2,7 +2,7 @@
 {{- $images := split .Inner "\n" -}}
 <div class="gallery-wrapper" style="grid-template-columns: repeat({{- $rowSize -}}, 1fr)">
     {{- range $i, $img := $images -}}
-    {{- with $img -}}
+    {{- with (strings.TrimSpace $img) -}}
         <div>{{- $img | markdownify -}}</div>
     {{- end -}}
     {{- end -}}
