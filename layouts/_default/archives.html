@@ -15,7 +15,7 @@
       datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}' style="font-size: 80%;">
     {{ $p.Date.Format "Jan 02" }}</time></span>
     <a href="{{ $p.Permalink }}" class="no-underline dim link" style="font-size: 80%;">
-      {{- cond (eq .Site.Params.titlecase true) (.Title | title | markdownify) (.Title | markdownify) -}}
+      {{- cond (eq .Site.Params.titlecase true) (.Title | title | markdownify) (.Title | markdownify) -}}{{- if .Draft }}{{ " (Draft)" }}{{ end -}}
     </a>
   </li>
   {{- end -}}

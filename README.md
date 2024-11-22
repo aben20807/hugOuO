@@ -6,7 +6,7 @@ HugOuO is a [Hugo](https://gohugo.io/) theme that looks like the theme named [St
 
 + The file name of the post, please follow the format: "yyyymmdd-the-title.md". The date(yyyymmdd) is necessity.
 + Check [features](https://aben20807.github.io/posts/features/) page for usage examples.
-+ Tested hugo versions: v0.113.0, v0.120.4
++ Tested hugo versions: v0.139.0
 
 # DEMO
 

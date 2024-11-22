@@ -155,7 +155,7 @@
           <time datetime="{{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" }}">
             {{- .PublishDate.Format "Jan 2, 2006" -}}
           </time>
-          <span class="display-print">by {{ .Params.author | default .Site.Params.author }}</span>
+          <span class="display-print">by {{ .Params.author | default .Site.Params.author.name }}</span>
           {{ range $idx, $cat := .Params.categories }}{{ if gt $idx 0 }}, {{ end }}{{ if eq $idx 0 }} in {{ end }}<a
             href="{{ "categories" | absURL }}/{{ . | urlize }}"
             class="no-underline category title-link {{ cond $hdr "near-white dim" "black hover-gray" }}">{{ . | title }}</a>{{ end }}
@@ -207,7 +207,7 @@
       <a class="no-underline no-underline-on-hover" href='https://github.com/aben20807/hugOuO' target="_blank" rel="noreferrer noopener">hugOuO</a>
     </p>
     <p class="w-50 near-white" style="font-size:0.875rem !important;">
-      &copy; {{ with .Site.Params.startTime }} {{ if gt now (time .) }} {{ time.Format "2006" . }}-{{ now.Format "2006" }} {{ else }} {{ time.Format "2006" . }} {{ end }} {{end}} {{ with .Site.Params.author }}{{ . }}{{ end }}
+      &copy; {{ with .Site.Params.startTime }} {{ if gt now (time .) }} {{ time.Format "2006" . }}-{{ now.Format "2006" }} {{ else }} {{ time.Format "2006" . }} {{ end }} {{end}} {{ with .Site.Params.author.name }}{{ . }}{{ end }}
     </p>
   </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>

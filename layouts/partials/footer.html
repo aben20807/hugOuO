@@ -1,6 +1,6 @@
 <div id="license-block">
 <dl style="font-size: 80%;">
-<dt class="license">Author:</dt> <dd class="license">{{ .Params.author | default .Site.Params.author }}</dd>
+<dt class="license">Author:</dt> <dd class="license">{{ .Params.author | default .Site.Params.author.name }}</dd>
 <dt class="license">Last modified:</dt> <dd class="license">{{ .Page.Lastmod.Format "Jan 2, 2006" }}</dd>
 <dt class="license">License:</dt> <dd class="license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer noopener">CC BY 4.0</a></dd>
 <dt class="license">Link:</dt> <dd class="license"><span style="margin-right: 0.5rem;">{{ .Permalink }}</span></dd>
@@ -47,18 +47,18 @@
 <!-- https://brianli.com/adding-next-previous-post-links-in-hugo/ -->
 <div class="col tl" style="font-size: 95%!important;">
   <div class="nested-links fl w-100">
-    {{ if .PrevPage }}
-    <a title="Prev: {{ .PrevPage.Title }}" class="link-reverse fl w-100 truncate" href="{{ .PrevPage.Permalink }}">
-      <i class="fas fa-caret-square-up"></i> {{ .PrevPage.Title }}
-      <p class="footer-summary ml3 mb1">{{ .PrevPage.Summary | plainify | htmlUnescape }}</p>
+    {{ if .Page.Prev }}
+    <a title="Prev: {{ .Page.Prev.Title }}" class="link-reverse fl w-100 truncate" href="{{ .Page.Prev.Permalink }}">
+      <i class="fas fa-caret-square-up"></i> {{ .Page.Prev.Title }}
+      <p class="footer-summary ml3 mb1">{{ .Page.Prev.Summary | plainify | htmlUnescape }}</p>
     </a>
     {{ end }}
   </div>
   <div class="nested-links fl w-100">
-    {{ if .NextPage }}
-    <a title="Next: {{ .NextPage.Title }}" class="link-reverse fl w-100 truncate" href="{{ .NextPage.Permalink }}">
-      <i class="fas fa-caret-square-down"></i> {{ .NextPage.Title }}
-      <p class="footer-summary ml3 mb1">{{ .NextPage.Summary | plainify | htmlUnescape }}</p>
+    {{ if .Page.Next }}
+    <a title="Next: {{ .Page.Next.Title }}" class="link-reverse fl w-100 truncate" href="{{ .Page.Next.Permalink }}">
+      <i class="fas fa-caret-square-down"></i> {{ .Page.Next.Title }}
+      <p class="footer-summary ml3 mb1">{{ .Page.Next.Summary | plainify | htmlUnescape }}</p>
     </a>
     {{ end }}
   </div>

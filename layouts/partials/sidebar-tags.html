@@ -1,10 +1,10 @@
-{{ range where .Site.RegularPages ".Params.tags" "ne" nil }}
-{{ $.Scratch.Add "tags" (apply .Params.tags "lower" ".") }}
+{{/*  {{ range where .Site.RegularPages ".Params.tags" "ne" nil }}
+{{ $.Store.Add "tags" (apply .Params.tags "lower" ".") }}
 {{ end }}
 
-{{ $terms := uniq ($.Scratch.Get "tags") }}
+{{ $terms := uniq ($.Store.Get "tags") }}  */}}
 
-{{ if gt (len $terms) 0 }}
+{{ if gt (len .Site.Taxonomies.tags) 0 }}
 <hr>
 {{ with .Site.Taxonomies.tags }}
 <div class="post-meta">
@@ -17,13 +17,12 @@
     </a>
   </div>
 
-  <div class="li-x post-meta tags-md" style="margin-left: -8px;">
-    <ul>
-    {{ range first 40 (where .ByCount "Name" "in" $terms) }}
+  <div class="li-x post-meta tags-md" style="margin-left: -8px; ">
+    <ul style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+    {{ range $index, $element := first 40 site.Taxonomies.tags.ByCount }}
     {{ if gt .Count 2 }}
     <li><a href="{{ "tags/" | absLangURL }}{{ .Name | urlize }}" class="no-underline no-underline-on-hover"
-        role="button"><span>{{ .Name }}
-          ({{ .Count }})</span></a></li>
+        role="button"><span>{{ .Name }} ({{ .Count }})</span></a></li>
     {{ end }}
     {{ end }}
     </ul>

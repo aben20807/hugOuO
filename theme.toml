@@ -8,7 +8,7 @@ description = "Being made up of story by xaprb and AllinOne by Orianna."
 homepage = "https://github.com/aben20807/hugOuO"
 tags = ["Blog", "Presentation", "Slide", "Newsletter"]
 features = ["blog", "slides", "LaTeX", "search", "newsletter", "math", "music", "toc", "google CSE", "headline hash", "smooth scroll"]
-min_version = "0.98"
+min_version = "0.139"
 
 [author]
 name = "Huang, Po-Hsuan (aben20807)"

@@ -1,10 +1,10 @@
-{{ range where .Site.RegularPages ".Params.series" "ne" nil }}
-{{ $.Scratch.Add "series" (apply .Params.series "urlize" ".") }}
+{{/*  {{ range where .Site.RegularPages ".Params.series" "ne" nil }}
+{{ $.Store.Add "series" (apply .Params.series "urlize" ".") }}
 {{ end }}
 
-{{ $terms := uniq ($.Scratch.Get "series") }}
+{{ $terms := uniq ($.Store.Get "series") }}  */}}
 
-{{ if gt (len $terms) 0 }}
+{{ if gt (len .Site.Taxonomies.series) 0 }}
 <hr>
 {{ with .Site.Taxonomies.series }}
 <div class="post-meta">
@@ -16,13 +16,12 @@
       </span>
     </a>
   </div>
-
   <div class="li-x post-meta">
     <ul>
-    {{ range $index, $element := first 10 (where .ByCount "Name" "in" $terms) }}
+    {{ range $index, $element := first 10 site.Taxonomies.series.ByCount }}
     <li class="py-1">
       <a href="{{ "series/" | absLangURL }}{{ .Name | urlize }}" class="no-underline no-underline-on-hover">
-        <span>{{ $element.Name | humanize }} ({{ .Count }})</span>
+        <span>{{ .Name | humanize }} ({{ .Count }})</span>
       </a>
     </li>
     {{ end }}
