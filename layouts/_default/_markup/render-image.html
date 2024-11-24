@@ -10,10 +10,10 @@
             <img src="{{ .Destination | safeURL }}" oncontextmenu="return false;" class="center img-zoomable" alt='{{ $text }}' data-action="zoom"
                 title='{{ $text }}'>
         </noscript>
-        <img data-src="{{ .Destination | safeURL }}" oncontextmenu="return false;" class="center img-zoomable lazyload" alt='{{ $text }}'
-            {{ with $custom_width }} width="{{ . }}"{{ end }} data-action="zoom" title='{{ $text }}'>
+        <img data-src="{{ .Destination | safeURL }}" oncontextmenu="return false;" class="center img-zoomable lazyload" alt='{{ $text }}' style="display: block;"
+            {{ with $custom_width }} width="{{ . }}"{{ else }}width="400"{{ end }} data-action="zoom" title='{{ $text }}' />
     </div>
-    <figcaption>
+    <figcaption class="center" style="max-width:{{ with $custom_width }}{{ . }}{{ else }}400{{ end }}px;">
         <center class="caption-text" style="margin: 0 .3rem 0;">
             {{ if .Text }}
             <p style="margin: .5rem 0 0;">{{ .Text | replaceRE $gdrive_text $new_gdrive_text | safeHTML }}</p>
