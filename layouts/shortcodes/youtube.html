@@ -1,5 +1,10 @@
 {{ $url := index .Params 0 }}
-{{ $yt := `https:\/\/www\.youtube\.com\/watch\?v=([^\?]+)(\?t=(\d+))?` }}
+{{ $yt := `` }}
+{{ if (strings.Contains $url "watch") }}
+{{ $yt = `https:\/\/www\.youtube\.com\/watch\?v=([^\?]+)(\?t=(\d+))?$` }}
+{{ else }}
+{{ $yt = `https:\/\/youtu\.be\/([^\?]+)\?si=.+?(\&t=(\d+))?$` }}
+{{ end }}
 {{ $newyt := `https://www.youtube.com/embed/${1}?start=${3}` }}
 {{ $addzero := `(.*)?start=$` }}
 {{ $newaddzero := `${1}start=0` }}
