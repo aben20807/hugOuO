@@ -1,5 +1,5 @@
 <h{{ .Level }} id="{{ .Anchor }}" class="article-heading">{{ .Text | safeHTML }} 
-    <a class="headline-hash smoothScroll hover-show {{ cond (le .Level 3) "scrollspy" "" }}" style="font-size: 0.75em; color: black; padding-left: 0.25em" href="#{{ .Anchor | safeURL }}">
-        <span class="iconify" data-icon="octicon-link" data-inline="false"></span>
+    <a class="headline-hash smoothScroll hover-show {{ cond (le .Level 3) "scrollspy" "" }}" style="color: black;" href="#{{ .Anchor | safeURL }}">
+        <i class="fas fa-hashtag fa-xs"></i>
     </a>
 </h{{ .Level }}>

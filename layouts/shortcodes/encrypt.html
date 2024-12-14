@@ -1,0 +1,12 @@
+{{- $password := index .Params 0 | default "xxx" -}}
+{{- $chars := split (.Inner | markdownify) "" -}}
+<div class="encrypt-wrapper">
+    {{- range $char := $chars -}}
+        {{- $x := (int (printf "0x%x" .)) -}}
+        {{- $y := (string (printf "%#U" $x)) -}}
+        {{- $x -}}
+        {{- $y -}}
+        {{/*  <div>{{- (int (printf "%#x" .)) -}}</div>  */}}
+        <div>{{- ( (printf "%c" 0x5728)) -}}</div>
+    {{- end -}}
+</div>
