@@ -1,12 +1,36 @@
-{{- $password := index .Params 0 | default "xxx" -}}
+{{- $password := 0 -}}
+{{- $msg := "The %q shortcode requires a password parameter: see %s" }}
+{{ if isset .Params 0 }}
+{{- $password = index .Params 0 -}}
+{{- else -}}
+{{- errorf $msg .Name .Position }}
+{{- end -}}
 {{- $chars := split (.Inner | markdownify) "" -}}
+{{- $unique_id := (printf "%d" now.UnixNano) -}}
+{{- $step := (int (math.Floor (div 281474976710656 (len $chars)))) -}}
+
 <div class="encrypt-wrapper">
+  <div class="input-wrapper">
+    <input id={{ printf "password-%s" $unique_id }} type="text" placeholder="Password">
+    <button class="toggle-password" style="cursor:pointer;" onclick="decrypt({{ $unique_id }})">
+      Decrypt
+    </button>
+    <button class="toggle-password" style="cursor:pointer;" onclick="cleanDecrypt({{ $unique_id }})">
+      Clean
+    </button>
+  </div>
+  <div id={{ printf "encrypt-wrapper-%s" $unique_id }} style="display: none;">
     {{- range $char := $chars -}}
-        {{- $x := (int (printf "0x%x" .)) -}}
-        {{- $y := (string (printf "%#U" $x)) -}}
-        {{- $x -}}
-        {{- $y -}}
-        {{/*  <div>{{- (int (printf "%#x" .)) -}}</div>  */}}
-        <div>{{- ( (printf "%c" 0x5728)) -}}</div>
+    {{- $x := (add (int (printf "0x%x" .)) (int $password)) -}}
+    {{- $password = (mod (add $password $step) 281474976710656)}}
+    {{- $y := replace (string (printf "%018U" $x)) "U+" "" -}}
+    {{- $ry := delimit (collections.Reverse (split $y "")) "" -}}
+    {{- $ey := (string $ry) | base64Encode -}}
+    {{- printf "%s-" $ey -}}
     {{- end -}}
+  </div>
+  <div id={{ printf "decrypt-result-%s" $unique_id }}>
+    <p>Some things are hidden...</p>
+  </div>
 </div>
+{{/* tool: https://apps.timwhitlock.info/unicode/inspect */}}

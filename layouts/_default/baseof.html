@@ -9,7 +9,7 @@
   <link rel="canonical" href="{{ .Permalink }}">
   <!-- the Story logo is a square with rounded corners interlocked with a section symbol in Bodoni 72 Book font -->
   <link rel="shortcut icon" type="image/png" href="{{ "apple-touch-icon-precomposed.png" | absURL }}">
-  {{ with .Description }}
+  {{ with .Site.Params.Description }}
   <meta name="description" content="{{. | markdownify }}">{{ end }}
   {{ with .Keywords }}
   <meta name="keywords" content="{{.}}">{{ end }}
@@ -41,7 +41,7 @@
     rel="stylesheet" async>
   {{ end }}
   <!-- Lazy load the content, not to show the lazy content when js is not allowed -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.1/lazysizes.min.js"></script>
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.1/lazysizes.min.js"></script>
   <noscript>
     <style type="text/css">
       .lazyload {
@@ -49,25 +49,9 @@
       }
     </style>
   </noscript>
-  <!-- Quicklink: https://github.com/GoogleChromeLabs/quicklink -->
+  <!--ref: themes\hugOuO\layouts\shortcodes\encrypt.html -->
+  <script async src="https://cdn.jsdelivr.net/npm/js-base64@3.7.7/base64.min.js"></script>
 
-  <!-- {{ if or (in .Site.Params.classes "feature-highlight") (in .Params.classes "feature-highlight") -}}
-  {{- if not (or (in .Site.Params.classes "feature-nohighlight") (in .Params.classes "feature-nohighlight") ) -}} -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script> -->
-  <!-- {{- end -}}
-  {{- end -}} -->
-  <!-- {{ if or (in .Site.Params.classes "feature-math") (in .Params.classes "feature-math") -}}
-  {{- if not (or (in .Site.Params.classes "feature-nomath") (in .Params.classes "feature-nomath") ) -}} -->
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.css" integrity="sha384-TEMocfGvRuD1rIAacqrknm5BQZ7W7uWitoih+jMNFXQIbNl16bO8OZmylH/Vi/Ei" crossorigin="anonymous"> -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.js" integrity="sha384-jmxIlussZWB7qCuB+PgKG1uLjjxbVVIayPJwi6cG6Zb4YKq0JIw+OMnkkEC7kYCq" crossorigin="anonymous"></script> -->
-  <!-- <script src="{{ "js/auto-render.min.js" | absURL }}"></script> for KaTeX -->
-  <!-- {{- end -}}
-  {{- end -}} -->
-  <!-- {{ if or (in .Site.Params.classes "feature-music") (in .Params.classes "feature-music") -}}
-  {{- if not (or (in .Site.Params.classes "feature-nomusic") (in .Params.classes "feature-nomusic") ) -}}
-  <script src="{{ "js/abcjs_basic_5.6.3-min.js" | absURL }}"></script>
-  {{- end -}}
-  {{- end -}} -->
   {{ with .Site.Params.head }}{{ range . }}
   {{ . | safeHTML }}{{ end }}{{ end }}
   {{ if not (in (.Site.BaseURL | string) "localhost") }}
