@@ -24,16 +24,8 @@
   <script src="https://cdn.jsdelivr.net/npm/fetch-inject@2.0.4/dist/fetch-inject.umd.min.js"
     integrity="sha256-paKBtnIrL5ClLfBOtgxh1UqYCjL9790IRvDOnBh2LyI=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="{{ "css/tachyons.min.css" | absURL }}" async>
-  <!-- {{- if .Site.Params.less -}} -->
-  <!-- <link rel="stylesheet/less" type="text/css" href="{{ "css/story.less" | absURL }}" />
-  <link rel="stylesheet/less" type="text/css" href="{{ "css/descartes.less" | absURL }}" />
-  <script type="text/javascript" src="{{ "js/less.min.js" | absURL }}"></script> -->
-  <!-- {{ else }} -->
-  <link rel="stylesheet" href="{{ "css/story.css" | absURL }}?{{ now.Unix }}" async>
-  <!-- <link rel="stylesheet" href="{{ "css/descartes.css" | absURL }}" /> -->
   <link rel="stylesheet" href="{{ "css/hugouo.css" | absURL }}?{{ now.Unix }}" async>
-  <link rel="stylesheet" href="{{ "css/allinone.css" | absURL }}?{{ now.Unix }}" async>
-  <!-- {{ end }} -->
+
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" 
     integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" async>
   <link
@@ -146,7 +138,7 @@
         </h2>
         {{ $readTime := mul (div .WordCount 220.0) 60 }}
         {{ if .IsPage }}
-        <h6 class="{{ cond $hdr "near-white" "" }} fw1 f6 f5-l measure-wide-l center lh-copy">
+        <h6 class="{{ cond $hdr "near-white" "" }} fw1 f6 f5-l measure-wide-l center lh-copy hide-print">
           <span title="Word count: {{ .WordCount }} words"><i class="far fa-file-alt"></i></i> {{ .WordCount }} words</span>  <span title="Reading time: {{ math.Ceil (div $readTime 60) }} minutes"><i class="far fa-clock"></i> {{ math.Ceil (div $readTime 60) }} minutes</span>
         </h6>
         {{ end }}
@@ -190,7 +182,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script type="text/javascript" src="{{ "js/hugouo.js" | absURL }}?{{ now.Unix }}" async></script>
   <script type="text/javascript" src="{{ "js/x-notify.min.js" | absURL }}" async></script>
-  <script src="{{ "js/story.js" | absURL }}" async></script>
+  {{/*  <script src="{{ "js/story.js" | absURL }}" async></script>  */}}
   <!-- Title shuffle -->
   <script>
     fetchInject([

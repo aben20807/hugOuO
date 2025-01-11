@@ -1,13 +1,20 @@
 <div id="license-block">
-<dl style="font-size: 80%;">
-<dt class="license">Author:</dt> <dd class="license">{{ .Params.author | default .Site.Params.author.name }}</dd>
-<dt class="license">Last modified:</dt> <dd class="license">{{ .Page.Lastmod.Format "Jan 2, 2006" }}</dd>
-<dt class="license">License:</dt> <dd class="license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer noopener">CC BY 4.0</a></dd>
-<dt class="license">Link:</dt> <dd class="license"><span style="margin-right: 0.5rem;">{{ .Permalink }}</span></dd>
-</dl>
+  <dl style="font-size: 80%;">
+    <dt class="license">Author:</dt>
+    <dd class="license">{{ .Params.author | default .Site.Params.author.name }}</dd>
+    <dt class="license">Last modified:</dt>
+    <dd class="license">{{ .Page.Lastmod.Format "Jan 2, 2006" }}</dd>
+    <dt class="license">License:</dt>
+    <dd class="license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
+        rel="noreferrer noopener">CC BY 4.0</a></dd>
+    <dt class="license">Link:</dt>
+    <dd class="license"><span style="margin-right: 0.5rem;">{{ .Permalink }}</span></dd>
+  </dl>
 </div>
 <div class="mb3">
-  <span class="tags-sm"><a onclick="copyToClip()" role="button" class="no-underline no-underline-on-hover" title="Copy the license block" style="cursor: pointer !important; white-space: nowrap;"><i class="far fa-clipboard"></i> Copy license</a></span>
+  <span class="tags-sm"><a onclick="copyToClip()" role="button" class="no-underline no-underline-on-hover"
+      title="Copy the license block" style="cursor: pointer !important; white-space: nowrap;"><i
+        class="far fa-clipboard"></i> Copy license</a></span>
 </div>
 <script>
   function copyToClip() {
@@ -37,12 +44,14 @@
     });
   }
 </script>
+{{- if or .Params.likecoinUser .Site.Params.likecoinUser -}}
 <div>
   <!-- likecoin button -->
   <script type="text/javascript">
     document.write("<iframe scrolling='no' frameborder='0' class='center' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='' src='https://button.like.co/in/embed/{{- .Params.likecoinUser | default .Site.Params.likecoinUser -}}/button?referrer=" + encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");
   </script>
 </div>
+{{- end -}}
 
 <!-- https://brianli.com/adding-next-previous-post-links-in-hugo/ -->
 <div class="col tl" style="font-size: 95%!important;">
@@ -63,14 +72,14 @@
     {{ end }}
   </div>
   <div class="mb2">
-  {{ $related := .Site.RegularPages.RelatedIndices . "date" "tags" | first 3 }}
-  {{ range $related }}
+    {{ $related := .Site.RegularPages.RelatedIndices . "date" "tags" | first 3 }}
+    {{ range $related }}
     <div class="nested-links fl w-100">
       <a title="Related: {{ .Title }}" class="link-reverse fl w-100 truncate" href="{{ .Permalink }}">
         <i class="fas fa-seedling"></i> {{ .Title }}
         <p class="footer-summary ml3 mb1">{{ .Summary | plainify | htmlUnescape }}</p>
       </a>
     </div>
-  {{ end }}
+    {{ end }}
   </div>
 </div>
