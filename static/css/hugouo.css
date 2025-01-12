@@ -50,6 +50,17 @@ body {
   background-color: var(--white);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0em;
+  padding: 0.6em 0em 0.3em;
+  font-weight: 500;
+}
+
 h1 {
   font-size: 1.5rem;
   counter-reset: h2_cnt;
@@ -145,9 +156,6 @@ body {
     ubuntu, noto, "segoe ui", arial, sans-serif;
   font-display: swap;
   word-break: break-word;
-  margin: 0em;
-  padding: 0.6em 0em 0.3em;
-  font-weight: 500;
 }
 
 h1>code,
@@ -1350,6 +1358,7 @@ body.dark-mode li.page-item.active a {
   margin: auto;
   text-align: center;
 }
+
 /* https://stackoverflow.com/a/29399580 */
 #gotop_btn:after {
   display: inline-block;

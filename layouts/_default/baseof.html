@@ -126,9 +126,9 @@
       </nav>
 
       <div id="hdr" class="tc-l {{ cond $hdr "pv4-ns pv5-l" "" }} pv2 ph3 ph4-ns">
-        <h1 class="{{ cond $hdr "near-white mt1-ns" "" }} f2 fw3 pt5 mb0 mt0 lh-title">
+        <h1 class="{{ cond $hdr "near-white mt1-ns" "" }} f2 fw3 pt5 mb0 mt0 lh-title serif">
           {{ cond (eq .Site.Params.titlecase true) (.Title | title | markdownify) (.Title | markdownify) }}{{- if .Draft }}{{ " (Draft)" }}{{ end -}}</h1>
-        <h2 class="{{ cond $hdr "near-white mt3-l mb4-l" "" }} fw1 f6 f3-l measure-wide-l center lh-copy mt2 mb3">
+        <h2 class="{{ cond $hdr "near-white mt3-l mb4-l" "" }} fw1 f6 f3-l measure-wide-l center lh-copy mt2 mb3 serif">
           <!-- You can put a subtitle here in _index.md parameters, or it'll get
 						filled in with date and categories if it's a post -->
           {{ if .IsPage }}
@@ -151,14 +151,14 @@
           <span class="display-print">at <a href="{{ .Permalink }}">{{ .Permalink }}</a></span>
           {{ end }}
           {{ else }}
-          <span id="subtitle">
+          <span id="subtitle" class="serif">
           {{ with .Params.subtitle }}{{ . | markdownify }}{{ end }}
           </span>
           {{ end }}
         </h2>
         {{ $readTime := mul (div .WordCount 220.0) 60 }}
         {{ if .IsPage }}
-        <h6 class="{{ cond $hdr "near-white" "" }} fw1 f6 f5-l measure-wide-l center lh-copy hide-print">
+        <h6 class="{{ cond $hdr "near-white" "" }} fw1 f6 f5-l measure-wide-l center lh-copy hide-print serif">
           <span title="Word count: {{ .WordCount }} words"><i class="far fa-file-alt"></i></i> {{ .WordCount }} words</span>  <span title="Reading time: {{ math.Ceil (div $readTime 60) }} minutes"><i class="far fa-clock"></i> {{ math.Ceil (div $readTime 60) }} minutes</span>
         </h6>
         {{ end }}
