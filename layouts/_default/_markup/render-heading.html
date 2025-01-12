@@ -1,4 +1,4 @@
-<h{{ .Level }} id="{{ .Anchor }}" class="article-heading">{{ .Text | safeHTML }} 
+<h{{ .Level }} id="{{ .Anchor }}" class="article-heading serif">{{ .Text | safeHTML }} 
     <a class="headline-hash smoothScroll hover-show {{ cond (le .Level 3) "scrollspy" "" }}" href="#{{ .Anchor | safeURL }}">
         <i class="fas fa-hashtag fa-xs"></i>
     </a>
