@@ -1,20 +1,18 @@
 {{ define "title" }}Archives &bullet; {{ .Site.Title }}{{ end }}
 
 {{ define "main" }}
-<section class="center bg-main br-3 pv1 ph4 nested-copy-line-height lh-copy f4 nested-links mw-100 measure-wide">
+<section class="center bg-main br-3 pv1 ph4 nested-copy-line-height lh-copy f4 mw-100 measure-wide">
   {{- range $i, $p := .Site.RegularPages -}}
   {{- $thisYear := $p.Date.Format "2006" }}
   {{- $lastPage := $i | add -1 | index .Site.RegularPages }}
   {{- if or (eq $i 0) ( ne ($lastPage.Date.Format "2006") $thisYear ) }}
-  <h1 class="archive-year">{{ $thisYear }}</h1>
+  <h1 class="archive-year serif">{{ $thisYear }}</h1>
   {{- end }}
-
-
-  <li class="post-item nested-links">
-    <span class="meta"><time
-      datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}' style="font-size: 80%;">
+  <li class="post-item">
+    <span class="meta f5 serif flex"><time
+      datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>
     {{ $p.Date.Format "Jan 02" }}</time></span>
-    <a href="{{ $p.Permalink }}" class="no-underline dim link" style="font-size: 90%;">
+    <a href="{{ $p.Permalink }}" class="no-underline dim link f5">
       {{- cond (eq .Site.Params.titlecase true) (.Title | title | markdownify) (.Title | markdownify) -}}{{- if .Draft }}{{ " (Draft)" }}{{ end -}}
     </a>
   </li>

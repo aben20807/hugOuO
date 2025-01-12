@@ -55,7 +55,7 @@
 
 <!-- https://brianli.com/adding-next-previous-post-links-in-hugo/ -->
 <div class="col tl" style="font-size: 95%!important;">
-  <div class="nested-links fl w-100">
+  <div class="fl w-100">
     {{ if .Page.Prev }}
     <a title="Prev: {{ .Page.Prev.Title }}" class="link-reverse fl w-100 truncate" href="{{ .Page.Prev.Permalink }}">
       <i class="fas fa-caret-square-up"></i> {{ .Page.Prev.Title }}
@@ -63,7 +63,7 @@
     </a>
     {{ end }}
   </div>
-  <div class="nested-links fl w-100">
+  <div class="fl w-100">
     {{ if .Page.Next }}
     <a title="Next: {{ .Page.Next.Title }}" class="link-reverse fl w-100 truncate" href="{{ .Page.Next.Permalink }}">
       <i class="fas fa-caret-square-down"></i> {{ .Page.Next.Title }}
@@ -74,7 +74,7 @@
   <div class="mb2">
     {{ $related := .Site.RegularPages.RelatedIndices . "date" "tags" | first 3 }}
     {{ range $related }}
-    <div class="nested-links fl w-100">
+    <div class="fl w-100">
       <a title="Related: {{ .Title }}" class="link-reverse fl w-100 truncate" href="{{ .Permalink }}">
         <i class="fas fa-seedling"></i> {{ .Title }}
         <p class="footer-summary ml3 mb1">{{ .Summary | plainify | htmlUnescape }}</p>

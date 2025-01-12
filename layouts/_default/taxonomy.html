@@ -14,19 +14,8 @@
     <!-- Post list -->
     <!-- <div class="content"> -->
     <div class="col-md-9 mt-3">
-      <div class="container content mt-3">
+      <div class="container content mt-3 taxonomy">
         <ul>
-          <!-- <div class="div-x">
-              {{ partial "page-heading.html" . }}
-              {{ $page_num := (len .Data.Pages)}}
-              {{ if gt $page_num 0 }}
-                <div class="px-2 middot"></div>
-                <div>
-                  {{ i18n "postCount" $page_num }}
-                </div>
-              {{ end }}
-            </div> -->
-
           {{ if .Content }}
           <div class="post-content markdown">
             {{ .Content }}
