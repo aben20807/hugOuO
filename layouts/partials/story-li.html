@@ -27,7 +27,7 @@
               {{- if eq .Section "talks" }}{{ .Params.event }}: {{ end -}}
               {{- cond (eq .Site.Params.titlecase true) (.Title | title | markdownify) (.Title | markdownify) -}}{{- if .Draft }}{{ " (Draft)" }}{{ end -}}
             </a></h1>
-          <div class="f6 f5-l lh-copy nested-copy-line-height">
+          <div class="f6 f5-l lh-copy">
             {{ if eq .Section "slides" }}
             {{ .Description | markdownify }}
             <div class="pa0 sans-serif f7 mt3" style="white-space: nowrap;"><a class="ba br3 pa2 link no-underline-on-hover" href="{{ .Permalink }}">View Slideshow <i

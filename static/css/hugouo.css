@@ -654,7 +654,7 @@ blockquote>p {
 blockquote {
   margin: 1em auto;
   font-style: unset;
-  padding: 1em .5em 1em;
+  padding: .5em;
   border: 1px solid var(--deep-blue);
   border-left: 7px solid var(--deep-blue);
   line-height: 1.2;
@@ -662,11 +662,11 @@ blockquote {
   background: var(--white);
 }
 
-blockquote>p:first-child:before {
+/* blockquote>p:first-child:before {
   content: "\201C";
   color: var(--deep-blue);
   font-size: 370%;
-}
+} */
 
 .gphoto-media {
   max-width: 100%;
