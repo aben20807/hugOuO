@@ -15,6 +15,7 @@
 {{- $newtablecodes := `<div class="highlight">${1}</div>` -}}
 {{- $yts := `(?ms:<div class="mb4".*?<iframe.*?<\/iframe>\s*?<\/div>)` -}}
 {{- $iframes := `(?ms:<iframe.*?<\/iframe>)` -}}
+{{- $encrypts:= `(?ms:<div id=encrypt-wrapper.*?<\/div>)` -}}
 {{- $footnotes := `(?ms:(<a href="#fnref.*?<\/a>)|(<sup id="fnref.*?<\/sup>))` -}}
 {{- $footnotes_footer := `(?ms:<div class="footnotes".*?</div>)` -}}
 {{- $comments := `(?ms:<!--.*?-->)` -}}
@@ -57,6 +58,7 @@
           {{ $tmpContent := $tmpContent | replaceRE $tablecodes $newtablecodes }}
           {{ $tmpContent := $tmpContent | replaceRE $yts $clean }}
           {{ $tmpContent := $tmpContent | replaceRE $iframes $clean }}
+          {{ $tmpContent := $tmpContent | replaceRE $encrypts $clean }}
           {{ $tmpContent := $tmpContent | replaceRE $footnotes $clean }}
           {{ $tmpContent := $tmpContent | replaceRE $footnotes_footer $clean }}
           {{ $tmpContent := $tmpContent | replaceRE `(?ms:<font class="douyin hover-show">.*?OuO</a>.*?</font>)` $clean }}
