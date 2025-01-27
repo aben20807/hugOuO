@@ -52,7 +52,7 @@
             <p><a href="{{ .Permalink | absURL }}"><img src="{{ .Site.BaseURL }}/img/default-header-img.jpg" style="max-width: 100%;"/></a></p>
           {{ end }}
           <p><a href="{{ .Permalink | absURL }}">Visit website to read the full article</a></p>
-          {{ $tmpContent := .Content }}
+          <!-- {{ $tmpContent := .Content }}
           {{ $tmpContent := $tmpContent | replaceRE $comments $clean }}
           {{ $tmpContent := $tmpContent | replaceRE $nphoto $newnphoto }}
           {{ $tmpContent := $tmpContent | replaceRE $tablecodes $newtablecodes }}
@@ -62,7 +62,7 @@
           {{ $tmpContent := $tmpContent | replaceRE $footnotes $clean }}
           {{ $tmpContent := $tmpContent | replaceRE $footnotes_footer $clean }}
           {{ $tmpContent := $tmpContent | replaceRE `(?ms:<font class="douyin hover-show">.*?OuO</a>.*?</font>)` $clean }}
-          {{ $tmpContent | safeHTML }}
+          {{ $tmpContent | safeHTML }} -->
         {{ "]]>" | safeHTML }}
       </description>
     </item>
