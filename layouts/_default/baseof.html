@@ -72,6 +72,16 @@
      crossorigin="anonymous"></script>
   {{ end }}
   <meta name="referrer" content="no-referrer">
+  {{/* only index for posts https://discourse.gohugo.io/t/noindex-taxonomy-paginated-pages/34133/2  */}}
+  {{ $robots := `
+    <meta name="robots" content="index,follow">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  `}}
+  {{ if or (eq .Kind "taxonomy") (eq .Kind "term") }}
+      {{ $robots = `<meta name="robots" content="noindex, follow">` }}
+  {{ end }}
+  {{ $robots | safeHTML }}
 </head>
 
 <body
