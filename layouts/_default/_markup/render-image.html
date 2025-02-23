@@ -1,7 +1,7 @@
 {{/* https://gohugo.io/templates/render-hooks/ */}}
 {{/* Ref: https://sebastiandedeyne.com/captioned-images-with-markdown-render-hooks-in-hugo/ */}}
 {{- $custom_width := (.Title | replaceRE `.*=(\d*)x.*` `${1}`) -}}
-{{- $text := .Text | plainify | htmlUnescape -}}
+{{- $text := .Text | safeHTML -}}
 <figure class="gphoto-media center">
     <div class="img-container center">
         <noscript>
