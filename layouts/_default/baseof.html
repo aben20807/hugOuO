@@ -201,13 +201,14 @@
   <div id='gotop_btn' class="center"><i class="fas fa-chevron-up"></i></div>
   <footer class="hide-print sans-serif f6 fw1 bg-black near-white bottom-0 w-100 pa3 db overflow-auto"
     role="contentinfo">
-    <p class="w-50 fr tr" style="font-size:0.875rem !important;">
+    <p class="w-30 fr tr" style="font-size:0.875rem !important;">
       Made with Hugo and
       <a class="no-underline no-underline-on-hover" href='https://github.com/aben20807/hugOuO' target="_blank" rel="noreferrer noopener">hugOuO</a>
     </p>
-    <p class="w-50 near-white" style="font-size:0.875rem !important;">
-      &copy; {{ with .Site.Params.startTime }} {{ if gt now (time .) }} {{ time.Format "2006" . }}-{{ now.Format "2006" }} {{ else }} {{ time.Format "2006" . }} {{ end }} {{end}} {{ with .Site.Params.author.name }}{{ . }}{{ end }}
+    <p class="w-30 near-white" style="margin: 0; font-size:0.875rem !important;">
+      &copy; {{ with .Site.Params.startTime }} {{ if gt now (time .) }} {{ time.Format "2006" . }}-{{ now.Format "2006" }} {{ else }} {{ time.Format "2006" . }} {{ end }} {{end}} {{ with .Site.Params.author.name }}{{ . }}{{ end }} 
     </p>
+    {{ with .Site.Params.disclaimer }}<p class="w-30 near-white" style="margin: 0; font-size:0.875rem !important;"><a href="{{ . | absURL }}" >免責聲明 (Disclaimer)</a></p>{{ end }}
   </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script type="text/javascript" src="{{ "js/hugouo.js" | absURL }}?{{ now.Unix }}" async></script>
