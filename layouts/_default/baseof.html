@@ -10,22 +10,21 @@
   <link rel="preconnect" href="{{ absURL (default "img/default-header-img.jpg" .Params.image) }}" />
   <link rel="dns-prefetch" href="{{ absURL (default "img/default-header-img.jpg" .Params.image) }}" />
   <link rel="preload" href="{{ absURL (default "img/default-header-img.jpg" .Params.image) }}" as="image" />
-  <link rel="preload" href="{{ "css/tachyons.min.css" | absURL }}?{{ now.Unix }}" as="style" />
-  <link rel="preload" href="{{ "css/hugouo.css" | absURL }}?{{ now.Unix }}" as="style" />
   {{/*  https://pjchender.dev/webdev/web-preload-lazyload/  */}}
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" href="https://fonts.googleapis.com/earlyaccess/notosanstc.css" as="style" />
-  <link
+  <link rel="prefetch" href="https://fonts.googleapis.com/earlyaccess/notosanstc.css" as="style" />
+  {{/*  <link
     rel="preload"
     href="https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.woff2"
     as="font"
     type="font/woff2"
     crossorigin="anonymous"
-  />
+  />  */}}
   <link rel="preconnect" href='https://use.fontawesome.com' crossorigin />
   <link rel="preload" href="{{ "js/hugouo.js" | absURL }}?{{ now.Unix }}" as="script" />
   <link rel="preconnect" href="https://lh3.googleusercontent.com" crossorigin />
-
+  <link rel="prefetch" href="{{ "css/tachyons.min.css" | absURL }}?{{ now.Unix }}" as="style" />
+  <link rel="prefetch" href="{{ "css/hugouo.css" | absURL }}?{{ now.Unix }}" as="style" />
 
   <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ "index.xml" | absURL }}">
   <link rel="canonical" href="{{ .Permalink }}">

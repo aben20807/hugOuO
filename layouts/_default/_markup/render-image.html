@@ -8,7 +8,8 @@
             <img src="{{ .Destination | safeURL }}" oncontextmenu="return false;" class="center img-zoomable" alt='{{ $text }}' data-action="zoom"
                 title='{{ $text }}'>
         </noscript>
-        <img data-src="{{ .Destination | safeURL }}" oncontextmenu="return false;" class="center img-zoomable lazyload" alt='{{ $text }}' style="display: block;"
+        <img data-sizes="auto"
+        src="https://dummyimage.com/600x400/666/fff&text=wait" data-src="{{ .Destination | safeURL }}" oncontextmenu="return false;" class="center img-zoomable lazyload" alt='{{ $text }}' style="display: block;"
             {{ with $custom_width }} width="{{ . }}"{{ else }}width="400"{{ end }} data-action="zoom" title='{{ $text }}' />
     </div>
     <figcaption class="center" style="max-width:{{ with $custom_width }}{{ . }}{{ else }}400{{ end }}px;">
