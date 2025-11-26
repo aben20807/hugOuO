@@ -12,6 +12,16 @@ function gen_type_if_need() {
     });
 }
 </script>
+<style>
+    div.templates {
+		counter-reset: n;
+	}
+	div.bibtexentry > div:nth-child(1)::before {
+		counter-increment: n;
+		content: "[" counter(n) "] ";
+		flex: 0 0 auto;
+	}
+</style>
 <div class="bibtex_template">
     <div class="if author" style="padding-left: 3em; text-indent:-2em; margin-bottom: 0.2em;">
         <span class="author"></span>.
