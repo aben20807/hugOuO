@@ -1,0 +1,23 @@
+{{ with .Site.Params.externalLinks }}
+<hr>
+<div class="post-meta">
+  <div class="mb-2">
+    <span class="font-weight-bold text-uppercase post-meta">
+      <i class="fas fa-external-link-alt pr-1" aria-hidden="true"></i>
+      外部連結
+    </span>
+  </div>
+  <div class="li-y post-meta series-md">
+    <ul>
+    {{ range $index, $element := . }}
+    <li class="py-1">
+      <a href="{{ .url }}" target="_blank" rel="noopener" class="no-underline no-underline-on-hover">
+        <span>{{ .name }}</span>
+      </a>
+    </li>
+    {{ end }}
+    </ul>
+  </div>
+
+</div>
+{{ end }}
