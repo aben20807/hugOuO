@@ -1,0 +1,204 @@
+{{- if .Site.Params.likeSheetUrl -}}
+<div id="like-button-container" class="like-button-wrapper">
+  <button id="like-btn" class="like-btn" onclick="toggleLike()" title="Like this post">
+    <i id="like-icon" class="far fa-heart"></i>
+    <span id="like-count">0</span>
+  </button>
+</div>
+
+<style>
+.like-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.like-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border: 2px solid #e74c3c;
+  border-radius: 2rem;
+  background: transparent;
+  color: #e74c3c;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.like-btn:hover {
+  background: rgba(231, 76, 60, 0.1);
+  transform: scale(1.05);
+}
+
+.like-btn.liked {
+  background: #e74c3c;
+  color: white;
+}
+
+.like-btn.liked i {
+  animation: heartBeat 0.3s ease-in-out;
+}
+
+.like-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* Dark mode support */
+.dark .like-btn {
+  border-color: #ff6b6b;
+  color: #ff6b6b;
+}
+
+.dark .like-btn:hover {
+  background: rgba(255, 107, 107, 0.1);
+}
+
+.dark .like-btn.liked {
+  background: #ff6b6b;
+  color: white;
+}
+</style>
+
+<script>
+(function() {
+  const LIKE_SHEET_URL = '{{ .Site.Params.likeSheetUrl }}';
+  const POST_URL = '{{ .Permalink }}';
+  const STORAGE_KEY = 'liked_posts';
+
+  // Check if this post was already liked by user
+  function hasLiked() {
+    try {
+      const likedPosts = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      return likedPosts.includes(POST_URL);
+    } catch (e) {
+      return false;
+    }
+  }
+
+  // Save liked state to localStorage
+  function saveLikedState() {
+    try {
+      const likedPosts = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      if (!likedPosts.includes(POST_URL)) {
+        likedPosts.push(POST_URL);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(likedPosts));
+      }
+    } catch (e) {
+      console.error('Failed to save liked state:', e);
+    }
+  }
+
+  // Fetch like count on page load
+  async function fetchLikeCount() {
+    try {
+      const response = await fetch(`${LIKE_SHEET_URL}?url=${encodeURIComponent(POST_URL)}`);
+      const data = await response.json();
+      document.getElementById('like-count').textContent = data.likes || 0;
+    } catch (e) {
+      console.error('Failed to fetch like count:', e);
+    }
+  }
+
+  // Update button state based on localStorage
+  function updateButtonState() {
+    const btn = document.getElementById('like-btn');
+    const icon = document.getElementById('like-icon');
+    if (hasLiked()) {
+      btn.classList.add('liked');
+      icon.classList.remove('far');
+      icon.classList.add('fas');
+    }
+  }
+
+  // Toggle like function (exposed globally)
+  window.toggleLike = async function() {
+    const btn = document.getElementById('like-btn');
+    const icon = document.getElementById('like-icon');
+    const countEl = document.getElementById('like-count');
+
+    // Prevent multiple clicks
+    if (btn.disabled) return;
+
+    // If already liked, just show notification
+    if (hasLiked()) {
+      if (typeof XNotify !== 'undefined') {
+        const Notify = new XNotify("BottomLeft");
+        Notify.info({
+          borderRadius: "2px",
+          content: "You've already liked this post!",
+          duration: 3000,
+          background: "#646464"
+        });
+      }
+      // return;
+    }
+
+    btn.disabled = true;
+
+    try {
+      const response = await fetch(`${LIKE_SHEET_URL}?url=${encodeURIComponent(POST_URL)}`, {
+        method: 'POST',
+        mode: 'no-cors'
+      });
+
+      // Since mode is 'no-cors', we can't read the response
+      // So we'll optimistically update the UI
+      const currentCount = parseInt(countEl.textContent) || 0;
+      countEl.textContent = currentCount + 1;
+
+      // Update UI to show liked state
+      btn.classList.add('liked');
+      icon.classList.remove('far');
+      icon.classList.add('fas');
+
+      // Save to localStorage
+      saveLikedState();
+
+      // Show notification
+      if (typeof XNotify !== 'undefined') {
+        const Notify = new XNotify("BottomLeft");
+        Notify.info({
+          borderRadius: "2px",
+          content: "Thanks for liking! ❤️",
+          duration: 3000,
+          background: "#e74c3c"
+        });
+      }
+
+      // Refetch to get accurate count after a delay
+      setTimeout(fetchLikeCount, 1000);
+
+    } catch (e) {
+      console.error('Failed to like post:', e);
+      if (typeof XNotify !== 'undefined') {
+        const Notify = new XNotify("BottomLeft");
+        Notify.info({
+          borderRadius: "2px",
+          content: "Failed to like. Please try again.",
+          duration: 3000,
+          background: "#e74c3c"
+        });
+      }
+    } finally {
+      btn.disabled = false;
+    }
+  };
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    fetchLikeCount();
+    updateButtonState();
+  });
+})();
+</script>
+{{- end -}}
