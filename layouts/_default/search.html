@@ -20,7 +20,10 @@
   <div id="search"></div>
   <script>
       window.addEventListener('DOMContentLoaded', (event) => {
-          new PagefindUI({ element: "#search", showSubResults: true });
+        let actualLang = document.documentElement.lang;
+        document.documentElement.lang = "en";
+        new PagefindUI({ element: "#search", showSubResults: true });
+        document.documentElement.lang = actualLang;
       });
   </script>
 </article>
