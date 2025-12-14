@@ -35,8 +35,8 @@
       <!-- /.Series -->
       </div>
       {{- partial "footnote.html" .Content -}}
-      <!-- Footer -->
-      <div class="footer">
+      <!-- Footer; ignore for pagefind -->
+      <div data-pagefind-ignore="all" class="footer">
         <div class="column center tc">
           {{ partial "footer.html" . }}
         </div>
