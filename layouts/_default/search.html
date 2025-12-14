@@ -22,7 +22,7 @@
       window.addEventListener('DOMContentLoaded', (event) => {
         let actualLang = document.documentElement.lang;
         document.documentElement.lang = "en";
-        new PagefindUI({ element: "#search", showSubResults: true });
+        new PagefindUI({ element: "#search", showSubResults: true, highlightParam: "highlight" });
         document.documentElement.lang = actualLang;
       });
   </script>
