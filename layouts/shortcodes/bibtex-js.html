@@ -26,25 +26,28 @@ function gen_type_if_need() {
     <div class="if author" style="padding-left: 3em; text-indent:-2em; margin-bottom: 0.2em;">
         <span class="author"></span>.
         "<span class="title"></span>,"
-        <span class="if journal">
-            <span class="journal" style="font-style: italic;"></span>
-            <span id="volume" class="if volume">, vol. <span class="volume"></span></span>
-            <span id="number" class="if number">, no.
-                <span class="number"></span></span></span><span class="if booktitle">In: <span class="booktitle"
-                style="font-style: italic;"></span></span><span id="pages" class="if pages">, pp. <span
-                class="pages"></span></span><span class="bibtexVar +BIBTEXTYPEKEY+" extra="BIBTEXTYPEKEY"></span><span
-            class="if !journal"><span class="if !booktitle"><span class="if publisher"><span
-                        class="publisher"></span></span></span></span><span class="if school"><span
-                class="school"></span></span><span class="if institution"><span class="institution"></span></span><span class="if journal || booktitle || publisher || school || institution">.</span>
-        <span id="year" class="if year"><span class="year"></span>.</span>
+        <span class="if !BIBTEXTYPE==preprint">
+            <span class="if journal">
+            <span class="journal" style="font-style: italic;"></span><span id="volume" 
+            class="if volume">, vol. <span class="volume"></span></span><span 
+            id="number" class="if number">, no. <span class="number"></span></span></span><span 
+            class="if booktitle">In: <span class="booktitle"
+                style="font-style: italic;"></span></span><span 
+                id="pages" class="if pages">, pp. <span class="pages"></span></span><span 
+                class="bibtexVar +BIBTEXTYPEKEY+" extra="BIBTEXTYPEKEY"></span><span 
+                class="if !journal"><span class="if !booktitle"><span 
+                    class="if publisher"><span class="publisher"></span></span></span></span><span 
+                    class="if school"><span 
+                        class="school"></span></span><span class="if institution"><span class="institution"></span></span><span 
+                        class="if journal || booktitle || publisher || school || institution">. </span></span><span 
+                    id="year" class="if year"><span class="year"></span>.
+        </span><span class="if BIBTEXTYPE==preprint"><a class="url" target="_blank" rel="noreferrer noopener"><span class="journal"></span></a></span>
         <span id="doi" class="if doi">
             DOI: <a class="bibtexVar" href="http://doi.org/+DOI+" target="_blank" rel="noreferrer noopener"
                 extra="doi"><span class="doi"></span></a>.
         </span>
-        <span class="if !doi">
-            <span id="url" class="if url">
-                Available: <a class="url" target="_blank" rel="noreferrer noopener"><span class="url"></span></a>.
-            </span>
+        <span class="if !doi and url and !BIBTEXTYPE==preprint">
+            Available: <a class="url" target="_blank" rel="noreferrer noopener"><span class="url"></span></a>.
         </span>
         <span id="note" class="if note">
             <span class="note" style="font-weight: bold;"></span>.
@@ -56,21 +59,15 @@ function gen_type_if_need() {
     <div class="sections bibtextypekey">
         <div class="section article">
             <h2 class="article-heading serif">Refereed Articles</h2>
-            <div class="sort year" extra="DESC number">
-                <div class="templates"></div>
-            </div>
+            <div class="templates"></div>
         </div>
         <div class="section book">
             <h2 class="article-heading serif">Books</h2>
-            <div class="sort year" extra="DESC number">
-                <div class="templates"></div>
-            </div>
+            <div class="templates"></div>
         </div>
         <div class="section inproceedings">
             <h2 class="article-heading serif">Conference and Workshop Papers</h2>
-            <div class="sort year" extra="DESC number">
-                <div class="templates"></div>
-            </div>
+            <div class="templates"></div>
         </div>
         <div class="section misc|phdthesis|mastersthesis|bachelorsthesis|techreport">
             <h2 class="article-heading serif">Other Publications</h2>
